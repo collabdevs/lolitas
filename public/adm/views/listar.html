@@ -1,0 +1,79 @@
+
+<div class="row wrapper border-bottom white-bg page-heading" >
+    <div class="col-lg-10">
+        <h2>Listagem</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Dados</a>
+            </li>
+            <li class="active">
+                <strong>{{entity}}</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="datatablesCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5><a ng-href="/admin/editar/{{entity}}#/interna/editar/{{entity}}"><button type="button" class="btn btn-primary btn-xs" ng-href="/admin/editar/{{entity}}#/interna/editar/{{entity}}"><i class="fa fa-plus"></i> adicionar</button></a>
+                        <small>Ordena , filtra</small>
+                    </h5>
+
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content">
+
+                    <table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Criado</th>
+                            <th>Editado</th>
+                            <th>Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="gradeX" ng-repeat="item in list | filter:filter">
+                            <td><a href="/admin/editar/{{entity}}/{{item.id}}#/interna/editar/{{entity}}">{{item.id}}</a></td>
+                            <td><a href="/admin/editar/{{entity}}/{{item.id}}#/interna/editar/{{entity}}">{{item.name}}</a></td>
+                            <td>{{item.created_at}}</td>
+                            <td>{{item.updated_at}}</td>
+                            <td class="center"><div class="btn-group">
+                                    <button data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle" aria-expanded="false">Ações <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/admin/editar/{{entity}}/{{item.id}}#/interna/editar/{{entity}}">Editar</a></li>
+                                        <li ng-click="dupe(item)"><a href="/admin/listar/{{entity}}#/interna/listar/{{entity}}">Duplicar</a></li>
+                                        <li><a  style="pointer-events: none;">Desativar</a></li>
+                                        <li class="divider"></li>
+                                        <li ng-click="apagar(item , $index)"><a href="/admin/listar/{{entity}}#/interna/listar/{{entity}}">Apagar</a></li>
+                                    </ul>
+                                </div></td>
+                        </tr>
+                        
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Criado</th>
+                            <th>Editado</th>
+                            <th>Ações</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

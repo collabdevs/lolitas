@@ -1,0 +1,27 @@
+{
+  "name": "adv",
+  "version": "1.0.0",
+  "description": "Codigo base em php montado em cima do lumen",
+  "main": "steps_file.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "codeceptjs-nightmare": "^1.0.0",
+    "codeceptjs-webdriverio": "^1.0.1",
+    "nightmare": "^2.10.0",
+    "phantomjs": "^2.1.7",
+    "protractor": "^5.1.2",
+    "selenium-webdriver": "^3.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/var/www/html/php/php/test/.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

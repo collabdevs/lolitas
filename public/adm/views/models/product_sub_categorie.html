@@ -1,0 +1,18 @@
+<span ng-controller="formCtrl"><input type="hidden" ng-model="loaded_entity.id"><div class="form-group"><label class="col-sm-2 control-label">NAME</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.name" name="name"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">DESC</label>
+			<div class="col-sm-10">
+                                    <div summernote class="summernote" ng-model="loaded_entity.desc" ></div>
+                                    </div>
+                                </div>
+	        <div class="hr-line-dashed"></div><input type="hidden" class="form-control" id="relation" value="productCategorie">
+				<div class="form-group">
+				<label class="col-sm-2 control-label"> ProductCategorie : </label>
+				    <div class="col-sm-10">
+				    <select class="form-control m-b" name="productCategorie_id" ng-model="loaded_entity.productCategorie_id">
+				        <option ng-repeat="relation in bt[0]" value="{{relation.id}}">{{relation.name}}</option>
+				    </select>
+				    </div>
+				</div>
+			</span><input type="hidden" class="form-control" id="pertences" value="productCategorie">

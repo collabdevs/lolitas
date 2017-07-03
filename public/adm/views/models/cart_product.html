@@ -1,0 +1,30 @@
+<span ng-controller="formCtrl"><input type="hidden" ng-model="loaded_entity.id"><div class="form-group"><label class="col-sm-2 control-label">NAME</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.name" name="name"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">DESC</label>
+			<div class="col-sm-10">
+                                    <div summernote class="summernote" ng-model="loaded_entity.desc" ></div>
+                                    </div>
+                                </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">ADDED_AT</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.added_at" name="added_at"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">PRICE</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.price" name="price"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">DISCOUNT</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.discount" name="discount"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">QUANTITY</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.quantity" name="quantity"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><input type="hidden" class="form-control" id="relation" value="cart">
+				<div class="form-group">
+				<label class="col-sm-2 control-label"> Cart : </label>
+				    <div class="col-sm-10">
+				    <select class="form-control m-b" name="cart_id" ng-model="loaded_entity.cart_id">
+				        <option ng-repeat="relation in bt[0]" value="{{relation.id}}">{{relation.name}}</option>
+				    </select>
+				    </div>
+				</div>
+			</span><input type="hidden" class="form-control" id="pertences" value="cart">

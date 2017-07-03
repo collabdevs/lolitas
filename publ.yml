@@ -1,0 +1,15 @@
+Publication:
+  belongsTo: user
+  fields:
+    name:
+      schema: string
+      rules: required
+      tags: fillable
+    desc:
+      schema: text nullable
+      tags: fillable
+    published_at:
+      schema: dateTime
+      rules: dateTime
+      tags: date fillable
+  add: timestamps softDeletes

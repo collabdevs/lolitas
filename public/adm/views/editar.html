@@ -1,0 +1,114 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="fileController">
+     
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>{{entity}} <small> altere dados desse objeto.{{edit}}</small></h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <form method="get" class="form-horizontal">
+                            <input type="hidden" id="entidade_atual" value="{{entity}}">
+                                <div ng-include="'/adm/views/models/'+entity+'.html'" ></div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <a href="/admin/listar/{{entity}}#/interna/listar/{{entity}}"><button class="btn btn-white" type="submit" >Cancelar</button></a>
+                                        <button class="btn btn-danger" ng-click="apagar(loaded_entity)" ng-hide="edit">Apagar</button>
+                                        <button class="btn btn-primary" type="submit" ng-click="save(loaded_entity)" ng-if="edit">Atualizar</button>
+                                        <button class="btn btn-primary" type="submit" ng-click="save(loaded_entity)" ng-hide="edit">Salvar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" >
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins" ng-if="edit">
+                <div class="ibox-title">
+                    <h5>Dropzone Area</h5>
+
+                    <div ibox-tools="" class="ng-scope"><div class="ibox-tools dropdown" uib-dropdown="">
+                        <a ng-click="showhide()"> <i class="fa fa-chevron-up"></i></a>
+                        <a href="" uib-dropdown-toggle="" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul uib-dropdown-menu="" class="dropdown-menu">
+                            <li><a href="">Config option 1</a>
+                            </li>
+                            <li><a href="">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a ng-click="closebox()"><i class="fa fa-times"></i></a>
+                    </div></div>
+                </div>
+                <div class="ibox-content">
+                    <form action="#" class="dropzone ng-pristine ng-valid" dropzone="" id="dropzone">
+                        <div ngf-drop="upload($file)" class="drop-box"
+  ngf-drag-over-class="'dragover'" ngf-multiple="true"
+  ngf-pattern="'image/*,application/pdf'">
+  <div class="button" ngf-select="upload($file)">Clique aqui pra enviar um arquivo</div>
+                        </div>
+                        </form>
+                        
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3" ng-repeat="file in files">
+            <div class="ibox">
+                <div class="ibox-content product-box">
+
+                    <div class="product-imitation">
+                        <img ng-src="/view/{{file.id}}" width="298px" >
+                    </div>
+                    <div class="product-desc">
+                                <span class="product-price">
+                                    {{file.filename}}
+                                </span>
+                        <small class="text-muted">{{file.created_at}}</small>
+                        <a href="#" class="product-name"> {{file.entity}}</a>
+
+
+
+                        <div class="small m-t-xs">
+                            {{file.name}}<br>
+                            {{file.filename}}<br>
+                            {{file.mime}}<br>
+                        </div>
+                        <div class="m-t text-righ">
+
+                            <a href="/admin/editar/attach/{{file.id}}#/interna/editar/attach" class="btn btn-xs btn-outline btn-primary">+ Infos <i class="fa fa-long-arrow-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+   
+   
+</div>

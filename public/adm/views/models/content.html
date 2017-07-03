@@ -1,0 +1,30 @@
+<span ng-controller="formCtrl"><input type="hidden" ng-model="loaded_entity.id"><div class="form-group"><label class="col-sm-2 control-label">NAME</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.name" name="name"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">DESC</label>
+			<div class="col-sm-10">
+                                    <div summernote class="summernote" ng-model="loaded_entity.desc" ></div>
+                                    </div>
+                                </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">PUBLISHED_AT</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.published_at" name="published_at"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><input type="hidden" class="form-control" id="relation" value="categorie">
+				<div class="form-group">
+				<label class="col-sm-2 control-label"> Categorie : </label>
+				    <div class="col-sm-10">
+				    <select class="form-control m-b" name="categorie_id" ng-model="loaded_entity.categorie_id">
+				        <option ng-repeat="relation in bt[0]" value="{{relation.id}}">{{relation.name}}</option>
+				    </select>
+				    </div>
+				</div>
+			</span><input type="hidden" class="form-control" id="relation" value="user">
+				<div class="form-group">
+				<label class="col-sm-2 control-label"> User : </label>
+				    <div class="col-sm-10">
+				    <select class="form-control m-b" name="user_id" ng-model="loaded_entity.user_id">
+				        <option ng-repeat="relation in bt[1]" value="{{relation.id}}">{{relation.name}}</option>
+				    </select>
+				    </div>
+				</div>
+			</span><input type="hidden" class="form-control" id="pertences" value="categorie,user">

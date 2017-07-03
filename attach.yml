@@ -1,0 +1,31 @@
+Attach:
+  belongsTo: user
+  fields:
+    name:
+      schema: string
+      rules: required
+      tags: fillable
+    desc:
+      schema: text nullable
+      tags: fillable
+    filename:
+      schema: string
+      rules: required
+      tags: fillable 
+    original_filename:
+      schema: string
+      rules: required
+      tags: fillable 
+    mime:
+      schema: string
+      rules: required
+      tags: fillable 
+    entity:
+      schema: string
+      rules: required
+      tags: fillable 
+    entity_id:
+      schema: integer # need quotes when using ','
+      rules: numeric
+      tags: fillable,key
+  add: timestamps softDeletes

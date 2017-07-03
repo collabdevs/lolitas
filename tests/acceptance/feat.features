@@ -1,0 +1,14 @@
+Scenario: enter on my profile page
+ 	As a costumer logged
+ 	I need to be able to change my address 
+ 	Given i have address with name "endereco 1" 
+ 	When i call save_data 
+ 	Then  i call personal_data 
+ 	And Then i should see that my address name "endereco 1"
+
+
+Scenario: enter on my profile page
+	Given the customer has logged into their current account
+	And the balance is shown to be "100" reais
+	When the checkout my cart with "75" reais total
+	Then the new current account balance should be "25" reais
