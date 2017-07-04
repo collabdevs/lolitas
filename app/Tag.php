@@ -9,7 +9,7 @@ class Tag extends Model {
     protected $dates = [];
 
     public static $rules = [
-        "name" => "required,min:3",
+        "name" => "required|min:3",
         "product_id" => "required|numeric",
     ];
 

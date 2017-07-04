@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorie extends Model {
 
-    protected $fillable = ["name", "desc"];
+    protected $fillable = ["name", "desc", "url"];
 
     protected $dates = [];
 
@@ -14,9 +14,9 @@ class Categorie extends Model {
 
     public $timestamps = false;
 
-    public function sub_categories()
+    public function contents()
     {
-        return $this->hasMany("App\Sub_category");
+        return $this->hasMany("App\Content");
     }
 
 

@@ -12,25 +12,46 @@
 	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">PRICE</label>
 	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.price" name="price"></div>
 	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">PROMO</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.promo" name="promo"></div>
+	        </div>
 	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">TEASER</label>
 	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.teaser" name="teaser"></div>
 	        </div>
-	        <div class="hr-line-dashed"></div><input type="hidden" class="form-control" id="relation" value="productSubCategorie">
-				<div class="form-group">
-				<label class="col-sm-2 control-label"> ProductSubCategorie : </label>
-				    <div class="col-sm-10">
-				    <select class="form-control m-b" name="productSubCategorie_id" ng-model="loaded_entity.productSubCategorie_id">
-				        <option ng-repeat="relation in bt[0]" value="{{relation.id}}">{{relation.name}}</option>
-				    </select>
-				    </div>
-				</div>
-			</span><input type="hidden" class="form-control" id="relation" value="store">
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">QUANTITY</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.quantity" name="quantity"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">MIN_QUANTITY</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.min_quantity" name="min_quantity"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div><div class="form-group"><label class="col-sm-2 control-label">URL</label>
+	            <div class="col-sm-10"><input type="text" class="form-control" ng-model="loaded_entity.url" name="url"></div>
+	        </div>
+	        <div class="hr-line-dashed"></div>
 				<div class="form-group">
 				<label class="col-sm-2 control-label"> Store : </label>
 				    <div class="col-sm-10">
 				    <select class="form-control m-b" name="store_id" ng-model="loaded_entity.store_id">
-				        <option ng-repeat="relation in bt[1]" value="{{relation.id}}">{{relation.name}}</option>
+				        <option ng-repeat="relation in bt[0]  track by relation['name']" value="{{relation.id}}">{{relation.name}}</option>
 				    </select>
 				    </div>
 				</div>
-			</span><input type="hidden" class="form-control" id="pertences" value="productSubCategorie,store">
+			</span>
+				<div class="form-group">
+				<label class="col-sm-2 control-label"> ProductSubCategorie : </label>
+				    <div class="col-sm-10">
+				    <select class="form-control m-b" name="product_sub_categorie_id" ng-model="loaded_entity.product_sub_categorie_id">
+				        <option ng-repeat="relation in bt[1]  track by relation['name']" value="{{relation.id}}">{{relation.name}}</option>
+				    </select>
+				    </div>
+				</div>
+			</span>
+				<div class="form-group">
+				<label class="col-sm-2 control-label"> Manufacturer : </label>
+				    <div class="col-sm-10">
+				    <select class="form-control m-b" name="manufacturer_id" ng-model="loaded_entity.manufacturer_id">
+				        <option ng-repeat="relation in bt[2]  track by relation['name']" value="{{relation.id}}">{{relation.name}}</option>
+				    </select>
+				    </div>
+				</div>
+			</span><input type="hidden" class="form-control" id="pertences" value="store,product-sub-categorie,manufacturer">

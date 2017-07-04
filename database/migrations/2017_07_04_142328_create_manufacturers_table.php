@@ -3,22 +3,24 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class CreateManufacturersTable extends Migration
 {
 
     public function up()
     {
-        Schema::create('categories', function(Blueprint $table) {
+        Schema::create('manufacturers', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 50)->unique();
+            $table->string('name');
             $table->text('desc')->nullable();
+            $table->string('cnpj');
+            $table->string('url');
             // Constraints declaration
-
+            $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::drop('categories');
+        Schema::drop('manufacturers');
     }
 }

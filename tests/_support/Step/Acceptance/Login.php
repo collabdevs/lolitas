@@ -9,13 +9,16 @@ class Login extends \AcceptanceTester{
     {
         $I = $this;
         $this->user = new \App\User; 
+
+        $this->create_user('Daniel Medeiros', 'danielmmf@gmail.com', 'daddad');
     }
 
     public function create_user($nome, $email, $senha){
         $user = new \App\User; 
         $user->name=$nome;
         $user->email=$email;
-        $user->senha =$senha;
+        $user->password =$senha;
+        $user->group_id =1;
         $user->save();
         return $user;
     }

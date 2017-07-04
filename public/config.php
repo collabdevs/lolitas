@@ -96,10 +96,83 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
             }
             
         })
+        .state('adminView.catalog', {
+            url: "/catalog/:entity",
+            templateUrl: appPath + "views/ecommerce/listar.html",
+            data: { pageTitle: 'Minha Conta' , entidade : 'entity'},
+            controller: listarCtrl,
+            controllerAs: 'vm',
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/plugins/moment/moment.min.js']
+                        },
+                        {
+                            files: ['js/plugins/sweetalert/sweetalert.min.js', 'css/plugins/sweetalert/sweetalert.css']
+                        },
+                        {
+                            name: 'oitozero.ngSweetAlert',
+                            files: ['js/plugins/sweetalert/angular-sweetalert.min.js']
+                        },{
+                            serie: true,
+                            files: ['js/plugins/dataTables/datatables.min.js','css/plugins/dataTables/datatables.min.css']
+                        },
+                        {
+                            serie: true,
+                            name: 'datatables',
+                            files: ['js/plugins/dataTables/angular-datatables.min.js']
+                        },
+                        {
+                            serie: true,
+                            name: 'datatables.buttons',
+                            files: ['js/plugins/dataTables/angular-datatables.buttons.min.js']
+                        }
+                    ]);
+                }
+            }
+            
+        })
         .state('adminView.edit', {
             url: "/editar/:entity",
             templateUrl: appPath + "views/editar.html",
             data: { pageTitle: 'Minha Conta' , entidade : 'entity'},
+            controller: editarCtrl,
+            controllerAs: 'vm',
+             resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/plugins/moment/moment.min.js']
+                        },
+                        {
+                            files: ['js/plugins/sweetalert/sweetalert.min.js', 'css/plugins/sweetalert/sweetalert.css']
+                        },
+                        {
+                            name: 'oitozero.ngSweetAlert',
+                            files: ['js/plugins/sweetalert/angular-sweetalert.min.js']
+                        },{
+                            name: 'datePicker',
+                            files: ['css/plugins/datapicker/angular-datapicker.css','js/plugins/datapicker/angular-datepicker.js']
+                        },
+                        {
+                            name: 'summernote',
+                            files: ['css/plugins/summernote/summernote.css','css/plugins/summernote/summernote-bs3.css','js/plugins/summernote/summernote.min.js','js/plugins/summernote/angular-summernote.min.js']
+                        },
+                         {
+                            files: ['css/plugins/dropzone/basic.css','css/plugins/dropzone/dropzone.css','js/plugins/dropzone/dropzone.js']
+                        },
+                        {
+                            files: ['js/plugins/jasny/jasny-bootstrap.min.js', 'css/plugins/jasny/jasny-bootstrap.min.css' ]
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('adminView.product', {
+            url: "/ecommerce/:entity",
+            templateUrl: appPath + "views/ecommerce/product.html",
+            data: { pageTitle: 'Produto' , entidade : 'entity'},
             controller: editarCtrl,
             controllerAs: 'vm',
              resolve: {

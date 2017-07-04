@@ -2,7 +2,7 @@
 
 require_once "Spyc.php";
 $dados = Spyc::YAMLLoad('Store.yml');
-//$dados = Spyc::YAMLLoad('attach.yml');
+//$dados = Spyc::YAMLLoad('attach.yml');\
 //$dados = Spyc::YAMLLoad('car.yml');
 
 
@@ -112,13 +112,14 @@ foreach ($dados as $nome => $value) {
 		foreach ($array_belongs as  $belong) {
 			# code...
 			//$belong = $value['belongsTo'];
-			$belongs .= $belong.',';
-			$campos .='<input type="hidden" class="form-control" id="relation" value="'.$belong.'">
+			$belongs .= str_replace('_','-',strtolower(decamelize($belong))).',';
+			//$campos .='<input type="hidden" class="form-control" id="relation" value="'.$belong.'">
+			$campos .='
 				<div class="form-group">
 				<label class="col-sm-2 control-label"> '.camelize($belong).' : </label>
 				    <div class="col-sm-10">
-				    <select class="form-control m-b" name="'.$belong.'_id" ng-model="loaded_entity.'.$belong.'_id">
-				        <option ng-repeat="relation in bt['.$belongs_count.']" value="{{relation.id}}">{{relation.name}}</option>
+				    <select class="form-control m-b" name="'.str_replace('-','_',strtolower(decamelize($belong))).'_id" ng-model="loaded_entity.'.str_replace('-','_',strtolower(decamelize($belong))).'_id">
+				        <option ng-repeat="relation in bt['.$belongs_count.']  track by relation[\'name\']" value="{{relation.id}}">{{relation.name}}</option>
 				    </select>
 				    </div>
 				</div>
@@ -130,8 +131,8 @@ foreach ($dados as $nome => $value) {
 	$belongs = rtrim($belongs, ",");
 	$campos .='<input type="hidden" class="form-control" id="pertences" value="'.$belongs.'">';
 	try {
-		file_put_contents('public/adm/views/models/'.strtolower(decamelize($entidade)).'.html', $campos);
-		echo PHP_EOL.' Arquivo '.strtolower(decamelize($entidade)).'.html gerado com sucesso'.PHP_EOL;
+		file_put_contents('public/adm/views/models/'.str_replace('_','-',strtolower(decamelize($entidade))).'.html', $campos);
+		echo PHP_EOL.' Arquivo '.str_replace('_','-',strtolower(decamelize($entidade))).'.html gerado com sucesso'.PHP_EOL;
 	} catch (Exception $e) {
 		
 	}

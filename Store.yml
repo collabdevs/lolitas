@@ -63,11 +63,14 @@ Categorie:
   fields:
     name:
       schema: string:50 unique
-      rules: required,min:3
+      rules: required|min:3
       tags: fillable
     desc:
       schema: text nullable
       tags: fillable
+    url:
+      schema: string
+      tags: fillable  
 Content:
   belongsTo: categorie,user
   fields:
@@ -82,6 +85,9 @@ Content:
       schema: date
       rules: date
       tags: date fillable
+    url:
+      schema: string
+      tags: fillable  
   add: timestamps softDeletes
 Store:
   hasMany: products,addresses
@@ -95,24 +101,30 @@ ProductCategorie:
   fields:
     name:
       schema: string:50 unique
-      rules: required,min:3
+      rules: required|min:3
       tags: fillable
     desc:
       schema: text nullable
       tags: fillable
+    url:
+      schema: string
+      tags: fillable  
 ProductSubCategorie:
   belongsTo: productCategorie
   hasMany: products
   fields:
     name:
       schema: string:50 unique
-      rules: required,min:3
+      rules: required|min:3
       tags: fillable
     desc:
       schema: text nullable
-      tags: fillable            
+      tags: fillable 
+    url:
+      schema: string
+      tags: fillable             
 Product:
-  belongsTo: productSubCategorie,store
+  belongsTo: store,productSubCategorie,Manufacturer
   hasMany: tags
   fields:
     name:
@@ -130,10 +142,24 @@ Product:
       schema: 'decimal:5,2' # need quotes when using ','
       rules: numeric
       tags: fillable
+    promo:
+      schema: 'decimal:5,2' # need quotes when using ','
+      rules: numeric
+      tags: fillable  
     teaser:
       schema: string
-      rules: required
+      tags: fillable 
+    quantity:
+      schema: integer unsigned
+      rules: numeric
       tags: fillable  
+    min_quantity:
+      schema: integer unsigned
+      rules: numeric
+      tags: fillable 
+    url:
+      schema: string
+      tags: fillable
   add: timestamps softDeletes
 Manufacturer:
   hasMany: products,addresses
@@ -149,13 +175,16 @@ Manufacturer:
       schema: string
       rules: required
       tags: fillable
+    url:
+      schema: string
+      tags: fillable  
   add: timestamps 
 Tag:
   belongsTo: product
   fields:
     name:
       schema: string:50 unique
-      rules: required,min:3
+      rules: required|min:3
       tags: fillable
     desc:
       schema: text nullable

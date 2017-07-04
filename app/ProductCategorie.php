@@ -4,12 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductCategorie extends Model {
 
-    protected $fillable = ["name", "desc"];
+    protected $fillable = ["name", "desc", "url"];
 
     protected $dates = [];
 
     public static $rules = [
-        "name" => "required,min:3",
+        "name" => "required|min:3",
     ];
 
     public $timestamps = false;

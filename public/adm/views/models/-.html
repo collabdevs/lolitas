@@ -25,12 +25,12 @@
 				        <option ng-repeat="relation in bt[0]" value="{{relation.id}}">{{relation.name}}</option>
 				    </select>
 				    </div>
-				</div>
+				</div><input type="hidden" class="form-control" id="relation" value="user">
 				<div class="form-group">
 				<label class="col-sm-2 control-label"> User : </label>
 				    <div class="col-sm-10">
 				    <select class="form-control m-b" name="user_id" ng-model="loaded_entity.user_id">
-				        <option ng-repeat="relation in bt[1]  track by relation['name']" value="{{relation.id}}">{{relation.name}}</option>
+				        <option ng-repeat="relation in bt[1]" value="{{relation.id}}">{{relation.name}}</option>
 				    </select>
 				    </div>
 				</div>

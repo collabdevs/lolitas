@@ -234,3 +234,10 @@ $app->get('api/attach/{id}', 'AttachesController@get');
 $app->post('api/attach', 'AttachesController@add');
 $app->put('api/attach/{id}', 'AttachesController@put');
 $app->delete('api/attach/{id}', 'AttachesController@remove');
+
+/**
+ * Routes for resource address
+ */
+$app->get('shop/categoria/{categoria}', 'ShopController@categoria');
+$app->get('shop/produto/{produto}', 'ShopController@produto');
+

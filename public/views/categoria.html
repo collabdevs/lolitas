@@ -1,0 +1,449 @@
+<script type="text/javascript" src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/plugins/woocommerce/assets/js/frontend/price-slider.min.js?ver=2.1.7"></script>
+<div class="motopress-wrapper content-holder clearfix woocommerce">
+   <div class="container">
+      <div class="row">
+         <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
+            <section class="title-section">
+               <h1 class="title-header">
+                  {{categoria.dados.categoria.name}}	
+               </h1>
+               <!-- BEGIN BREADCRUMBS-->
+               <ul class="breadcrumb breadcrumb__t"><a class="home" href="/">Home</a> /  {{categoria.dados.categoria.name}}</ul>
+               <!-- END BREADCRUMBS -->
+            </section>
+            <!-- .title-section -->
+         </div>
+      </div>
+      <div class="row">
+      	<div id="content" class="row span11">
+					<div class="span12" data-motopress-type="loop" data-motopress-loop-file="loop/loop-portfolio4.php">
+						<div class="page_content">
+		<div class="clear"></div>
+</div>
+
+			
+
+
+<ul id="portfolio-grid" class="filterable-portfolio thumbnails portfolio-4cols isotope" data-cols="4cols" style="visibility: visible; position: relative; overflow: hidden; height: 1011px;">
+	
+
+<script>
+	jQuery(document).ready(function($) {
+		var $container = $('#portfolio-grid'),
+			items_count = $(".portfolio_item").size();
+
+		$(window).load(function(){
+			var selector = window.location.hash.replace( /^#category/, '.term' );
+
+			setColumnWidth();
+			$container.isotope({
+				itemSelector : '.portfolio_item',
+				hiddenClass : 'portfolio_hidden',
+				resizable : false,
+				transformsEnabled : true,
+				layoutMode: 'fitRows',
+				filter: selector 
+			})
+
+			$('#filters .active').removeClass('active')
+			$('#filters li a[data-filter="'+selector+'"]').parent('li').addClass('active');
+			change_hash(selector)
+		});
+		
+		function getNumColumns(){
+			var $folioWrapper = $('#portfolio-grid').data('cols');
+			
+			if($folioWrapper == '2cols') {
+				var winWidth = $("#portfolio-grid").width(),
+					column = 2;
+				if (winWidth<380) column = 1;
+				return column;
+			}
+			
+			else if ($folioWrapper == '3cols') {
+				var winWidth = $("#portfolio-grid").width(),
+					column = 3;
+				if (winWidth<380) column = 1;
+				else if(winWidth>=380 && winWidth<788) column = 2;
+				else if(winWidth>=788 && winWidth<1160) column = 3;
+				else if(winWidth>=1160) column = 3;
+				return column;
+			}
+			
+			else if ($folioWrapper == '4cols') {
+				var winWidth = $("#portfolio-grid").width(),
+					column = 4;
+				if (winWidth<380) column = 1;
+				else if(winWidth>=380 && winWidth<788) column = 2;
+				else if(winWidth>=788 && winWidth<1160) column = 3;
+				else if(winWidth>=1160) column = 4;
+				return column;
+			}
+		}
+		
+		function setColumnWidth(){
+			var columns = getNumColumns(),
+				containerWidth = $("#portfolio-grid").width(),
+				postWidth = containerWidth/columns;
+			postWidth = Math.floor(postWidth);
+
+			$(".portfolio_item").each(function(index){
+				$(this).css({"width":postWidth+"px"});
+			});
+		}
+
+		function arrange(){
+			setColumnWidth();
+			$container.isotope('reLayout');
+		}
+
+		$(window).on("debouncedresize", function( event ) {
+			arrange();
+		});
+
+		// Filter projects
+		$('.filter a').click(function(){
+			var $this = $(this).parent('li');
+			// don't proceed if already active
+			if ( $this.hasClass('active') ) {
+				return;
+			}
+			
+
+			var $optionSet = $this.parents('.filter');
+			// change active class
+			$optionSet.find('.active').removeClass('active');
+			$this.addClass('active');
+
+			var selector = $(this).attr('data-filter');
+			$container.isotope({ filter: selector });
+			change_hash(selector)
+
+			var hiddenItems = 0,
+				showenItems = 0;
+			$(".portfolio_item").each(function(){
+				if ( $(this).hasClass('portfolio_hidden') ) {
+					hiddenItems++;
+				};
+			});
+
+			showenItems = items_count - hiddenItems;
+			if ( ($(this).attr('data-count')) > showenItems ) {
+				$(".pagination__posts").css({"display" : "block"});
+			} else {
+				$(".pagination__posts").css({"display" : "none"});
+			}
+			return false;
+		});
+		function change_hash(hash){
+			hash = hash.replace( /^.term/, 'category' );
+			window.location.href = '#'+hash;
+
+			$('.pagination a').each(function(){
+				var item = $(this),
+					href = item.attr('href'),
+					end_slice = href.indexOf('#')==-1 ? href.length : href.indexOf('#') ;
+
+				href = href.slice(0, end_slice);
+				item.attr({'href':href+'#'+hash})
+			})
+		}
+	});
+</script>
+
+	<li class="portfolio_item  term_id_56  term_id_17 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/07/bigstock_Fine_art_portrait_of_a_beautif_12123563.jpg" class="image-wrap" title="Image Format" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/07/bigstock_Fine_art_portrait_of_a_beautif_12123563-600x380.jpg" alt="Image Format">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/image-format/">Image Format</a></h3>
+				
+									<p class="excerpt">This format perfectly fits in case you need only a single image for your post display. Use Featured image option... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/image-format/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+		<li class="portfolio_item  term_id_55  term_id_15 term_id_17 term_id_18 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(297px, 0px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Woman_With_Bright_Fashion_Eye__6017462.jpg" class="image-wrap" title="Sodales orci et" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Woman_With_Bright_Fashion_Eye__6017462-600x380.jpg" alt="Sodales orci et">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/sodales-orci-et/">Sodales orci et</a></h3>
+				
+									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/sodales-orci-et/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+		<li class="portfolio_item  term_id_55  term_id_18 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(594px, 0px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Massage_Is_Wonderful_1935435.jpg" class="image-wrap" title="In faucibus risus" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Massage_Is_Wonderful_1935435-600x380.jpg" alt="In faucibus risus">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/in-faucibus-risus/">In faucibus risus</a></h3>
+				
+									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/in-faucibus-risus/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+		<li class="portfolio_item  term_id_54  term_id_18 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(891px, 0px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Fur_Hat_2629611.jpg" class="image-wrap" title="In faucibus" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Fur_Hat_2629611-600x380.jpg" alt="In faucibus">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/in-faucibus/">In faucibus</a></h3>
+				
+									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/in-faucibus/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+		<li class="portfolio_item  term_id_56  term_id_16 term_id_17 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 337px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Portrait_of_a_cute_lady_12127901.jpg" class="image-wrap" title="Malesuada fames ac" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Portrait_of_a_cute_lady_12127901-600x380.jpg" alt="Malesuada fames ac">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/malesuada-fames-ac/">Malesuada fames ac</a></h3>
+				
+									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/malesuada-fames-ac/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+		<li class="portfolio_item  term_id_55  term_id_17 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(297px, 337px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Fashion_style_portrait_of_a_yo_12126296.jpg" class="image-wrap" title="Feugiat vitae leo" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Fashion_style_portrait_of_a_yo_12126296-600x380.jpg" alt="Feugiat vitae leo">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/feugiat-vitae-leo/">Feugiat vitae leo</a></h3>
+				
+									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/feugiat-vitae-leo/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+		<li class="portfolio_item  term_id_56  term_id_15 term_id_19 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(594px, 337px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Beautiful_Fashion_Woman_Face_P_12577838.jpg" class="image-wrap" title="Suspendisse arcu nisl" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Beautiful_Fashion_Woman_Face_P_12577838-600x380.jpg" alt="Suspendisse arcu nisl">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/suspendisse-arcu-nisl/">Suspendisse arcu nisl</a></h3>
+				
+									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/suspendisse-arcu-nisl/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+		<li class="portfolio_item  term_id_54  term_id_16 term_id_17 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(891px, 337px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Beautiful_woman_with_evening_m_22451045.jpg" class="image-wrap" title="Donec tellus leo" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Beautiful_woman_with_evening_m_22451045-600x380.jpg" alt="Donec tellus leo">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/donec-tellus-leo/">Donec tellus leo</a></h3>
+				
+									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/donec-tellus-leo/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+		<li class="portfolio_item  term_id_54  term_id_16 term_id_17 isotope-item" style="width: 297px; position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 674px, 0px) scale3d(1, 1, 1); opacity: 1;">
+		<div class="portfolio_item_holder">
+		
+						<figure class="thumbnail thumbnail__portfolio">
+				<a href="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_portrait_of_beautiful_blond_wo_16576907.jpg" class="image-wrap" title="Sed blandit massa vel" rel="prettyPhoto">
+					<img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_portrait_of_beautiful_blond_wo_16576907-600x380.jpg" alt="Sed blandit massa vel">
+					<span class="zoom-icon"></span>				</a>
+			</figure><!--/.thumbnail__portfolio-->
+			
+			<div class="caption caption__portfolio">
+									<h3><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/sed-blandit-massa-vel/">Sed blandit massa vel</a></h3>
+				
+									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum... </p>
+								
+									<p><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio-view/sed-blandit-massa-vel/" class="btn btn-primary">Read more</a></p>
+							</div><!--/.caption__portfolio-->
+
+		</div><!--/.portfolio_item_holder-->
+	</li><!--/.portfolio_item-->
+	</ul>
+
+<!-- Posts navigation -->					</div>
+				</div>
+         <div class="span9 right" id="content">
+            <h1 class="page-title">Bath &amp; Body</h1>
+            <p class="woocommerce-result-count">
+               Mostrando {{categoria.dados.produtos.length}} no total
+            </p>
+            <form class="woocommerce-ordering" method="get">
+               <select name="orderby" class="orderby">
+                  <option value="menu_order" selected="selected">Default sorting</option>
+                  <option value="popularity">Sort by popularity</option>
+                  <option value="rating">Sort by average rating</option>
+                  <option value="date">Sort by newness</option>
+                  <option value="price">Sort by price: low to high</option>
+                  <option value="price-desc">Sort by price: high to low</option>
+               </select>
+            </form>
+            <ul class="products">
+               <li class="post-1950 product type-product status-publish featured shipping-taxable purchasable product-type-simple product-cat-bath-body product-cat-body-moisturizers product-cat-deodorant product-cat-exfoliators-scrubs product-cat-hair-care product-tag-etiam-dictum product-tag-mauris-posuere product-tag-sed-blandit-massa product-tag-vel-mauris instock"  ng-repeat="produto in categoria.dados.produtos">
+                  <a href="http://livedemo00.template-help.com/woocommerce_49014/product/product-13/">
+                     <div class="product-link-wrap">
+                        <img width="268" height="198" ng-src="/view/{{produto.imagem.id}}" class="attachment-shop_catalog wp-post-image" alt="d&amp;g_smooth_eye_colour_duo_2">
+                        <h3>{{produto.name}}</h3>
+                     </div>
+                  </a>
+                  <div class="prod-inner-wrap">
+                     <div class="short_desc">
+                        {{produto.teaser}}	
+                     </div>
+                     <span class="price"><span class="amount">R${{produto.price}}</span></span>
+                     <div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span><b class="rate_content">Rated 5.00 out of 5</b></div>
+                     <a href="/woocommerce_49014/product-category/bath-body/?add-to-cart=1950" rel="nofollow" data-product_id="1950" data-product_sku="" class="button add_to_cart_button product_type_simple"><b>Adicionar</b></a><a href="#!/produto/{{produto.url}}" class="btn"><b>Detalhes</b></a>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <div class="sidebar span3" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
+            <div id="woocommerce_price_filter-2" class="widget">
+               <h2>Filtrar por preço</h2>
+               <form method="get" action="http://livedemo00.template-help.com/woocommerce_49014/product-category/bath-body">
+                  <div class="price_slider_wrapper">
+                     <div class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="" aria-disabled="false">
+                        <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
+                        <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a>
+                     </div>
+                     <div class="price_slider_amount">
+                        <input type="text" id="min_price" name="min_price" value="" data-min="50" placeholder="Min price" style="display: none;">
+                        <input type="text" id="max_price" name="max_price" value="" data-max="120" placeholder="Max price" style="display: none;">
+                        <button type="submit" class="button">Filter</button>
+                        <div class="price_label" style="">
+                           Price: <span class="from">$50</span> — <span class="to">$120</span>
+                        </div>
+                        <div class="clear"></div>
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <div id="search-2" class="widget">
+               <div class="search-form">
+                  <form id="searchform" method="get" action="http://livedemo00.template-help.com/woocommerce_49014" accept-charset="utf-8">
+                     <input type="text" value="" name="s" id="s" class="search-form_it">
+                     <input type="submit" value="search" id="search-submit" class="search-form_is btn btn-primary">
+                  </form>
+               </div>
+            </div>
+            <div id="my_postwidget-7" class="widget">
+               <h2>Recent posts</h2>
+               <ul class="post-list unstyled">
+                  <li class="post-list_li clearfix">
+                     <figure class="featured-thumbnail thumbnail">
+                        <a href="http://livedemo00.template-help.com/woocommerce_49014/uncategorized/mauris-posuere/" title="Mauris posuere"><img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Portrait_of_a_cute_lady_12127901-100x100.jpg" alt="Mauris posuere"></a>
+                     </figure>
+                     <time datetime="2013-03-14T20:28">March 14, 2013</time>
+                     <h4 class="post-list_h">
+                        <a href="http://livedemo00.template-help.com/woocommerce_49014/uncategorized/mauris-posuere/" rel="bookmark" title="Permanent Link to Mauris posuere">Mauris posuere</a>
+                     </h4>
+                     <div class="excerpt">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit... 				
+                     </div>
+                     <a href="http://livedemo00.template-help.com/woocommerce_49014/uncategorized/mauris-posuere/" class="btn btn-primary">Read more</a>
+                  </li>
+                  <li class="post-list_li clearfix">
+                     <figure class="featured-thumbnail thumbnail">
+                        <a href="http://livedemo00.template-help.com/woocommerce_49014/blandit/donec-tempor-libero/" title="Donec tempor libero"><img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Massage_Is_Wonderful_1935435-100x100.jpg" alt="Donec tempor libero"></a>
+                     </figure>
+                     <time datetime="2013-03-05T20:31">March 5, 2013</time>
+                     <h4 class="post-list_h">
+                        <a href="http://livedemo00.template-help.com/woocommerce_49014/blandit/donec-tempor-libero/" rel="bookmark" title="Permanent Link to Donec tempor libero">Donec tempor libero</a>
+                     </h4>
+                     <div class="excerpt">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit... 				
+                     </div>
+                     <a href="http://livedemo00.template-help.com/woocommerce_49014/blandit/donec-tempor-libero/" class="btn btn-primary">Read more</a>
+                  </li>
+                  <li class="post-list_li clearfix">
+                     <figure class="featured-thumbnail thumbnail">
+                        <a href="http://livedemo00.template-help.com/woocommerce_49014/blandit/etiam-dictum-egestas/" title="Etiam dictum egestas"><img src="http://livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2012/06/bigstock_Fur_Hat_2629611-100x100.jpg" alt="Etiam dictum egestas"></a>
+                     </figure>
+                     <time datetime="2013-02-14T20:26">February 14, 2013</time>
+                     <h4 class="post-list_h">
+                        <a href="http://livedemo00.template-help.com/woocommerce_49014/blandit/etiam-dictum-egestas/" rel="bookmark" title="Permanent Link to Etiam dictum egestas">Etiam dictum egestas</a>
+                     </h4>
+                     <div class="excerpt">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit... 				
+                     </div>
+                     <a href="http://livedemo00.template-help.com/woocommerce_49014/blandit/etiam-dictum-egestas/" class="btn btn-primary">Read more</a>
+                  </li>
+               </ul>
+               <!-- Link under post cycle -->
+            </div>
+            <div id="tag_cloud-2" class="widget">
+               <h2>Tags</h2>
+               <div class="tagcloud"><a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio_tag/accusantium/" class="tag-link-15" title="2 topics" style="font-size: 12.581818181818pt;">accusantium</a>
+                  <a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio_tag/alias/" class="tag-link-16" title="3 topics" style="font-size: 15.636363636364pt;">alias</a>
+                  <a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio_tag/consectetur/" class="tag-link-17" title="6 topics" style="font-size: 22pt;">consectetur</a>
+                  <a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio_tag/cumque/" class="tag-link-18" title="3 topics" style="font-size: 15.636363636364pt;">cumque</a>
+                  <a href="http://livedemo00.template-help.com/woocommerce_49014/portfolio_tag/oluptatum/" class="tag-link-19" title="1 topic" style="font-size: 8pt;">oluptatum</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -13,6 +13,7 @@ class CreateContentsTable extends Migration
             $table->string('name');
             $table->text('desc')->nullable();
             $table->date('published_at');
+            $table->string('url');
             $table->integer('categorie_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->foreign('categorie_id')

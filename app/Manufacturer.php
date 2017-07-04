@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Manufacturer extends Model {
 
-    protected $fillable = ["name", "desc", "cnpj"];
+    protected $fillable = ["name", "desc", "cnpj", "url"];
 
     protected $dates = [];
 

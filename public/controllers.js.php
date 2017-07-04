@@ -1048,7 +1048,7 @@ function listarCtrl($stateParams, $scope , $http , $httpParamSerializer ,  Sweet
                 $scope.entity = $stateParams.entity;
                 $scope.list = <?php 
                 if(isset($entidade)){
-                	$entidade = 'App\\'.camelize(ucfirst($entidade));//pega o nome da url e puza um model
+                	$entidade = 'App\\'.camelize(ucfirst($entidade), '-');//pega o nome da url e puza um model
                 	echo $entidade::all();
             	}else{
             		echo '[]';
@@ -1266,7 +1266,7 @@ function formCtrl($scope , $http ,$rootScope) {
                     console.log($scope.pertences[$scope.count]);
                     var atual = response.data;
                     bt.push(atual);
-                    //console.log(bt[nome_belongs]);
+                    console.log(nome_belongs);
                 });
             }
         $scope.bt = bt;
