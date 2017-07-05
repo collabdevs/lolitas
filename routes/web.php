@@ -27,12 +27,13 @@ $app->get('/admin/', function () use ($app) {
     } catch (Exception $e) {
         $loggin_situation = array();
     }
-    return view($file, ['app_name' => 'app de teste' , 'public' => '/adm/' , 'mensagem'=>'nao logou']);
+    $msg = isset($_SESSION['login_message'])?$_SESSION['login_message']:''; 
+    return view($file, ['app_name' => 'app de teste' , 'public' => '/adm/' , 'mensagem'=>$msg]);
 });
 
 $app->get('/admin/logoff', function () use ($app) {
     session_destroy();
-    return view('login', ['app_name' => 'app de teste' , 'public' => '/adm/']);
+    return view('login', ['app_name' => 'app de teste' , 'public' => '/adm/', 'mensagem'=>'até a proxima']);
 });
 
 $app->post('admin/login', 'LoginController@login');

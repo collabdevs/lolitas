@@ -8,8 +8,7 @@ class LoginController extends Controller {
 
     
     public function login(Request $request){
-    	//print_r($request->input());
-    	$usuario = new \App\User;
+    	$usuario = new \App\Classes\User;
     	$usuario->email = $request->input('email');
     	$usuario->password = $request->input('password');
 

@@ -12,3 +12,23 @@ Scenario: enter on my profile page
 	And the balance is shown to be "100" reais
 	When the checkout my cart with "75" reais total
 	Then the new current account balance should be "25" reais
+
+
+
+
+	Scenario: create new sub_categories
+ 	As a admin
+ 	I need to be able to create a new sub_categories
+ 	Given i have categorie with name "sub_categories de teste"
+ 	When i call add_subcategorie
+ 	Then  i call subcategories
+ 	And Then i should see that total number subcategories is "1"
+
+
+ Scenario: create new product
+ 	As a admin
+ 	I need to be able to create a new products
+ 	Given i have categorie with name "sub_categories de teste"
+ 	When i call add_subcategorie
+ 	Then  i call subcategories
+ 	And Then i should see that total number subcategories is "1" 	
