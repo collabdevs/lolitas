@@ -59,7 +59,9 @@ function MainCtrl($http, $rootScope) {
 
 
     $rootScope.bebe = {}
-    $rootScope.logado = <?php $logado = isset($_SESSION['logado'])?$_SESSION['logado']:'["usuario_logado":[]]'; $logado = json_decode($logado, true); echo $logado['usuario_logado'];?>
+    $rootScope.logado = <?php $logado = isset($_SESSION['logado'])?$_SESSION['logado']:'{"usuario_logado":[]}'; $logado = json_decode($logado, true); print_r($logado['usuario_logado']);?>
+
+    $rootScope.access = <?php $logado = isset($_SESSION['logado'])?$_SESSION['logado']:'{"usuario_logado":[]}'; echo $logado;?>
 
 
     /**

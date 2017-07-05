@@ -8,6 +8,8 @@ class User extends Model {
 
     protected $fillable = ["name", "email", "password", "group_id"];
 
+    protected $hidden = ["password", "group_id"];
+
     protected $dates = [];
 
     public static $rules = [

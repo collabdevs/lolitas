@@ -43,7 +43,7 @@
 <div class="middle-box text-center loginscreen  animated fadeInDown">
     <div>
         <div>
-            <h1 class="logo-name">Olá</h1>
+            <img src="/ecom/lolitas/logo_perfume.png" height="200px">
         </div>
         <h3>Bem Vindo ao administrativo</h3>
         <p><?php echo $mensagem; ?>
