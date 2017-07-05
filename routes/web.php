@@ -238,6 +238,7 @@ $app->delete('api/attach/{id}', 'AttachesController@remove');
 /**
  * Routes for resource address
  */
+$app->get('shop/main', 'ShopController@principal');
 $app->get('shop/categoria/{categoria}', 'ShopController@categoria');
 $app->get('shop/produto/{produto}', 'ShopController@produto');
 

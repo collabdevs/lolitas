@@ -2,6 +2,31 @@
 
 class ShopController extends Controller {
 
+
+	public function principal()
+    {
+        $categoria_model =  \App\ProductCategorie::all();
+        $sub_categorias =  \App\ProductSubCategorie::all();
+        $produtos = array();
+
+   		$produtos_categoria = \App\Product::all();
+   		//print_r(\App\Product::where('product_sub_categorie_id','=',$sub_categoria->id)->get());
+   		foreach ($produtos_categoria as $produto) {
+   			$imagem_produto = \App\Attach::where('entity','=','product')->where('entity_id','=',$produto->id)->get()->first();
+   			$produto->imagem = ($imagem_produto !="") ? $imagem_produto : array() ;
+   			$produtos[]=$produto;
+
+   		}
+        
+       // print_r($produtos);
+        $resposta = array('categorias'=>$categoria_model,
+        				'sub_categorias'=>$sub_categorias,
+        				'produtos'=>$produtos);
+        return response()->json($resposta);
+    }
+
+
+
 	public function categoria($categoria)
     {
         $categoria_model =  \App\ProductCategorie::where('url','=',$categoria)->get()->first();

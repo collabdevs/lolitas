@@ -149,7 +149,7 @@
                                     <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
                                        <!-- BEGIN LOGO -->
                                        <div class="logo pull-left">
-                                          <a href="ecom/lolitas/" class="logo_h logo_h__img">Lolitas</a>
+                                          <a href="/" class="logo_h logo_h__img">Lolitas</a>
                                        </div>
                                        <!-- END LOGO -->	
                                     </div>
@@ -191,7 +191,7 @@
                                           <!-- BEGIN MAIN NAVIGATION -->
                                           <nav class="nav nav__primary clearfix">
                                              <ul id="topnav" class="sf-menu">
-                                                <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item"><a href="ecom/lolitas/">Home</a></li>
+                                                <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item"><a href="/">Home</a></li>
                                                 <li id="menu-item-1810" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
                                                    <a href="ecom/lolitas/about/">Maquiagem</a>
                                                    <ul class="sub-menu">
@@ -430,11 +430,23 @@
 					      redirectTo:'/'
 					    });
 					})
-					 
+					
 					.controller('MainController', function() {
 						var main = this;
 						//projectList.projects = projects;
 						main.categorias = <?php echo App\ProductCategorie::all(); ?>;
+						main.sub_categorias = <?php echo App\ProductSubCategorie::all(); ?>;
+						main.produtos = <?php $produtos = array();
+					   		$produtos_categoria = \App\Product::all();
+					   		//print_r(\App\Product::where('product_sub_categorie_id','=',$sub_categoria->id)->get());
+					   		foreach ($produtos_categoria as $produto) {
+					   			$imagem_produto = \App\Attach::where('entity','=','product')->where('entity_id','=',$produto->id)->get()->first();
+					   			$produto->imagem = ($imagem_produto !="") ? $imagem_produto : array() ;
+					   			$produtos[]=$produto;
+
+					   		} 
+					   		print_r(json_encode($produtos));
+					   		?>;
 					})
 					.controller('HomeController', function() {
 						var home = this;
