@@ -149,7 +149,7 @@
                                     <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
                                        <!-- BEGIN LOGO -->
                                        <div class="logo pull-left">
-                                          <a href="/" class="logo_h logo_h__img">Lolitas</a>
+                                          <a href="/" class="logo_h logo_h_img"><img src="/ecom/lolitas/logo.png" alt="Organo" title=""></a>
                                        </div>
                                        <!-- END LOGO -->	
                                     </div>
@@ -255,8 +255,8 @@
                                  <div class="row copyright">
                                     <div class="span6 pull-right" data-motopress-type="static">
                                        <div id="footer-text" class="footer-text">
-                                          <a href="ecom/lolitas/" title="" class="site-name">Lolitas</a> is proudly powered by <a href="//wordpress.org">WordPress</a> <a href="ecom/lolitas/feed/" rel="nofollow" title="Entries (RSS)">Entries (RSS)</a> and <a href="ecom/lolitas/comments/feed/" rel="nofollow">Comments (RSS)</a>
-                                          <a href="ecom/lolitas/privacy-policy/" title="Privacy Policy">Privacy Policy</a>
+                                          <a href="ecom/lolitas/" title="" class="site-name">Lolitas</a> Sp :: Brasil  <a href="//facebook.com/danielmmf">Developer</a> <a href="ecom/lolitas/feed/" rel="nofollow" title="Entries (RSS)">Noticias (RSS)</a> e <a href="ecom/lolitas/comments/feed/" rel="nofollow">Comentarios (RSS)</a>
+                                          <a href="ecom/lolitas/privacy-policy/" title="Privacy Policy">Politica de privacidade</a>
                                           <!-- {%FOOTER_LINK} -->
                                        </div>
                                     </div>

@@ -122,10 +122,10 @@
                                                          <ul class="products">
                                                       
                                                             <li class="post-1954 product type-product status-publish sale featured shipping-taxable purchasable product-type-simple product-cat-hair-care product-cat-lip-care product-cat-makeup product-cat-serums product-cat-skin-care product-cat-toners product-cat-trial-and-travel-sets product-tag-sed-blandit-massa product-tag-vel-mauris instock" ng-repeat="produto in main.produtos">
-                                                               <a href="ecom/lolitas/product/product-14/">
+                                                               <a href="#!/produto/{{produto.url}}">
                                                                   <div class="product-link-wrap">
-                                                                     <span class="onsale">oferta!</span>
-                                                                     <img width="268" height="198" ng-src="/view/{{produto.imagem.id}}" class="attachment-shop_catalog wp-post-image" alt="yves_saint_laurent_manicure_couture_in_5_favourite_chic_2" />
+                                                                     <span class="onsale" ng-show="produto.price !=0">oferta!</span>
+                                                                     <img width="268" height="198" ng-src="/view/{{produto.imagem.id}}" class="attachment-shop_catalog wp-post-image" alt="{{produto.name}}" />
                                                                      <h3>{{produto.name}}</h3>
                                                                   </div>
                                                                </a>
@@ -135,7 +135,7 @@
                                                                   </div>
                                                                   <span class="price"><del><span class="amount">&#36;{{produto.price}}</span></del> <ins><span class="amount">&#36;70.00</span></ins></span>
                                                                   <div class="star-rating" title="Rated 4.50 out of 5"><span style="width:90%"><strong class="rating">4.50</strong> out of 5</span></div>
-                                                                  <a href="/woocommerce_49014/?add-to-cart=1954" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a><a href='ecom/lolitas/product/product-14/' class='btn'>Details</a>
+                                                                  <a href="#" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add</a><a href='#!/produto/{{produto.url}}' class='btn'>Ver</a>
                                                                </div>
                                                             </li>
                                                            
