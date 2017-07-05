@@ -67,4 +67,11 @@ class ShopController extends Controller {
         return response()->json($resposta);
     }
 
+
+    public function carrinho()
+    {       		
+        $resposta = array('carrinho'=>'carrinho');
+        return response()->json($resposta);
+    }
+
 }

@@ -304,7 +304,7 @@
                   <script type='text/javascript' src='ecom/lolitas/plugins/contact-form-7/includes/js/scripts.js?ver=3.6'></script>
                   <script type='text/javascript'>
                      /* <![CDATA[ */
-                     var wc_add_to_cart_params = {"ajax_url":"\/woocommerce_49014\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/livedemo00.template-help.com\/woocommerce_49014\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif","i18n_view_cart":"View Cart","cart_url":"https:\/\/livedemo00.template-help.com\/woocommerce_49014\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+                     var wc_add_to_cart_params = {"ajax_url":"\/shop\/carrinho\/add","ajax_loader_url":"\/\/livedemo00.template-help.com\/woocommerce_49014\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif","i18n_view_cart":"View Cart","cart_url":"https:\/\/livedemo00.template-help.com\/woocommerce_49014\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
                      /* ]]> */
                   </script>
                   <script type='text/javascript' src='ecom/lolitas/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=2.1.7'></script>
@@ -318,7 +318,7 @@
                   <script type='text/javascript' src='ecom/lolitas/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min.js?ver=1.3.1'></script>
                   <script type='text/javascript'>
                      /* <![CDATA[ */
-                     var wc_cart_fragments_params = {"ajax_url":"\/woocommerce_49014\/wp-admin\/admin-ajax.php","fragment_name":"wc_fragments"};
+                     var wc_cart_fragments_params = {"ajax_url":"\/shop\/carrinho","fragment_name":"wc_fragments"};
                      /* ]]> */
                   </script>
                   <script type='text/javascript' src='ecom/lolitas/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=2.1.7'></script>
@@ -336,15 +336,7 @@
                   <script type='text/javascript' src='ecom/lolitas/plugins/cherry-plugin/includes/js/cherry-plugin.js?ver=1.1'></script>
                   <script type='text/javascript' src='ecom/lolitas/themes/theme49014/js/custom-script.js?ver=1.0'></script>
                   <script type='text/javascript' src='ecom/lolitas/themes/theme49014/js/tm-stick-up.js?ver=1.0'></script>
-                  <script>
-                     (function($) {
-                     	$(window).load(function() {
-                     		if ($('.widget_shopping_cart_content').is(':empty')) {
-                     			$('.widget_shopping_cart_content').text('No products in the cart.');
-                     		}
-                     	});
-                     })(jQuery);
-                  </script>
+                 
                   <!-- this is used by many Wordpress features and for plugins to work properly -->
                   <script type="text/javascript">
 
@@ -450,12 +442,68 @@
 					})
 					.controller('HomeController', function() {
 						var home = this;
-						//projectList.projects = projects;
+						jQuery(function() {
+                        			var myCamera = jQuery('#camera591d7400012c9');
+                        			if (!myCamera.hasClass('motopress-camera')) {
+                        				myCamera.addClass('motopress-camera');
+                        				myCamera.camera({
+                        					autoAdvance         : true, //true, false
+                        					mobileAutoAdvance   : true, //true, false. Auto-advancing for mobile devices
+                        					cols                : 12,
+                        					fx                  : "simpleFade", //'random','simpleFade', 'curtainTopLeft', 'curtainTopRight', 'curtainBottomLeft',          'curtainBottomRight', 'curtainSliceLeft', 'curtainSliceRight', 'blindCurtainTopLeft', 'blindCurtainTopRight', 'blindCurtainBottomLeft', 'blindCurtainBottomRight', 'blindCurtainSliceBottom', 'blindCurtainSliceTop', 'stampede', 'mosaic', 'mosaicReverse', 'mosaicRandom', 'mosaicSpiral', 'mosaicSpiralReverse', 'topLeftBottomRight', 'bottomRightTopLeft', 'bottomLeftTopRight', 'bottomLeftTopRight'
+                        					loader              : "no", //pie, bar, none (even if you choose "pie", old browsers like IE8- can't display it... they will display always a loading bar)
+                        					navigation          : false, //true or false, to display or not the navigation buttons
+                        					navigationHover     : false, //if true the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if false they will be visible always
+                        					pagination          : false,
+                        					playPause           : false, //true or false, to display or not the play/pause buttons
+                        					rows                : 8,
+                        					slicedCols          : 12,
+                        					slicedRows          : 8,
+                        					thumbnails          : true,
+                        					time                : 7000, //milliseconds between the end of the sliding effect and the start of the next one
+                        					transPeriod         : 1500, //lenght of the sliding effect in milliseconds
+                        
+                        					alignment : 'topCenter',
+					                        barDirection : 'leftToRight',
+					                        barPosition : 'top',
+					                        easing : 'easeOutQuad',
+					                        mobileEasing : '',
+					                        mobileFx : '',
+					                        gridDifference : 250,
+					                        imagePath : 'images/',
+					                        minHeight : '100px',
+					                        height : '36.41%',
+					                        loaderColor : '#ffffff',
+					                        loaderBgColor : '#eb8a7c',
+					                        loaderOpacity : 1,
+					                        loaderPadding : 0,
+					                        loaderStroke : 3,
+					                        pieDiameter : 33,
+					                        piePosition : 'rightTop',
+					                        portrait : true,
+                        					////////callbacks
+                        					onEndTransition     : function(){}, //this callback is invoked when the transition effect ends
+                        					onLoaded            : function(){}, //this callback is invoked when the image on a slide has completely loaded
+                        					onStartLoading      : function(){}, //this callback is invoked when the image on a slide start loading
+                        					onStartTransition   : function(){} //this callback is invoked when the transition effect starts
+                        				});
+                        			}
+                        		});
+                        //    });
+//projectList.projects = projects;
+						jQuery(window).load(function() {
+                     		if (jQuery('.widget_shopping_cart_content').is(':empty')) {
+                     			jQuery('.widget_shopping_cart_content').text('No products in the cart.');
+                     		}
+                     	});
+
+
 					})
 
-					.controller('CategoriaController', function($http) {
+					.controller('CategoriaController', function($http,$routeParams) {
 						var categoria = this;
-						$http.get('shop/categoria/shampoos').then(function(response){
+						var categoria_nome = $routeParams.categoria_nome;
+						$http.get('shop/categoria/'+categoria_nome).then(function(response){
 							categoria.dados = response.data;
 						});
 						//projectList.projects = projects;

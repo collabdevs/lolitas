@@ -241,4 +241,5 @@ $app->delete('api/attach/{id}', 'AttachesController@remove');
 $app->get('shop/main', 'ShopController@principal');
 $app->get('shop/categoria/{categoria}', 'ShopController@categoria');
 $app->get('shop/produto/{produto}', 'ShopController@produto');
+$app->get('shop/carrinho', 'ShopController@carrinho');
 

@@ -1,75 +1,22 @@
-<script type="text/javascript">alert("home");</script>
 <div class="container">
                            <div class="row">
                               <div class="span12" data-motopress-wrapper-file="page-home.php" data-motopress-wrapper-type="content">
-                                 <div class="row">
+                                 <!--div class="row">
                                     <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-slider.php">
                                        <div id="slider-wrapper" class="slider">
                                           <div class="container">
-                                             <script type="text/javascript">
-                                                //    jQuery(window).load(function() {
-                                                		jQuery(function() {
-                                                			var myCamera = jQuery('#camera591d7400012c9');
-                                                			if (!myCamera.hasClass('motopress-camera')) {
-                                                				myCamera.addClass('motopress-camera');
-                                                				myCamera.camera({
-                                                					autoAdvance         : true, //true, false
-                                                					mobileAutoAdvance   : true, //true, false. Auto-advancing for mobile devices
-                                                					cols                : 12,
-                                                					fx                  : "simpleFade", //'random','simpleFade', 'curtainTopLeft', 'curtainTopRight', 'curtainBottomLeft',          'curtainBottomRight', 'curtainSliceLeft', 'curtainSliceRight', 'blindCurtainTopLeft', 'blindCurtainTopRight', 'blindCurtainBottomLeft', 'blindCurtainBottomRight', 'blindCurtainSliceBottom', 'blindCurtainSliceTop', 'stampede', 'mosaic', 'mosaicReverse', 'mosaicRandom', 'mosaicSpiral', 'mosaicSpiralReverse', 'topLeftBottomRight', 'bottomRightTopLeft', 'bottomLeftTopRight', 'bottomLeftTopRight'
-                                                					loader              : "no", //pie, bar, none (even if you choose "pie", old browsers like IE8- can't display it... they will display always a loading bar)
-                                                					navigation          : false, //true or false, to display or not the navigation buttons
-                                                					navigationHover     : false, //if true the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if false they will be visible always
-                                                					pagination          : false,
-                                                					playPause           : false, //true or false, to display or not the play/pause buttons
-                                                					rows                : 8,
-                                                					slicedCols          : 12,
-                                                					slicedRows          : 8,
-                                                					thumbnails          : true,
-                                                					time                : 7000, //milliseconds between the end of the sliding effect and the start of the next one
-                                                					transPeriod         : 1500, //lenght of the sliding effect in milliseconds
-                                                
-                                                					alignment : 'topCenter',
-                                                barDirection : 'leftToRight',
-                                                barPosition : 'top',
-                                                easing : 'easeOutQuad',
-                                                mobileEasing : '',
-                                                mobileFx : '',
-                                                gridDifference : 250,
-                                                imagePath : 'images/',
-                                                minHeight : '100px',
-                                                height : '36.41%',
-                                                loaderColor : '#ffffff',
-                                                loaderBgColor : '#eb8a7c',
-                                                loaderOpacity : 1,
-                                                loaderPadding : 0,
-                                                loaderStroke : 3,
-                                                pieDiameter : 33,
-                                                piePosition : 'rightTop',
-                                                portrait : true,
-                                                					////////callbacks
-                                                					onEndTransition     : function(){}, //this callback is invoked when the transition effect ends
-                                                					onLoaded            : function(){}, //this callback is invoked when the image on a slide has completely loaded
-                                                					onStartLoading      : function(){}, //this callback is invoked when the image on a slide start loading
-                                                					onStartTransition   : function(){} //this callback is invoked when the transition effect starts
-                                                				});
-                                                			}
-                                                		});
-                                                //    });
-                                             </script>
+                                          
                                              <div id="camera591d7400012c9" class="camera_wrap camera">
-                                                <div data-src='ecom/lolitas/uploads/2011/07/slide.jpg' data-link='product/product-7' data-thumb='ecom/lolitas/uploads/2011/07/slide-168x60.jpg'>
+                                                <div data-ng-src='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_1.jpg' data-link='product/product-7' data-thumb='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide-168x60.jpg' ng-repeat="produto in main.dados.produtos">
                                                    <div class="camera_caption fadeIn">
-                                                      <h2>Essential Body Care Set</h2>
-                                                      <p>Pamper and indulge your senses with this best-selling 
-                                                         bath and body care essentials to keep your skin cleansed, 
-                                                         nourished and rejuvenated. 
+                                                      <h2>{{produto.name}}</h2>
+                                                      <p>{{produto.teaser}} {{produto.image[0].name}}
                                                       </p>
-                                                      <span>from <strong>$40.00</strong></span>
-                                                      <a href="product/product-7">details</a>					
+                                                      <span>a partir <strong>R${{produto.price}}</strong></span>
+                                                      <a href="product/product-7">detalhes</a>					
                                                    </div>
                                                 </div>
-                                                <div data-src='ecom/lolitas/uploads/2011/07/slide_1.jpg' data-link='product/product-12' data-thumb='ecom/lolitas/uploads/2011/07/slide_1-168x60.jpg'>
+                                                <div data-src='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_1.jpg' data-link='product/product-12' data-thumb='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_1-168x60.jpg'>
                                                    <div class="camera_caption fadeIn">
                                                       <h2>Bodhi Love Reviving Gift Set</h2>
                                                       <p>A beautiful gift duo of Rosemary 
@@ -80,7 +27,7 @@
                                                       <a href="product/product-12">details</a>					
                                                    </div>
                                                 </div>
-                                                <div data-src='ecom/lolitas/uploads/2011/07/slide_2.jpg' data-link='product/product-11' data-thumb='ecom/lolitas/uploads/2011/07/slide_2-168x60.jpg'>
+                                                <div data-src='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_2.jpg' data-link='product/product-11' data-thumb='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_2-168x60.jpg'>
                                                    <div class="camera_caption fadeIn">
                                                       <h2>Super Spa Toning Duo</h2>
                                                       <p>The perfect spa-inspired treat for those
@@ -91,7 +38,7 @@
                                                       <a href="product/product-11">details</a>					
                                                    </div>
                                                 </div>
-                                                <div data-src='ecom/lolitas/uploads/2011/07/slide_3.jpg' data-link='product/product-10' data-thumb='ecom/lolitas/uploads/2011/07/slide_3-168x60.jpg'>
+                                                <div data-src='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_3.jpg' data-link='product/product-10' data-thumb='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_3-168x60.jpg'>
                                                    <div class="camera_caption fadeIn">
                                                       <h2>Perfect Ten Palette</h2>
                                                       <p>A luxurious makeup collection with bareMinerals 
@@ -102,7 +49,7 @@
                                                       <a href="product/product-10">details</a>					
                                                    </div>
                                                 </div>
-                                                <div data-src='ecom/lolitas/uploads/2011/07/slide_4.jpg' data-link='product/product-9' data-thumb='ecom/lolitas/uploads/2011/07/slide_4-168x60.jpg'>
+                                                <div data-src='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_4.jpg' data-link='product/product-9' data-thumb='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2011/07/slide_4-168x60.jpg'>
                                                    <div class="camera_caption fadeIn">
                                                       <h2>Wild Cow Invigorating Trio </h2>
                                                       <p>A trio to awaken and revive your skin senses, 
@@ -113,7 +60,7 @@
                                                       <a href="product/product-9">details</a>					
                                                    </div>
                                                 </div>
-                                                <div data-src='ecom/lolitas/uploads/2014/04/slide_5.jpg' data-link='product/product-8' data-thumb='ecom/lolitas/uploads/2014/04/slide_5-168x60.jpg'>
+                                                <div data-src='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2014/04/slide_5.jpg' data-link='product/product-8' data-thumb='http://static.livedemo00.template-help.com/woocommerce_49014/wp-content/uploads/2014/04/slide_5-168x60.jpg'>
                                                    <div class="camera_caption fadeIn">
                                                       <h2>Mini Body Oils Gift Set</h2>
                                                       <p>A special pack of five precious body 
@@ -127,9 +74,9 @@
                                              </div>
                                           </div>
                                        </div>
-                                       <!-- .slider -->
+                                       <!- .slider ->
                                     </div>
-                                 </div>
+                                 </div-->
                                  <div class="row">
                                     <div class="span12" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
                                        <div id="post-203" class="post-203 page type-page status-publish hentry page">
