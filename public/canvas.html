@@ -11,6 +11,9 @@
 <canvas id="sig-canvas" width="640" height="520" >
 Get a better browser, bro.
 </canvas>
+<input type="button" name="limpar" value="limpar" onclick="limpar()">
+<input type="button" name="salvar" value="salvar" onclick="salvar()">
+<div id="historico"></div>
 </body>
     <script type="text/javascript">
 var canvas = document.getElementById("sig-canvas");
@@ -118,6 +121,19 @@ document.body.addEventListener("touchmove", function (e) {
   }
 }, false);
 
+function limpar() {
+    canvas.width = canvas.width;
+}
+function salvar() {
+    var dataUrl = canvas.toDataURL();
+    console.log(dataUrl);
 
+    var elem = document.createElement("img");
+    elem.setAttribute("src", dataUrl);
+    elem.setAttribute("height", "768");
+    elem.setAttribute("width", "1024");
+    //elem.setAttribute("alt", "Flower");
+    document.getElementById("historico").appendChild(elem);
+}
     </script>
 </html>
