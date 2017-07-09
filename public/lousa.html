@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+	<style type="text/css">
+		body { cursor : crosshair}
+	</style>
+
+</head>
+<body id="lousa">
+<input type="button" name="limpar" value="limpar" onclick="limpar_historico()">
+
+<div id="historico"></div>
+</body>
+    <script type="text/javascript">
+
+    var imgs = JSON.parse(localStorage.getItem('images'));
+    console.log(imgs);
+    if(imgs == null){
+        imgs = [];
+    }
+
+    for (var i = imgs.length - 1; i >= 0; i--) {
+      
+      var elem = document.createElement("img");
+      elem.setAttribute("src", imgs[i].img_bin);
+      elem.setAttribute("height", "768");
+      elem.setAttribute("width", "1024");
+      //elem.setAttribute("alt", "Flower");
+      document.getElementById("historico").appendChild(elem);
+    }
+
+    function limpar_historico(){
+      //localStorage.setItem('images', '');
+      document.getElementById("historico").value='<div id="historico"></div>';
+
+    }
+
+    </script>
+</html>

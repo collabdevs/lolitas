@@ -11,6 +11,7 @@
 <canvas id="sig-canvas" width="640" height="520" >
 Get a better browser, bro.
 </canvas>
+<a href="lousa.html">Ver imagens armazenadas</a>
 <input type="button" name="limpar" value="limpar" onclick="limpar()">
 <input type="button" name="salvar" value="salvar" onclick="salvar()">
 <div id="historico"></div>
@@ -125,20 +126,30 @@ function limpar() {
     canvas.width = canvas.width;
 }
 function salvar() {
-    var imgs = JSON.parse(localStorage.getItem('images'));
-    console.log(imgs);
+
+    try {
+        var imgs = JSON.parse(localStorage.getItem('images'));
+        console.log(imgs);
+    }
+    catch(err) {
+        console.log(err);
+    }
+    
+    if(imgs == null){
+        imgs = [];
+    }
+    
 
     var dataUrl = canvas.toDataURL();
     console.log(dataUrl);
 
-  /*  var elem = document.createElement("img");
-    elem.setAttribute("src", dataUrl);
-    elem.setAttribute("height", "768");
-    elem.setAttribute("width", "1024");
-    //elem.setAttribute("alt", "Flower");
-    document.getElementById("historico").appendChild(elem);*/
 
-    localStorage.setItem('images', images)
+    var imagem = {"data":"1212121" , "img_bin" : dataUrl};
+    imgs.push(imagem);
+
+    localStorage.setItem('images', JSON.stringify(imgs));
+
+    canvas.width = canvas.width;
 }
     </script>
 </html>
