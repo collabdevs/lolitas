@@ -1,40 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="canvasApp">
 <head>
-	<title>canvas</title>
-	<style type="text/css">
-		body { cursor : crosshair}
-	</style>
+  <title>Lousa</title>
+  <style type="text/css">
+    body { cursor : crosshair}
+  </style>
 
 </head>
-<body id="lousa">
-<input type="button" name="limpar" value="limpar" onclick="limpar_historico()">
-
-<div id="historico"></div>
+<body ng-controller="CanvasCtrl">
+<ul>
+  <li ng-repeat="message in midias">
+    <img ng-src="{{ message.image }}"> {{ message.createdAt }}
+    <button ng-click="messages.$remove(message)">x</button>
+  </li>
+</ul>
 </body>
-    <script type="text/javascript">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 
-    var imgs = JSON.parse(localStorage.getItem('images'));
-    console.log(imgs);
-    if(imgs == null){
-        imgs = [];
-    }
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 
-    for (var i = imgs.length - 1; i >= 0; i--) {
-      
-      var elem = document.createElement("img");
-      elem.setAttribute("src", imgs[i].img_bin);
-      elem.setAttribute("height", "768");
-      elem.setAttribute("width", "1024");
-      //elem.setAttribute("alt", "Flower");
-      document.getElementById("historico").appendChild(elem);
-    }
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<script>
+    var config = {
+      apiKey: "AIzaSyBW52g_pZCMNx3z5H_C9a6htwz5tHD9COo",
+      authDomain: "controlblack-6de94.firebaseapp.com",
+      databaseURL: "https://controlblack-6de94.firebaseio.com",
+      projectId: "controlblack-6de94",
+      storageBucket: "controlblack-6de94.appspot.com",
+      messagingSenderId: "957561562013"
+    };
+    firebase.initializeApp(config);
+
+    var app = angular.module("canvasApp", ["firebase"]);
+    app.controller("CanvasCtrl", function($scope, $firebaseArray) {
+      var ref = firebase.database().ref().child("midias");
+      $scope.midias = $firebaseArray(ref);
+
+
+      for (var i = $scope.midias.length - 1; i >= 0; i--) {
+        var elem = document.createElement("img");
+        elem.setAttribute("src", $scope.midias[i].img_bin);
+        elem.setAttribute("height", "768");
+        elem.setAttribute("width", "1024");
+        //elem.setAttribute("alt", "Flower");
+        document.getElementById("historico").appendChild(elem);
+      }
+
+    });
+
+
+    
 
     function limpar_historico(){
       //localStorage.setItem('images', '');
       document.getElementById("historico").value='<div id="historico"></div>';
 
     }
+
 
     </script>
 </html>

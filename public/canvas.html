@@ -1,22 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="canvasApp">
 <head>
-	<title>canvas</title>
+	<title>Lousa</title>
 	<style type="text/css">
 		body { cursor : crosshair}
 	</style>
 
 </head>
-<body>
+<body ng-controller="CanvasCtrl">
 <canvas id="sig-canvas" width="640" height="520" >
-Get a better browser, bro.
+Não funciona aqui
 </canvas>
 <a href="lousa.html">Ver imagens armazenadas</a>
 <input type="button" name="limpar" value="limpar" onclick="limpar()">
-<input type="button" name="salvar" value="salvar" onclick="salvar()">
+<input type="button" name="salvar" value="salvar" ng-click="addMidia()">
 <div id="historico"></div>
 </body>
-    <script type="text/javascript">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<script>
+  // Initialize the Firebase SDK
+  var config = {
+    apiKey: "AIzaSyBW52g_pZCMNx3z5H_C9a6htwz5tHD9COo",
+    authDomain: "controlblack-6de94.firebaseapp.com",
+    databaseURL: "https://controlblack-6de94.firebaseio.com",
+    projectId: "controlblack-6de94",
+    storageBucket: "controlblack-6de94.appspot.com",
+    messagingSenderId: "957561562013"
+  };
+  firebase.initializeApp(config);
+
+
+var app = angular.module("canvasApp", ["firebase"]);
+app.controller("CanvasCtrl", function($scope, $firebaseArray) {
+  var ref = firebase.database().ref().child("midias");
+  // create a synchronized array
+  $scope.midias = $firebaseArray(ref);
+  // add new items to the array
+  // the midia is automatically added to our Firebase database!
+  var dataUrl = canvas.toDataURL();
+  $scope.addMidia = function() {
+    $scope.midias.$add({
+      image: canvas.toDataURL(),
+      createdAt: firebase.database.ServerValue.TIMESTAMP , 
+      user:1
+    });
+  };
+  // click on `index.html` above to see $remove() and $save() in action
+});
+
+
+
 var canvas = document.getElementById("sig-canvas");
 var ctx = canvas.getContext("2d");
 ctx.strokeStyle = "#222222";
@@ -134,7 +173,7 @@ function salvar() {
     catch(err) {
         console.log(err);
     }
-    
+
     if(imgs == null){
         imgs = [];
     }
