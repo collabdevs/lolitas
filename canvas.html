@@ -9,12 +9,11 @@
 		(function() {
     function createCanvas(parent, width, height) {
         var canvas = {};
-
         canvas.node = document.createElement('canvas');
         canvas.context = canvas.node.getContext('2d');
         canvas.node.width = width || 100;
         canvas.node.height = height || 100;
-        parent.appendChild(canvas.node);
+        body.appendChild(canvas.node);
         return canvas;
     }
 
@@ -61,6 +60,6 @@
 	</script>
 </head>
 <body>
-
+<div id="canvas">Escreva aqui<br/></div>
 </body>
 </html>
