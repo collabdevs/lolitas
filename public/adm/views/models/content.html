@@ -17,16 +17,16 @@
 				<label class="col-sm-2 control-label"> Categorie : </label>
 				    <div class="col-sm-10">
 				    <select class="form-control m-b" name="categorie_id" ng-model="loaded_entity.categorie_id">
-				        <option ng-repeat="relation in bt[0]" value="{{relation.id}}">{{relation.name}}</option>
+				        <option ng-repeat="relation in categorie" value="{{relation.id}}">{{relation.name}}</option>
 				    </select>
 				    </div>
 				</div>
 			</span>
 				<div class="form-group">
-				<label class="col-sm-2 control-label"> User .:{{bt}} </label>
+				<label class="col-sm-2 control-label"> User .:{{$scope}} </label>
 				    <div class="col-sm-10">
 				    <select class="form-control m-b" name="user_id" ng-model="loaded_entity.user_id">
-				        <option ng-repeat="relation in bt[1]" value="{{relation.id}}">{{relation.name}}</option>
+				        <option ng-repeat="relation in user" value="{{relation.id}}">{{relation.name}}</option>
 				    </select>
 				    </div>
 				</div>

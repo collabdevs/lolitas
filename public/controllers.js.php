@@ -543,7 +543,7 @@ function dashboardFlotTwo() {
 
     var dataset = [
         {
-            label: "Number of orders",
+            label: "Total de vendas",
             grow:{stepMode:"linear"},
             data: data2,
             color: "#1ab394",
@@ -556,7 +556,7 @@ function dashboardFlotTwo() {
 
         },
         {
-            label: "Payments",
+            label: "Pagamentos",
             grow:{stepMode:"linear"},
             data: data1,
             yaxis: 2,
@@ -1267,12 +1267,14 @@ function formCtrl($scope , $http ,$rootScope) {
                     console.log($scope.count);
                     console.log($scope.pertences[$scope.count]);
                     var atual = response.data;
+                    $scope[atual] =response.data
                     bt.push(atual);
                     console.log(nome_belongs);
                 });
             }
+
         $scope.bt = bt;
-        console.log($scope.bt);  
+        console.log($scope);  
         } 
 
     }
