@@ -48,6 +48,120 @@
                   <link rel='stylesheet' id='magnific-popup-css'  href='ecom/lolitas/themes/CherryFramework/css/magnific-popup.css' type='text/css' media='all' />
                   <link rel='stylesheet' id='options_typography_Sofia-css'  href='//fonts.googleapis.com/css?family=Sofia&#038;subset=latin' type='text/css' media='all' />
                   <link rel='stylesheet' id='options_typography_Asap-css'  href='//fonts.googleapis.com/css?family=Asap&#038;subset=latin' type='text/css' media='all' />
+                  <style type="text/css">
+                     /*************
+
+                     Footer
+
+                     ************/
+                     .footer {
+                       background-color: #222;
+                       padding-top: 80px;
+                       padding-bottom: 0px;
+                     }
+                     .footer h3 {
+                       font-weight: 300;
+                      /* color: #fff;*/
+                       margin-bottom: 25px;
+                       font-size: 18px;
+                       text-transform: capitalize;
+                     }
+                     .footer p {
+                      /* color: #fff;*/
+                       font-size: 13px;
+                     }
+                     .footer ul.contact-details li {
+                       padding-bottom: 10px;
+                     }
+                     .footer ul.contact-details li i {
+                       float: left;
+                      /* color: #fff;*/
+                       width: 32px;
+                       height: 32px;
+                       line-height: 32px;
+                       display: block;
+                       vertical-align: middle;
+                       margin-top: -3px;
+                     }
+                     .footer ul.contact-details li p {
+                       overflow: hidden;
+                       margin: 0px;
+                     }
+                     .footer .quick-links li {
+                       padding-bottom: 6px;
+                     }
+                     .footer .quick-links li a {
+                       font-size: 13px;
+                       text-transform: uppercase;
+                       color: #aaa;
+                       -moz-transition: all 0.3s;
+                       -o-transition: all 0.3s;
+                       -webkit-transition: all 0.3s;
+                       transition: all 0.3s;
+                     }
+                     .footer .quick-links li a:before {
+                       content: "\f105";
+                       font-family: "FontAwesome";
+                       padding-right: 5px;
+                     }
+                     .footer .quick-links li a:hover {
+                       padding-left: 4px;
+                       color: #fff;
+                     }
+                     .footer .latest-news li {
+                       border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+                       padding-bottom: 6px;
+                       margin-bottom: 6px;
+                     }
+                     .footer .latest-news li:last-child {
+                       border-bottom: 0px;
+                     }
+                     .footer .latest-news li a {
+                       font-size: 13px;
+                       color: #aaa;
+                       line-height: 18px;
+                       display: block;
+                       margin-bottom: 5px;
+                     }
+                     .footer .latest-news li a:hover {
+                       color: #fff;
+                     }
+                     .footer .latest-news li em {
+                       display: block;
+                       font-size: 11px;
+                       color: #000;
+                     }
+                     .footer form .form-control {
+                       border: 1px solid rgba(255, 255, 255, 0.1);
+                       -webkit-box-shadow: none;
+                       -moz-box-shadow: none;
+                       -ms-box-shadow: none;
+                       box-shadow: none;
+                       background-color: transparent;
+                       -webkit-border-radius: 0px;
+                       -moz-border-radius: 0px;
+                       -ms-border-radius: 0px;
+                       border-radius: 0px;
+                     }
+                     .footer form .form-control:focus {
+                       border-color: rgba(255, 255, 255, 0.4);
+                     }
+                     .footer form button {
+                       -moz-transition: all 0.3s;
+                       -o-transition: all 0.3s;
+                       -webkit-transition: all 0.3s;
+                       transition: all 0.3s;
+                     }
+                     .footer form button:focus {
+                       color: #fff;
+                     }
+                     .footer .footer-copyright {
+                       font-size: 13px;
+                       padding: 25px 0;
+                       border-top: 1px solid rgba(255, 255, 255, 0.1);
+                       color: #aaa;
+                     }
+                  </style>
                   <!--[if lt IE 9]>
                   <link rel='stylesheet' id='theme_ie-css'  href='ecom/lolitas/themes/theme49014/css/ie.css?ver=3.8.20' type='text/css' media='all' />
                   <![endif]-->
@@ -250,6 +364,105 @@
                      </div>
                      <footer class="motopress-wrapper footer">
                         <div class="container">
+                            <div class="row">
+                                <div class="span3 margin30">
+                                    <h3>Sobre a gente </h3>
+                                    <p>
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    </p>
+                                    <ul class="list-unstyled contact-details">
+                                        <li class="clearfix">
+                                            <i class="pe-7s-home"></i>
+                                            <p>
+                                                De Segunda a Sexta, das 10:00hs às 19:00hs
+                                            </p>
+                                        </li>
+                                        <li class="clearfix">
+                                            <i class="pe-7s-phone"></i>
+                                            <p>
+                                                +55 21 98174-6863
+                                            </p>
+                                        </li>
+                                        <li class="clearfix">
+                                            <i class="pe-7s-mail"></i>
+                                            <p>
+                                               contato@elaboracaoeanalisedecontratos.com.br
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="socials-colored">
+                                        <a href="#" class="social-icon si-dark si-colored-facebook">
+                                            <i class="fa fa-facebook"></i>
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                        <a href="#" class="social-icon si-dark si-colored-twitter">
+                                            <i class="fa fa-twitter"></i>
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-icon si-dark si-colored-google-plus">
+                                            <i class="fa fa-google-plus"></i>
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                        <a href="#" class="social-icon si-dark si-colored-google-plus">
+                                            <i class="fa fa-youtube-play"></i>
+                                            <i class="fa fa-youtube-play"></i>
+                                        </a>
+                                        <a href="#" class="social-icon si-dark si-colored-linkedin">
+                                            <i class="fa fa-linkedin"></i>
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </div>
+                                </div><!--col-->
+                                <div class="span3 margin30">
+                                    <h3>Acesso rapido</h3>
+                                    <ul class="list-unstyled quick-links">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">sobre</a></li>
+                                        <li><a href="#">serviços</a></li>
+                                        <li><a href="#">Faça um Orçamento</a></li>
+                                        <li><a href="#">Como Funciona</a></li>
+                                        <li><a href="#">Contato</a></li>
+                                        <li><a href="#">Privacidade</a></li>
+                                        <li><a href="#">Termos & condições</a></li>
+                                    </ul>
+                                </div>
+                                <div class="span3 margin30">
+                                    <h3>Ultimas</h3>
+                                    <ul class="list-unstyled latest-news">
+                                        <li ng-repeat="content in contents">
+                                            <a href="#">{{content.name}}</a>
+                                            <em><i class="fa fa-comments-o"></i> 6 comments</em>
+                                        </li>
+                                             
+                                    </ul>
+                                </div>
+                                <div class="span3 margin30">
+                                    <h3>Contato Rapido</h3>
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="3" placeholder="Mensagem"></textarea>
+                                        </div>
+                                        <div class="form-group text-right">
+                                            <button type="button" class="btn btn-theme-bg btn-lg">Enviar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-copyright">
+                            <div class="container">
+                                <span>Copyright &copy; 2017. All right reserved.</span>
+                            </div>
+                        </div>
+                    </footer>
+                     <!--<footer class="motopress-wrapper footer">
+                        <div class="container">
                            <div class="row">
                               <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer" data-motopress-id="591d740120420">
                                  <div class="row copyright">
@@ -257,12 +470,12 @@
                                        <div id="footer-text" class="footer-text">
                                           <a href="ecom/lolitas/" title="" class="site-name">Lolitas</a> Sp :: Brasil  <a href="//facebook.com/danielmmf">Developer</a> <a href="ecom/lolitas/feed/" rel="nofollow" title="Entries (RSS)">Noticias (RSS)</a> e <a href="ecom/lolitas/comments/feed/" rel="nofollow">Comentarios (RSS)</a>
                                           <a href="ecom/lolitas/privacy-policy/" title="Privacy Policy">Politica de privacidade</a>
-                                          <!-- {%FOOTER_LINK} -->
+                                          <!-- {%FOOTER_LINK} --
                                        </div>
                                     </div>
                                     <div class="span6 pull-left" data-motopress-type="static">
                                        <div id="social_networks-2" class="visible-all-devices ">
-                                          <!-- BEGIN SOCIAL NETWORKS -->
+                                          <!-- BEGIN SOCIAL NETWORKS --
                                           <ul class="social social__row clearfix unstyled">
                                              <li class="social_li">
                                                 <a class="social_link social_link__facebook" rel="tooltip" data-original-title="" href="#" target="_blank">
@@ -280,7 +493,7 @@
                                                 </a>
                                              </li>
                                           </ul>
-                                          <!-- END SOCIAL NETWORKS -->
+                                          <!-- END SOCIAL NETWORKS --
                                        </div>
                                     </div>
                                  </div>
