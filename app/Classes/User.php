@@ -31,4 +31,48 @@ class User extends \App\User
            $_SESSION['login_message']='Não foi encontrado nenhum usuario em nosso banco de dados'; 
         }
     }
+
+
+    public static function criar_cliente($dados){
+       // print_r($dados);
+        $resp = array();
+        $resp['status'] = 0;
+        $resp['response']='';
+
+        if(!isset($dados['name'])){
+            $resp['response'] .= 'Nao foi possivel criar, falta seu nome';
+            return $resp;
+        }
+
+        if(!isset($dados['email'])){
+            $resp['response'] .= 'Nao foi possivel criar, falta seu email';
+            return $resp;
+        }
+
+        if(!isset($dados['password'])){
+            $resp['response'] .= 'Nao foi possivel criar, falta sua senha';
+            return $resp;
+        }
+
+        $user = new \App\User;
+        $user->name = $dados['name'];
+        $user->email = $dados['email'];
+       // $user->group_id = 4;
+        $user->password = $dados['password'];
+
+        $existe = \App\User::where('email','=',$dados['email'])->first();
+
+    /*    print_r($existe);
+        die();*/
+
+        try {
+            $user->save();
+            $resp['response'] .= 'Conta Criada com sucesso';
+            $resp['status'] .= 1;
+        } catch (Exception $e) {
+             $resp['response'] .= $e->getMessage();
+        }
+
+        return $resp;
+    }
 }

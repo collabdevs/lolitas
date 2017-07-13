@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class ShopController extends Controller {
 
 
@@ -72,6 +74,12 @@ class ShopController extends Controller {
     {       		
         $resposta = array('carrinho'=>'carrinho');
         return response()->json($resposta);
+    }
+
+    public function novo_cliente(Request $request){
+     // print_r($request->all());
+      print_r($request->usuario);
+
     }
 
 }

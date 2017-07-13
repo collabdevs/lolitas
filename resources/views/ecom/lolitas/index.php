@@ -747,26 +747,40 @@
                .controller('RegistrarController', function($http) {
                  var registrar = this;
 
-                  registrar.getEndereco = function() {  
-                     //http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#CEP")
-                     /*if($.trim($("#CEP").val()) != ""){  
-                         $.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#CEP").val(), function(){  
+
+
+                 //jQuery('.image-link').magnificPopup({type:'image'});
+                 registrar.salvar_cliente = function(){
+                  registrar.usuario.name = registrar.usuario.nome+" "+registrar.usuario.sobrenome;
+                  $http.post('shop/novo_cliente', {'usuario': registrar.usuario, 'endereco': registrar.endereco}).then(function(response){
+                     console.log(response.data);
+                  });
+                  // jQuery.blockUI({ message: 'teste', css: { width: '275px' } }); 
+                   // setTimeout(jQuery.unblockUI, 2000); 
+
+                 }
+
+                  function getEndereco() {  
+                     if(jQuery.trim(jQuery("#CEP").val()) != ""){  
+                         jQuery.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+jQuery("#CEP").val(), function(){  
                              if(resultadoCEP["resultado"]){  
-                                // $("#ENDERECO").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));  
-                                 $("#label_bairro").html(unescape(resultadoCEP["bairro"]));  
-                                 $("#label_cidade").html(unescape(resultadoCEP["cidade"]));
-                                 $("#label_uf").html(unescape(resultadoCEP["uf"]));  
+                                 jQuery("#rua").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));  
+                                 jQuery("#bairro").val(unescape(resultadoCEP["bairro"]));  
+                                 jQuery("#cidade").val(unescape(resultadoCEP["cidade"]));
+                                 jQuery("#uf").val(unescape(resultadoCEP["uf"]));  
                              }else{  
                                  alert("Cep invalido !");  
                             //jqDialog.notify("Cep Invalido", 0);
                              }  
                          });  
-                     }  */
-                     $http.get('https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep=05359190').then(function(response){
-                        console.log(response);
-                     });
-                  }  
+                     }  
+             }  
        
+                        jQuery('#CEP').on('blur', function() {
+                                getEndereco();
+                        });
+       
+
 
                })
 					.controller('NewProjectController', function($location) {
