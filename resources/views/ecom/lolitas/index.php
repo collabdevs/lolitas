@@ -754,6 +754,8 @@
                   registrar.usuario.name = registrar.usuario.nome+" "+registrar.usuario.sobrenome;
                   $http.post('shop/novo_cliente', {'usuario': registrar.usuario, 'endereco': registrar.endereco}).then(function(response){
                      console.log(response.data);
+                      jQuery.blockUI({ message: response.data.response , css: { width: '275px' } }); 
+                      setTimeout(jQuery.unblockUI, 2000); 
                   });
                   // jQuery.blockUI({ message: 'teste', css: { width: '275px' } }); 
                    // setTimeout(jQuery.unblockUI, 2000); 

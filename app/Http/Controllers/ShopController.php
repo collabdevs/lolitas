@@ -77,9 +77,7 @@ class ShopController extends Controller {
     }
 
     public function novo_cliente(Request $request){
-     // print_r($request->all());
-      print_r($request->usuario);
-
+      return response()->json(\App\Classes\User::criar_cliente($request->usuario));
     }
 
 }

@@ -57,13 +57,15 @@ class User extends \App\User
         $user = new \App\User;
         $user->name = $dados['name'];
         $user->email = $dados['email'];
-       // $user->group_id = 4;
+        $user->group_id = 4;
         $user->password = $dados['password'];
 
         $existe = \App\User::where('email','=',$dados['email'])->first();
 
-    /*    print_r($existe);
-        die();*/
+        if($existe){
+                $resp['response'] .= 'Conta já existe no sistema';
+                return $resp;
+        }
 
         try {
             $user->save();
