@@ -8,6 +8,7 @@ class User extends \App\User
     public function login(){
         $logado = $this::where('email','=', $this->email)->first();
         $_SESSION['login_message']='';
+        $array_retorno = array();
         if($logado){
             if($this->password == $logado->password){
                 $grupo = $logado->group()->first();
@@ -17,7 +18,32 @@ class User extends \App\User
                 $_SESSION['id_logado']=$logado->id;
                 $_SESSION['grupo_logado']=$logado->group_id;
                 $_SESSION['nome_grupo_logado']=$grupo->name;
-                $_SESSION['logado']=json_encode(array('logado'=>1,
+                $array_retorno = json_encode(array('logado'=>1,
+                                                        'nome'=>$logado->name,
+                                                        'name'=>$logado->name,
+                                                        'email'=>$logado->email,
+                                                        'grupo'=>$logado->group_id , 
+                                                        'grupo_nome'=>$grupo->name , 
+                                                        'usuario_logado'=>$logado->toJson()));
+                $_SESSION['logado']=$array_retorno;
+            }else{
+                $_SESSION['login_message']='Sua senha não confere';
+            }
+        }else{
+           $_SESSION['login_message']='Não foi encontrado nenhum usuario em nosso banco de dados'; 
+        }
+        return $array_retorno;
+    }
+
+    public function logged(){
+        $logado = $this::where('email','=', $this->email)->first();
+        $array_retorno = array();
+        if($logado){
+            if($this->password == $logado->password){
+                $this->login();
+                $grupo = $logado->group()->first();
+                $logado->password ='*******';
+                $array_retorno = json_encode(array('logado'=>1,
                                                         'nome'=>$logado->name,
                                                         'name'=>$logado->name,
                                                         'email'=>$logado->email,
@@ -25,11 +51,16 @@ class User extends \App\User
                                                         'grupo_nome'=>$grupo->name , 
                                                         'usuario_logado'=>$logado->toJson()));
             }else{
-                $_SESSION['login_message']='Sua senha não confere';
+              $array_retorno = json_encode(array('logado'=>0,
+                                        'login_message'=>'Sua senha não confere',
+                                        'usuario_logado'=>''));
             }
         }else{
-           $_SESSION['login_message']='Não foi encontrado nenhum usuario em nosso banco de dados'; 
+           $array_retorno = json_encode(array('logado'=>0,
+                                        'login_message'=>'Não foi encontrado nenhum usuario em nosso banco de dados',
+                                        'usuario_logado'=>'')); 
         }
+        return $array_retorno;
     }
 
 

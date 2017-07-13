@@ -21,22 +21,22 @@
 <form method="post" class="login">
 
 	
-	<p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing &amp; Shipping section.</p>
+	<p>Se você ja comprou com a gente seu login ja deve existir , preencha com seu email abaixo !</p>
 
 	<p class="form-row form-row-first">
-		<label for="username">Username or email <span class="required">*</span></label>
-		<input type="text" class="input-text" name="username" id="username">
+		<label for="username">email <span class="required">*</span></label>
+		<input type="text" class="input-text" name="username" id="username" ng-model="registrar.email">
 	</p>
 	<p class="form-row form-row-last">
 		<label for="password">Password <span class="required">*</span></label>
-		<input class="input-text" type="password" name="password" id="password">
+		<input class="input-text" type="password" name="password" id="password" ng-model="registrar.senha">
 	</p>
 	<div class="clear"></div>
 
 	
 	<p class="form-row">
-		<input type="hidden" id="_wpnonce" name="_wpnonce" value="bfc544fa6e"><input type="hidden" name="_wp_http_referer" value="/woocommerce_49014/checkout/">		<input type="submit" class="button" name="login" value="Login">
-		<input type="hidden" name="redirect" value="http://livedemo00.template-help.com/woocommerce_49014/checkout/">
+		<input type="button" class="button" name="login" value="Login" ng-click="registrar.login()">
+	
 		<label for="rememberme" class="inline">
 			<input name="rememberme" type="checkbox" id="rememberme" value="forever"> Lembrar	</label>
 	</p>

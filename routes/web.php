@@ -244,4 +244,5 @@ $app->get('shop/categoria/{categoria}', 'ShopController@categoria');
 $app->get('shop/produto/{produto}', 'ShopController@produto');
 $app->get('shop/carrinho', 'ShopController@carrinho');
 $app->post('shop/novo_cliente', 'ShopController@novo_cliente');
+$app->post('shop/login', 'ShopController@login');
 

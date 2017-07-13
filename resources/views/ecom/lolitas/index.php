@@ -762,6 +762,25 @@
 
                  }
 
+
+                  registrar.login = function(){
+                     $http.post('shop/login', {'login': registrar.email, 'senha': registrar.senha}).then(function(response){
+                        console.log(response.data);
+                         jQuery.blockUI({ message: response.data.response , css: { width: '275px' } }); 
+                         //setTimeout(jQuery.unblockUI, 2000); 
+                         if(response.data.logado == 1){
+                           alert("voce logou");
+                           jQuery.unblockUI();
+                         }else{
+                           
+                           alert(response.data.login_message);
+                           jQuery.unblockUI();
+                         }
+jQuery.unblockUI();
+
+                     });
+                  }
+
                   function getEndereco() {  
                      if(jQuery.trim(jQuery("#CEP").val()) != ""){  
                          jQuery.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+jQuery("#CEP").val(), function(){  

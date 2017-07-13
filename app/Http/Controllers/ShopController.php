@@ -80,4 +80,16 @@ class ShopController extends Controller {
       return response()->json(\App\Classes\User::criar_cliente($request->usuario));
     }
 
+    public function login(Request $request){
+//$request->usuario
+      $cliente = new \App\Classes\User;
+      $cliente->email = $request->login;
+      $cliente->password = $request->senha;
+     
+
+      return $cliente->logged();
+
+      
+    }
+
 }
