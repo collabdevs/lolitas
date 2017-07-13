@@ -275,7 +275,7 @@
                                                    <li><a href="ecom/lolitas/wp-login.php?action=register&amp;redirect_to=/woocommerce_49014/" class='register-link' title="Registration">Registrar</a></li>
                                                    <li><a href="ecom/lolitas/wp-login.php?action=login&amp;redirect_to=/woocommerce_49014/" title="Log In">Log In</a></li>
                                                    <li id="menu-item-1970" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1970"><a href="ecom/lolitas/delivery/">Entrega</a></li>
-                                                   <li id="menu-item-1972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1972"><a href="ecom/lolitas/checkout/">Carrinho</a></li>
+                                                   <li id="menu-item-1972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1972"><a href="#!/carrinho">Carrinho</a></li>
                                                    <li id="menu-item-1971" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1971"><a href="ecom/lolitas/my-account/">Minha conta</a></li>
                                                 </ul>
                                              </div>
@@ -622,6 +622,10 @@
 					      controller:'ProdutoController as produto',
 					      templateUrl:'views/produto.html'
 					    })
+                   .when('/carrinho', {
+                     controller:'CarrinhoController as carrinho',
+                     templateUrl:'views/carrinho.html'
+                   })
 					    .when('/edit/:projectId', {
 					      controller:'EditProjectController as editProject',
 					      templateUrl:'detail.html'
@@ -732,6 +736,10 @@
 						//projectList.projects = projects;
 
 					})
+               .controller('CarrinhoController', function() {
+                 var carrinho = this;
+
+               })
 					.controller('NewProjectController', function($location) {
 					  var editProject = this;
 					  editProject.save = function() {
