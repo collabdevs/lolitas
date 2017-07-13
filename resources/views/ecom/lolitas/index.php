@@ -762,7 +762,7 @@
                              }  
                          });  
                      }  */
-                     $http.get('http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep=05359190').then(function(response){
+                     $http.get('https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep=05359190').then(function(response){
                         console.log(response);
                      });
                   }  
