@@ -626,6 +626,10 @@
                      controller:'CarrinhoController as carrinho',
                      templateUrl:'views/carrinho.html'
                    })
+                   .when('/registrar', {
+                     controller:'RegistrarController as registrar',
+                     templateUrl:'views/registrar.html'
+                   })
 					    .when('/edit/:projectId', {
 					      controller:'EditProjectController as editProject',
 					      templateUrl:'detail.html'
@@ -738,6 +742,31 @@
 					})
                .controller('CarrinhoController', function() {
                  var carrinho = this;
+
+               })
+               .controller('RegistrarController', function($http) {
+                 var registrar = this;
+
+                  registrar.getEndereco = function() {  
+                     //http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#CEP")
+                     /*if($.trim($("#CEP").val()) != ""){  
+                         $.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#CEP").val(), function(){  
+                             if(resultadoCEP["resultado"]){  
+                                // $("#ENDERECO").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));  
+                                 $("#label_bairro").html(unescape(resultadoCEP["bairro"]));  
+                                 $("#label_cidade").html(unescape(resultadoCEP["cidade"]));
+                                 $("#label_uf").html(unescape(resultadoCEP["uf"]));  
+                             }else{  
+                                 alert("Cep invalido !");  
+                            //jqDialog.notify("Cep Invalido", 0);
+                             }  
+                         });  
+                     }  */
+                     $http.get('http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep=05359190').then(function(response){
+                        console.log(response);
+                     });
+                  }  
+       
 
                })
 					.controller('NewProjectController', function($location) {
