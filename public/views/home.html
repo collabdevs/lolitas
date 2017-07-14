@@ -136,7 +136,7 @@
                                                                   <span class="price"><del ng-show="produto.promo != 0"><span class="amount">&#36;{{produto.price}}</span></del> <ins ng-show="produto.promo != 0"><span class="amount">&#36;{{produto.promo}}</span></ins>
                                                                   <ins ng-show="produto.promo == 0"><span class="amount">&#36;{{produto.price}}</span></ins></span>
                                                                   <div class="star-rating" title="Rated 4.50 out of 5"><span style="width:90%"><strong class="rating">4.50</strong> out of 5</span></div>
-                                                                  <a href="#" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add</a><a href='#!/produto/{{produto.url}}' class='btn'>Ver</a>
+                                                                  <a  rel="nofollow" data-product_id="{{produto.id}}" data-product_sku="" class="button add_to_cart_button product_type_simple">Add</a><a href='#!/produto/{{produto.url}}' class='btn'>Ver</a>
                                                                </div>
                                                             </li>
                                                            

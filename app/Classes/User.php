@@ -12,25 +12,34 @@ class User extends \App\User
         if($logado){
             if($this->password == $logado->password){
                 $grupo = $logado->group()->first();
+                $_SESSION['login_message']='Logado';
+
          
                 $logado->password ='*******';
                 $_SESSION['user_logado']=$logado->toJson();
                 $_SESSION['id_logado']=$logado->id;
                 $_SESSION['grupo_logado']=$logado->group_id;
+
                 $_SESSION['nome_grupo_logado']=$grupo->name;
-                $array_retorno = json_encode(array('logado'=>1,
+                $array_retorno = array('logado'=>1,
                                                         'nome'=>$logado->name,
                                                         'name'=>$logado->name,
                                                         'email'=>$logado->email,
                                                         'grupo'=>$logado->group_id , 
                                                         'grupo_nome'=>$grupo->name , 
-                                                        'usuario_logado'=>$logado->toJson()));
+                                                        'usuario_logado'=>$logado->toJson());
                 $_SESSION['logado']=$array_retorno;
             }else{
                 $_SESSION['login_message']='Sua senha não confere';
+                 $array_retorno = array('logado'=>0,
+                                                        'login_message'=>'Sua senha não confere');
+                 $_SESSION['logado']=$array_retorno;
             }
         }else{
            $_SESSION['login_message']='Não foi encontrado nenhum usuario em nosso banco de dados'; 
+           $array_retorno = array('logado'=>0,
+                                                        'login_message'=>'Não foi encontrado nenhum usuario em nosso banco de dados');
+           $_SESSION['logado']=$array_retorno;
         }
         return $array_retorno;
     }
@@ -64,6 +73,39 @@ class User extends \App\User
     }
 
 
+    public static function create_user($nome, $email, $senha , $group_id = 4){
+        $resp = array();
+        $resp['status'] = 0;
+        $resp['response']='';
+        $user = new \App\User; 
+        $user->name = $nome;
+        $user->email = $email;
+        $user->password = $senha;
+        $user->group_id = $group_id;
+
+        $existe = \App\User::where('email','=',$email)->first();
+
+        if($existe){
+                $resp['response'] .= 'Conta já existe no sistema';
+                return $resp;
+        }
+
+        try {
+            $user->save();
+            $resp['response'] .= 'Conta Criada com sucesso';
+            $resp['status'] .= 1;
+        } catch (Exception $e) {
+             $resp['response'] .= $e->getMessage();
+        }
+
+
+
+
+
+        return $resp;
+    }
+
+
     public static function criar_cliente($dados){
        // print_r($dados);
         $resp = array();
@@ -85,27 +127,8 @@ class User extends \App\User
             return $resp;
         }
 
-        $user = new \App\User;
-        $user->name = $dados['name'];
-        $user->email = $dados['email'];
-        $user->group_id = 4;
-        $user->password = $dados['password'];
+        
 
-        $existe = \App\User::where('email','=',$dados['email'])->first();
-
-        if($existe){
-                $resp['response'] .= 'Conta já existe no sistema';
-                return $resp;
-        }
-
-        try {
-            $user->save();
-            $resp['response'] .= 'Conta Criada com sucesso';
-            $resp['status'] .= 1;
-        } catch (Exception $e) {
-             $resp['response'] .= $e->getMessage();
-        }
-
-        return $resp;
+        return self::create_user($dados['name'],$dados['email'],$dados['password']);
     }
 }

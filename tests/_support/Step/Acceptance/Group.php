@@ -8,6 +8,7 @@ class Group extends \AcceptanceTester{
     public function __construct()
     {
         $I = $this;
+         \DB::table('groups')->truncate();
         $this->group = new \App\Group; 
     }
 
@@ -41,10 +42,11 @@ class Group extends \AcceptanceTester{
      public function thenIShouldSeeThatTotalNumberGroupsIs($arg1)
      {
 
+   
         if($this->todos->count() == $arg1){
             return true;
         }else{
-            throw new \Error("Não esta retornando o numero certo de grupos", 1);
+            throw new \Error("Não esta retornando o numero certo de grupos , está vindo ".$this->todos->count(). "ao invez de ".$arg1, $arg1);
             
         }
      }

@@ -17,12 +17,19 @@ $app->get('/', function () use ($app) {
     return view($app_view.'/index', ['app_name' => $app_name]);
 });
 
+
+$app->get('/logoff', function () use ($app) {
+    session_destroy();
+    redirect('/');
+});
+
+
 $app->get('/admin/', function () use ($app) {
 
     $file = 'login';
     try {
-        $loggin_situation = json_decode($_SESSION['logado'], true);
-        if($loggin_situation['logado'] == 1)
+       
+        if(isset($_SESSION['logado']) && $_SESSION['logado']['logado']== 1)
             $file='admin';
     } catch (Exception $e) {
         $loggin_situation = array();
@@ -243,6 +250,7 @@ $app->get('shop/main', 'ShopController@principal');
 $app->get('shop/categoria/{categoria}', 'ShopController@categoria');
 $app->get('shop/produto/{produto}', 'ShopController@produto');
 $app->get('shop/carrinho', 'ShopController@carrinho');
+$app->post('shop/carrinho/add', 'ShopController@adiciona');
 $app->post('shop/novo_cliente', 'ShopController@novo_cliente');
 $app->post('shop/login', 'ShopController@login');
 

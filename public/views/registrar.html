@@ -7,7 +7,7 @@
 						<section class="title-section">
 	<h1 class="title-header">
 		
-			Checkout	</h1>
+			Cadastro de usuario	</h1>
 				<!-- BEGIN BREADCRUMBS-->
 			<ul class="breadcrumb breadcrumb__t"><li><a href="http://livedemo00.template-help.com/woocommerce_49014">Home</a></li><li class="divider"></li><li class="active">Checkout</li></ul>			<!-- END BREADCRUMBS -->
 	</section><!-- .title-section -->					</div>
@@ -16,9 +16,9 @@
 					<div class="span9 right right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
 							<div id="post-1887" class="post-1887 page type-page status-publish hentry page">
 		<div class="woocommerce">
-	<div class="woocommerce-info">Returning customer? <a href="#" class="showlogin">Click here to login</a></div>
-
-<form method="post" class="login">
+	<div class="woocommerce-info"  ng-show="!main.logado_front">Ja comprou aqui? <a href="#" class="showlogin">Faça o login ai embaixo {{main.logado_front}}</a></div>
+<div class="woocommerce-info estou_logado" ng-show="main.logado_front">Logado <a href="#" class="showlogin">vá comprar !!! </a></div>
+<form method="post" class="login" ng-show="!main.logado_front">
 
 	
 	<p>Se você ja comprou com a gente seu login ja deve existir , preencha com seu email abaixo !</p>

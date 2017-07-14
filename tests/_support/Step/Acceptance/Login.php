@@ -2,26 +2,23 @@
 namespace Step\Acceptance;
 
 class Login extends \AcceptanceTester{
-    private $user;
+    private $user ;
     private $container;
 
     public function __construct()
     {
         $I = $this;
-        $this->user = new \App\User; 
+        $grupo = new \App\Group;
+        $grupo->name = "Admin";
+        $grupo->save();
+        
 
-        $this->create_user('Daniel Medeiros', 'danielmmf@gmail.com', 'daddad');
+        $this->user = new \App\Classes\User; 
+
+        $this->user->create_user('Daniel Medeiros', 'danielmmf@gmail.com', 'daddad');
     }
 
-    public function create_user($nome, $email, $senha){
-        $user = new \App\User; 
-        $user->name=$nome;
-        $user->email=$email;
-        $user->password =$senha;
-        $user->group_id =1;
-        $user->save();
-        return $user;
-    }
+
 
 /**
      * @Given i have email with name :arg1
@@ -52,7 +49,8 @@ class Login extends \AcceptanceTester{
      */
      public function iShouldSeeMessage($arg1)
      {
-        if($this->container['mensagem'] == $arg1){
+
+        if($this->container['login_message'] == $arg1){
             return true;
         }else{
             throw new \Error("Não voltou a mensagem correta deveria ser  ".$arg1, 1);
@@ -74,6 +72,21 @@ class Login extends \AcceptanceTester{
             
         }
      }
+
+
+          /**
+     * @Then i should see resposta :arg1
+     */
+     public function iShouldSeeResposta($arg1)
+     {
+        if($this->container['logado'] == $arg1){
+            return true;
+        }else{
+            throw new \Error("Não voltou a resposta correta deveria ser  ".$arg1, 1);
+            
+        }
+     }
+
 
 
     /**

@@ -10,5 +10,15 @@ Feature: ecom
  	Given i have categorie with name "sub_categories de teste" 
  	When i call categorie_save
  	Then  i call categories and should see that total number categories is "1"
+
+
+ Scenario: create new cart and add products
+ 	As a user
+ 	I need to be able to create a new cart to add a product
+ 	Given i have a empty cart
+ 	When i add product
+ 	Then  i call cart_itens and should see that total number itens is "1"
+ 	
+
  	
  

@@ -272,11 +272,12 @@
                                           <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-shop-nav.php">
                                              <div class="shop-nav">
                                                 <ul id="shopnav" class="shop-menu">
-                                                   <li><a href="ecom/lolitas/wp-login.php?action=register&amp;redirect_to=/woocommerce_49014/" class='register-link' title="Registration">Registrar</a></li>
-                                                   <li><a href="ecom/lolitas/wp-login.php?action=login&amp;redirect_to=/woocommerce_49014/" title="Log In">Log In</a></li>
+                                                   <li  ng-show="!main.logado_front"><a href="#!/registrar" class='register-link' title="Registration">Registrar</a></li>
+                                                   <li ng-show="!main.logado_front"><a href="ecom/lolitas/wp-login.php?action=login&amp;redirect_to=/woocommerce_49014/" title="Log In">Log In</a></li>
                                                    <li id="menu-item-1970" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1970"><a href="ecom/lolitas/delivery/">Entrega</a></li>
                                                    <li id="menu-item-1972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1972"><a href="#!/carrinho">Carrinho</a></li>
-                                                   <li id="menu-item-1971" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1971"><a href="ecom/lolitas/my-account/">Minha conta</a></li>
+                                                   <li id="menu-item-1971" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1971" ng-show="main.logado_front"><a href="ecom/lolitas/my-account/">Minha conta</a></li>
+                                                   <li id="menu-item-1971" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1971" ng-show="main.logado_front"><a href="/logoff">Logoff</a></li>
                                                 </ul>
                                              </div>
                                           </div>
@@ -646,8 +647,12 @@
 					
 					.controller('MainController', function() {
 						var main = this;
+
+                  var logado_front = <?php $logado = isset($_SESSION['logado']['logado'])?$_SESSION['logado']['logado']:0; echo $logado;?>;
 						//projectList.projects = projects;
+                  main.logado_front = logado_front;
 						main.categorias = <?php echo App\ProductCategorie::all(); ?>;
+
 						main.sub_categorias = <?php echo App\ProductSubCategorie::all(); ?>;
 						main.produtos = <?php $produtos = array();
 					   		$produtos_categoria = \App\Product::all();
@@ -770,13 +775,16 @@
                          //setTimeout(jQuery.unblockUI, 2000); 
                          if(response.data.logado == 1){
                            alert("voce logou");
+                           jQuery('.login').slideUp();
+                           jQuery('.checkout').slideUp();
+                           jQuery('.estou_logado').slideDown();
                            jQuery.unblockUI();
                          }else{
                            
                            alert(response.data.login_message);
                            jQuery.unblockUI();
                          }
-jQuery.unblockUI();
+                           jQuery.unblockUI();
 
                      });
                   }

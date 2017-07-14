@@ -45,6 +45,38 @@ class Ecom extends \AcceptanceTester{
         }
      }
 
+
+     /**
+     * @Given i have a empty cart
+     */
+     public function iHaveAEmptyCart()
+     {
+        $total = \App\Cart::all();
+        if($total->count() == $arg1){
+            return true;
+        }else{
+            throw new \Error("Não esta retornando o numero certo de carrinhos", 1);
+            
+        }
+     }
+
+    /**
+     * @When i add product
+     */
+     public function iAddProduct()
+     {
+        throw new \Codeception\Exception\Incomplete("Step `i add product` is not defined");
+     }
+
+    /**
+     * @Then i call cart_itens and should see that total number itens is :arg1
+     */
+     public function iCallCart_itensAndShouldSeeThatTotalNumberItensIs($arg1)
+     {
+        throw new \Codeception\Exception\Incomplete("Step `i call cart_itens and should see that total number itens is :arg1` is not defined");
+     }
+
+
 }
 
 

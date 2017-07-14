@@ -76,6 +76,15 @@ class ShopController extends Controller {
         return response()->json($resposta);
     }
 
+    public function adiciona(Request $request)
+    {          
+
+    print_r($request->all());
+        //$resposta = array('carrinho'=>'modafoca');
+        //return response()->json($resposta);
+      echo '{"fragments":{"div.widget_shopping_cart_content":"<div class=\"widget_shopping_cart_content\">\n\n<ul class=\"cart_list product_list_widget \">\n\n\t\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"http:\/\/livedemo00.template-help.com\/woocommerce_49014\/product\/product-15\/\">\n\t\t\t\t\t\t\t<img width=\"90\" height=\"90\" src=\"\/\/livedemo00.template-help.com\/woocommerce_49014\/wp-content\/uploads\/2013\/09\/bobbi_brown_the_tailored_collection_2-90x90.png\" class=\"attachment-shop_thumbnail wp-post-image\" alt=\"bobbi_brown_the_tailored_collection_2\" \/>Bobbi brown the tailored collection\t\t\t\t\t\t<\/a>\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t<span class=\"quantity\">2 &times; <span class=\"amount\">&#36;95.00<\/span><\/span>\t\t\t\t\t<\/li>\n\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"http:\/\/livedemo00.template-help.com\/woocommerce_49014\/product\/product-14\/\">\n\t\t\t\t\t\t\t<img width=\"90\" height=\"90\" src=\"\/\/livedemo00.template-help.com\/woocommerce_49014\/wp-content\/uploads\/2013\/09\/yves_saint_laurent_manicure_couture_in_5_favourite_chic_2-90x90.png\" class=\"attachment-shop_thumbnail wp-post-image\" alt=\"yves_saint_laurent_manicure_couture_in_5_favourite_chic_2\" \/>Yves saint laurent manicu\t\t\t\t\t\t<\/a>\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t<span class=\"quantity\">2 &times; <span class=\"amount\">&#36;70.00<\/span><\/span>\t\t\t\t\t<\/li>\n\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"http:\/\/livedemo00.template-help.com\/woocommerce_49014\/product\/product-13\/\">\n\t\t\t\t\t\t\t<img width=\"90\" height=\"90\" src=\"\/\/livedemo00.template-help.com\/woocommerce_49014\/wp-content\/uploads\/2013\/09\/dg_smooth_eye_colour_duo_2-90x90.png\" class=\"attachment-shop_thumbnail wp-post-image\" alt=\"d&amp;g_smooth_eye_colour_duo_2\" \/>D&G smooth eye colour duo\t\t\t\t\t\t<\/a>\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t<span class=\"quantity\">1 &times; <span class=\"amount\">&#36;100.00<\/span><\/span>\t\t\t\t\t<\/li>\n\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"http:\/\/livedemo00.template-help.com\/woocommerce_49014\/product\/product-10\/\">\n\t\t\t\t\t\t\t<img width=\"90\" height=\"90\" src=\"\/\/livedemo00.template-help.com\/woocommerce_49014\/wp-content\/uploads\/2013\/09\/illamasqua_nail_varnish_3-90x90.png\" class=\"attachment-shop_thumbnail wp-post-image\" alt=\"illamasqua_nail_varnish_3\" \/>Illamasqua nail varnish\t\t\t\t\t\t<\/a>\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t<span class=\"quantity\">2 &times; <span class=\"amount\">&#36;104.00<\/span><\/span>\t\t\t\t\t<\/li>\n\t\t\t\t\t\n\t\n<\/ul><!-- end product list -->\n\n\n\t<p class=\"total\"><strong>Subtotal:<\/strong> <span class=\"amount\">&#36;638.00<\/span><\/p>\n\n\t\n\t<p class=\"buttons\">\n\t\t<a href=\"http:\/\/livedemo00.template-help.com\/woocommerce_49014\/cart\/\" class=\"button wc-forward\">View Cart<\/a>\n\t\t<a href=\"http:\/\/livedemo00.template-help.com\/woocommerce_49014\/checkout\/\" class=\"button checkout wc-forward\">Checkout<\/a>\n\t<\/p>\n\n\n<\/div>"},"cart_hash":"688cb297517f77c9c771fb9c932f16f6"}';
+    }
+
     public function novo_cliente(Request $request){
       return response()->json(\App\Classes\User::criar_cliente($request->usuario));
     }
@@ -90,6 +99,11 @@ class ShopController extends Controller {
       return $cliente->logged();
 
       
+    }
+
+
+    public function logoff(){
+      session_destroy();
     }
 
 }

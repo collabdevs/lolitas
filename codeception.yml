@@ -18,6 +18,6 @@ gherkin:
             - AcceptanceTester
             - Step\Acceptance\Group
             - Step\Acceptance\User
-            - Step\Acceptance\Login
             - Step\Acceptance\Ecom
+            - Step\Acceptance\Login
 

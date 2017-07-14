@@ -9,7 +9,7 @@ Feature: login
  	Given i have email with name "email@teste.com" 
  	And Given i have password with value "erradoerrado"
  	When i call login 
- 	Then i should see message "Usuario nao encontrado" 
+ 	Then i should see message "Não foi encontrado nenhum usuario em nosso banco de dados" 
  	And Then i should see resposta "0"
  	
  Scenario: get blocked on wrong password
@@ -18,7 +18,7 @@ Feature: login
  	Given i have email with name "danielmmf@gmail.com" 
  	And Given i have password with value "erradoerrado"
  	When i call login 
- 	Then i should see message "Senha nao confere"
+ 	Then i should see message "Sua senha não confere"
  	And Then i should see resposta "0" 	
 
  Scenario: get access on right credentials
@@ -27,8 +27,7 @@ Feature: login
  	Given i have email with name "danielmmf@gmail.com" 
  	And Given i have password with value "daddad"
  	When i call login 
- 	Then i should see message "Logado" 
- 	And Then i should see resposta "1" 
+	Then i should see resposta "1" 
 
 	
 	
