@@ -120,7 +120,7 @@ class ShopController extends Controller {
 
         $categoria =  \App\ProductCategorie::where('name','=',$categorias[1])->first();
         if(!$categoria){
-          echo 'categoria nao existe vamos criar '.$categorias[1];
+          //echo 'categoria nao existe vamos criar '.$categorias[1];
           $categoria = new \App\ProductCategorie;
           $categoria->name = $categorias[1];
           $categoria->desc = $categorias[1];
@@ -129,7 +129,7 @@ class ShopController extends Controller {
         }
         $subcategoria =  \App\ProductSubCategorie::where('name','=',$categorias[2])->first();
         if(!$subcategoria){
-          echo 'subcategoria nao existe vamos criar '.$categorias[2];
+          //echo 'subcategoria nao existe vamos criar '.$categorias[2];
           $subcategoria = new \App\ProductSubCategorie;
           $subcategoria->name = $categorias[2];
           $subcategoria->desc = $categorias[2];
@@ -137,13 +137,13 @@ class ShopController extends Controller {
           $subcategoria->product_categorie_id = $categoria->id;
           $subcategoria->save();
         }
-        print_r($categoria);
-        print_r($subcategoria);
+       // print_r($categoria);
+      //  print_r($subcategoria);
 
 
 
         $produto = new \App\Product;
-        $produto->subcategorie_id = $subcategoria->id;
+        $produto->product_sub_categorie_id = $subcategoria->id;
         $produto->name = $name;
         $produto->desc = $desc;
         $produto->url = $url;
