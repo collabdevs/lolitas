@@ -166,12 +166,12 @@ class ShopController extends Controller {
           $resposta = $e->getMessage();
         }
 
-        $this->imagem($imagem , 'testeaxc');
+        $this->imagem($imagem , 'testeaxc' , $id);
 
         return response()->json($resposta);
     }
 
-    public function imagem($url , $nome ){
+    public function imagem($url , $nome , $id){
       $extension = strrchr($url, '.');
       $this->grab_image($url, 'storage/app/'.$nome.'.'.$extension);
 
@@ -182,7 +182,7 @@ class ShopController extends Controller {
       $arquivo->original_filename = 'advance-techniques-stiling-creme-de-efeito-liso-150g-avon-avn2428.jpg';
       $arquivo->filename =  $arquivo->name.'.'.$extension;
       $arquivo->entity = 'product';
-      $arquivo->entity_id = 1;
+      $arquivo->entity_id = $id;
       $arquivo->user_id = 1;
 
       $arquivo->save();
