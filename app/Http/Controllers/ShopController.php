@@ -109,7 +109,16 @@ class ShopController extends Controller {
 
     public function endpoint(Request $request)
     {           
-        $resposta = $request->nome;
+        $name = $request->name;
+        $desc = $request->desc;
+
+        $categorias = $request->categorias;
+
+        print_r($categorias);
+
+        die();
+
+        $produto = new \App\Product;
 
         return response()->json($resposta);
     }
