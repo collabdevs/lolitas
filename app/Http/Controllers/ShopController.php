@@ -146,6 +146,7 @@ class ShopController extends Controller {
         $produto->product_sub_categorie_id = $subcategoria->id;
         $produto->name = $name;
         $produto->desc = $desc;
+        $produto->teaser = $desc;
         $produto->url = $url;
         $produto->price = $valor;
         $produto->promo = 0;
