@@ -109,7 +109,8 @@ class ShopController extends Controller {
 
     public function endpoint(Request $request)
     {           
-        $resposta = $request->all();
+        $resposta = $request->nome;
+
         return response()->json($resposta);
     }
 
