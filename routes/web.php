@@ -254,3 +254,4 @@ $app->post('shop/carrinho/add', 'ShopController@adiciona');
 $app->post('shop/novo_cliente', 'ShopController@novo_cliente');
 $app->post('shop/login', 'ShopController@login');
 $app->post('shop/endpoint/extension', 'ShopController@endpoint');
+$app->get('shop/imagem', 'ShopController@imagem');

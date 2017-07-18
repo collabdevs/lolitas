@@ -113,6 +113,7 @@ class ShopController extends Controller {
         $desc = $request->desc;
         $url = $request->url;
         $valor = $request->valor;
+        $imagem = $request->imagem;
 
         $categorias = $request->categorias;
 
@@ -165,13 +166,26 @@ class ShopController extends Controller {
           $resposta = $e->getMessage();
         }
 
+        $this->imagem($imagem , 'testeaxc');
+
         return response()->json($resposta);
     }
 
-    public function imagem(){
-      $url = 'https://avon.vteximg.com.br/arquivos/ids/159197-400-400/advance-techniques-stiling-creme-de-efeito-liso-150g-avon-avn2428.jpg';
-      echo getcwd();
-      $this->grab_image($url, '.');
+    public function imagem($url , $nome ){
+      $extension = strrchr($url, '.');
+      $this->grab_image($url, 'storage/app/'.$nome.'.'.$extension);
+
+      $arquivo = new \App\Attach;
+
+      $arquivo->name = $nome;
+      $arquivo->mime = mime_content_type('storage/app/imag.jpg');
+      $arquivo->original_filename = 'advance-techniques-stiling-creme-de-efeito-liso-150g-avon-avn2428.jpg';
+      $arquivo->filename =  $arquivo->name.'.'.$extension;
+      $arquivo->entity = 'product';
+      $arquivo->entity_id = 1;
+      $arquivo->user_id = 1;
+
+      $arquivo->save();
     }
 
 
