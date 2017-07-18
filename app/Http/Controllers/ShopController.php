@@ -114,7 +114,17 @@ class ShopController extends Controller {
 
         $categorias = $request->categorias;
 
-        print_r($categorias);
+
+
+        $categoria =  \App\Categorie::where('name','=',$categorias[1])->first();
+        if(!$categoria){
+          echo 'categoria nao existe vamos criar '.$categorias[1];
+          $categoria = new \App\Categorie;
+          $categoria->name = $categorias[1];
+          $categoria->desc = $categorias[1];
+          $categoria->save();
+        }
+        print_r($categoria);
 
         die();
 
