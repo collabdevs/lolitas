@@ -14,6 +14,7 @@ class CreateCartsTable extends Migration
             $table->text('desc')->nullable();
             $table->date('deal_at');
             $table->decimal('total', 5, 2);
+            $table->integer('status')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('store_id')->unsigned();
             $table->foreign('user_id')

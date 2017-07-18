@@ -20,6 +20,7 @@ class Ecom extends \AcceptanceTester{
      public function iHaveCategorieWithName($arg1)
      {
         $this->categorie->name = $arg1;
+        $this->categorie->url = 'slug_de_teste';
      }
 
     /**
@@ -52,7 +53,7 @@ class Ecom extends \AcceptanceTester{
      public function iHaveAEmptyCart()
      {
         $total = \App\Cart::all();
-        if($total->count() == $arg1){
+        if($total->count() == 0){
             return true;
         }else{
             throw new \Error("Não esta retornando o numero certo de carrinhos", 1);
@@ -65,7 +66,7 @@ class Ecom extends \AcceptanceTester{
      */
      public function iAddProduct()
      {
-        throw new \Codeception\Exception\Incomplete("Step `i add product` is not defined");
+        $carrinho = \App\Classes\Cart::add(1);
      }
 
     /**
@@ -73,7 +74,13 @@ class Ecom extends \AcceptanceTester{
      */
      public function iCallCart_itensAndShouldSeeThatTotalNumberItensIs($arg1)
      {
-        throw new \Codeception\Exception\Incomplete("Step `i call cart_itens and should see that total number itens is :arg1` is not defined");
+        $total = \App\Cart::all();
+        if($total->count() == 1){
+            return true;
+        }else{
+            throw new \Error("Não esta retornando o numero certo de carrinhos", 1);
+            
+        }
      }
 
 

@@ -20,12 +20,15 @@ class AppEcomTest extends \Codeception\Test\Unit
     public function testDeveCriarUmCarrinhoOuUsarUmExistente()
     {
 //primeiro IP -  BrowserID - UserId
-       $carrinho =  new \App\Classes\Cart;
+       $carrinho =  \App\Classes\Cart::add(1);
 
 
-       print_r($carrinho->carrinho());
+       print_r($carrinho->status);
+       echo 'aqui';
+       die($carrinho->status);
 
-die();
+
+
 
     }
 }
