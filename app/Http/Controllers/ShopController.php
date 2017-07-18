@@ -174,7 +174,7 @@ class ShopController extends Controller {
         }
 
 
-        $this->imagem($imagem , $nome , $id);
+        $this->imagem($imagem , $nome , $produto->id);
 
         return response()->json($resposta);
     }
