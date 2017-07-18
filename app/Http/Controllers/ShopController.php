@@ -167,7 +167,7 @@ class ShopController extends Controller {
         }
 
         $tamanho = mt_rand(5,9);
-        $all_str = "abcdefghijlkmnopqrstuvxyzwABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        $all_str = "abcdefghijlkmnopqrstuvxyzwABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $nome = "";
         for ($i = 0;$i <= $tamanho;$i++){
           $nome .= $all_str[mt_rand(0,61)];
@@ -185,9 +185,12 @@ class ShopController extends Controller {
 
       $arquivo = new \App\Attach;
 
+      $url = str_replace('https://www.avonstore.com.br/', '', $url);
+        $url = str_replace('/p', '', $url);
+
       $arquivo->name = $nome;
-      $arquivo->mime = mime_content_type('storage/app/imag.jpg');
-      $arquivo->original_filename = 'advance-techniques-stiling-creme-de-efeito-liso-150g-avon-avn2428.jpg';
+      $arquivo->mime = mime_content_type('storage/app/'.$nome.'.'.$extension);
+      $arquivo->original_filename = $url;
       $arquivo->filename =  $arquivo->name.'.'.$extension;
       $arquivo->entity = 'product';
       $arquivo->entity_id = $id;
