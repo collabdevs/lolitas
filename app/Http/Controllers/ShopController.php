@@ -132,6 +132,7 @@ class ShopController extends Controller {
           $subcategoria->name = $categorias[2];
           $subcategoria->desc = $categorias[2];
           $subcategoria->url = $categorias[2];
+          $subcategoria->product_categorie_id = $categoria->id;
           $subcategoria->save();
         }
         print_r($categoria);
