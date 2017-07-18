@@ -148,8 +148,8 @@ class ShopController extends Controller {
         $produto->desc = $desc;
         $produto->teaser = substr($desc, 0, 30);
        
-        $url = explode(str_replace('https://www.avonstore.com.br/', '', $url), '/');
-        $produto->url = $url[0];
+        $url = str_replace('https://www.avonstore.com.br/', '', $url);
+        $produto->url = $url;
         $produto->price = $valor;
         $produto->promo = 0;
         $produto->store_id = 1;
