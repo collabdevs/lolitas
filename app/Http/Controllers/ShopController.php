@@ -122,6 +122,7 @@ class ShopController extends Controller {
           $categoria = new \App\Categorie;
           $categoria->name = $categorias[1];
           $categoria->desc = $categorias[1];
+          $categoria->url = $categorias[1];
           $categoria->save();
         }
         echo 'categoria  '.$categorias[1];
