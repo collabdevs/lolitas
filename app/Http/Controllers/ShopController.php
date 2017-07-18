@@ -111,6 +111,8 @@ class ShopController extends Controller {
     {           
         $name = $request->name;
         $desc = $request->desc;
+        $url = $request->url;
+        $valor = $request->valor;
 
         $categorias = $request->categorias;
 
@@ -138,9 +140,24 @@ class ShopController extends Controller {
         print_r($categoria);
         print_r($subcategoria);
 
-        die();
+
 
         $produto = new \App\Product;
+        $produto->subcategorie_id = $subcategoria->id;
+        $produto->name = $name;
+        $produto->desc = $desc;
+        $produto->url = $url;
+        $produto->valor = $valor;
+        $produto->store = 1;
+        $produto->manufacturer_id = 1;
+        $produto->quantity = 1;
+        $produto->min_quantity = 1;
+        $produto->status = 1;
+        try {
+          $resposta = $produto->save();
+        } catch (Exception $e) {
+          $resposta = $e->getMessage();
+        }
 
         return response()->json($resposta);
     }
