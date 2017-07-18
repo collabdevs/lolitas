@@ -152,7 +152,8 @@ class ShopController extends Controller {
         $produto->manufacturer_id = 1;
         $produto->quantity = 1;
         $produto->min_quantity = 1;
-        $produto->status = 1;
+        $produto->published_at = '2018-07-18 20:50:09';
+
         try {
           $resposta = $produto->save();
         } catch (Exception $e) {
