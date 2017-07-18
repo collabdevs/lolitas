@@ -148,7 +148,7 @@ class ShopController extends Controller {
         $produto->desc = $desc;
         $produto->url = $url;
         $produto->price = $valor;
-        $produto->store = 1;
+        $produto->store_id = 1;
         $produto->manufacturer_id = 1;
         $produto->quantity = 1;
         $produto->min_quantity = 1;
