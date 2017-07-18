@@ -106,4 +106,11 @@ class ShopController extends Controller {
       session_destroy();
     }
 
+
+    public function endpoint()
+    {           
+        $resposta = array('carrinho'=>'carrinho');
+        return response()->json($resposta);
+    }
+
 }
