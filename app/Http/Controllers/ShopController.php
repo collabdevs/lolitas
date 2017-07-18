@@ -124,6 +124,7 @@ class ShopController extends Controller {
           $categoria->desc = $categorias[1];
           $categoria->save();
         }
+        echo 'categoria  '.$categorias[1];
         print_r($categoria);
 
         die();
