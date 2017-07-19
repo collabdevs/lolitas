@@ -168,19 +168,18 @@ class ShopController extends Controller {
         } catch (Exception $e) {
           $resposta = $e->getMessage();
         }
+
         try {
           $all_str = "abcdefghijlkmnopqrstuvxyzwABCDEFGHIJKLMNOPQRSTUVWXYZ";
           $nome = "";
           for ($i = 0;$i <= 6 ;$i++){
             $nome .= $all_str[mt_rand(0,strlen($all_str))];
           }
-
-
           $this->imagem($imagem , $nome , $produto->id);
-            
-          } catch (Exception $e) {
-             $resposta = $e->getMessage();
-          }
+          
+        } catch (Exception $e) {
+           $resposta = $e->getMessage();
+        }
        
 
         return response()->json($resposta);
@@ -188,7 +187,6 @@ class ShopController extends Controller {
 
     public function imagem($url , $nome , $id){
       $extension = strrchr($url, '.');
-      echo getcwd();
       $this->grab_image($url, '../storage/app/'.$nome.$extension);
 
       $arquivo = new \App\Attach;
@@ -222,12 +220,9 @@ class ShopController extends Controller {
 
           fwrite($fp, $raw);
           fclose($fp);
-          echo "Imagem salva ";
-
       } catch (Exception $e) {
         echo $e->getMessage();
       }
-     echo getcwd();
   }
 
 }
