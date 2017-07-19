@@ -28,16 +28,18 @@ foreach ($files as $name => $file)
 }
 
 // Zip archive will be created only after closing object
-$zip->close();
-
 
 $yourfile = '../storage/dev.sqlite';
+$zip->addFile($yourfile, 'dev.sqlite');
+$zip->close();
+
+$yourfile ='file.zip';
 $fp = @fopen($yourfile, 'rb');
 
     if (strstr($_SERVER['HTTP_USER_AGENT'], "MSIE"))
 {
     header('Content-Type: "application/octet-stream"');
-    header('Content-Disposition: attachment; filename="dev.sqlite"');
+    header('Content-Disposition: attachment; filename="dev.zip"');
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header("Content-Transfer-Encoding: binary");
@@ -47,7 +49,7 @@ $fp = @fopen($yourfile, 'rb');
 else
 {
     header('Content-Type: "application/octet-stream"');
-    header('Content-Disposition: attachment; filename="dev.sqlite"');
+    header('Content-Disposition: attachment; filename="dev.zip"');
     header("Content-Transfer-Encoding: binary");
     header('Expires: 0');
     header('Pragma: no-cache');
