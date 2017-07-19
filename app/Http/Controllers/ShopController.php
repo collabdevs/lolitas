@@ -166,10 +166,9 @@ class ShopController extends Controller {
           $resposta = $e->getMessage();
         }
         try {
-           $tamanho = mt_rand(5,9);
           $all_str = "abcdefghijlkmnopqrstuvxyzwABCDEFGHIJKLMNOPQRSTUVWXYZ";
           $nome = "";
-          for ($i = 0;$i <= $tamanho;$i++){
+          for ($i = 0;$i <= 6 ;$i++){
             $nome .= $all_str[mt_rand(0,count($all_str))];
           }
 
