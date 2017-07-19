@@ -169,7 +169,7 @@ class ShopController extends Controller {
           $all_str = "abcdefghijlkmnopqrstuvxyzwABCDEFGHIJKLMNOPQRSTUVWXYZ";
           $nome = "";
           for ($i = 0;$i <= 6 ;$i++){
-            $nome .= $all_str[mt_rand(0,count($all_str))];
+            $nome .= $all_str[mt_rand(0,strlen($all_str))];
           }
 
 
@@ -185,6 +185,7 @@ class ShopController extends Controller {
 
     public function imagem($url , $nome , $id){
       $extension = strrchr($url, '.');
+      echo getcwd();
       $this->grab_image($url, '../storage/app/'.$nome.$extension);
 
       $arquivo = new \App\Attach;
