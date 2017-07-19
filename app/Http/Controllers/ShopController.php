@@ -164,12 +164,12 @@ class ShopController extends Controller {
         $produto->manufacturer_id = 1;
         $produto->quantity = 1;
         $produto->min_quantity = 1;
-        $produto->published_at = date("Y-m-d H:i:s");
+        $produto->published_at = date('Y-m-d H:i:s', strtotime("+10 minutes"));
 
         try {
           $salvou = $produto->save();
           if($salvou)
-            $resposta = "Blz , agora temos esse produtos no site";
+            $resposta = "Blz , agora temos esse produtos no site ele sera publicado daqui 10 minutos com os mesmos dados do site , por favor altere o que for necessario";
         } catch (Exception $e) {
           $resposta = $e->getMessage();
         }
