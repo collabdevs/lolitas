@@ -164,7 +164,7 @@ class ShopController extends Controller {
         }
         $url = str_replace('/p', '', $url);
         $produto->url = $url;
-        $produto->price = $valor;
+        $produto->price = str_replace('R$ ', '', $valor);
         $produto->promo = 0;
         $produto->store_id = 1;
         $produto->manufacturer_id = $manufacturer_id;
