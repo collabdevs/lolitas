@@ -125,7 +125,7 @@ class ShopController extends Controller {
           $categoria = new \App\ProductCategorie;
           $categoria->name = $categorias[1];
           $categoria->desc = $categorias[1];
-          $categoria->url = $categorias[1];
+          $categoria->url = str_replace(" ","_",preg_replace("/&([a-z])[a-z]+;/i", "$1", htmlentities(trim($categorias[1]))));
           $categoria->save();
         }
         $subcategoria =  \App\ProductSubCategorie::where('name','=',$categorias[2])->first();
@@ -134,7 +134,7 @@ class ShopController extends Controller {
           $subcategoria = new \App\ProductSubCategorie;
           $subcategoria->name = $categorias[2];
           $subcategoria->desc = $categorias[2];
-          $subcategoria->url = $categorias[2];
+          $subcategoria->url = str_replace(" ","_",preg_replace("/&([a-z])[a-z]+;/i", "$1", htmlentities(trim($categorias[2]))));
           $subcategoria->product_categorie_id = $categoria->id;
           $subcategoria->save();
         }
@@ -147,7 +147,7 @@ class ShopController extends Controller {
         $produto->product_sub_categorie_id = $subcategoria->id;
         $produto->name = $name;
         $produto->desc = $desc;
-        $produto->teaser = substr($desc, 0, 30);
+        $produto->teaser = strip_tags(substr($desc, 0, 30));
        
         $url = str_replace('https://www.avonstore.com.br/', '', $url);
         $url = str_replace('/p', '', $url);
