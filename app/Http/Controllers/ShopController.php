@@ -141,13 +141,16 @@ class ShopController extends Controller {
        // print_r($categoria);
       //  print_r($subcategoria);
 
+        $produto =  \App\Product::where('name','=',$name)->first();
+        if(!$produto){
 
+          $produto = new \App\Product;
+          $produto->product_sub_categorie_id = $subcategoria->id;
+          $produto->name = $name;
+          $produto->desc = $desc;
+          $produto->teaser = strip_tags(substr($desc, 0, 30));
 
-        $produto = new \App\Product;
-        $produto->product_sub_categorie_id = $subcategoria->id;
-        $produto->name = $name;
-        $produto->desc = $desc;
-        $produto->teaser = strip_tags(substr($desc, 0, 30));
+        }
        
         $url = str_replace('https://www.avonstore.com.br/', '', $url);
         $url = str_replace('/p', '', $url);
@@ -158,7 +161,7 @@ class ShopController extends Controller {
         $produto->manufacturer_id = 1;
         $produto->quantity = 1;
         $produto->min_quantity = 1;
-        $produto->published_at = '2018-07-18 20:50:09';
+        $produto->published_at = date("Y-m-d H:i:s");
 
         try {
           $resposta = $produto->save();
