@@ -109,6 +109,10 @@ class ShopController extends Controller {
 
     public function endpoint(Request $request)
     {           
+      if(!$request->valor){
+        return response()->json('espere o valor aparecer na tela');
+      }
+
         $name = $request->name;
         $desc = $request->desc;
         $url = $request->url;
