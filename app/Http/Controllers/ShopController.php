@@ -151,7 +151,7 @@ class ShopController extends Controller {
           $produto->product_sub_categorie_id = $subcategoria->id;
           $produto->name = $name;
           $produto->desc = $desc;
-          $produto->teaser = strip_tags(substr($desc, 0, 30));
+          $produto->teaser = strip_tags(substr($desc, 0, 90));
 
         }
        
