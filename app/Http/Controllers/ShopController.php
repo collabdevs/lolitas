@@ -185,7 +185,7 @@ class ShopController extends Controller {
           $all_str = "abcdefghijlkmnopqrstuvxyzwABCDEFGHIJKLMNOPQRSTUVWXYZ";
           $nome = "";
           for ($i = 0;$i <= 6 ;$i++){
-            $nome .= $all_str[mt_rand(0,strlen($all_str))];
+            $nome .= $all_str[mt_rand(0,(strlen($all_str)-1))];
           }
           $this->imagem($imagem , $nome , $produto->id);
           
