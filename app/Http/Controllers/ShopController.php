@@ -118,6 +118,7 @@ class ShopController extends Controller {
         $url = $request->url;
         $valor = $request->valor;
         $imagem = $request->imagem;
+        $manufacturer_id = $request->manu;
 
         $categorias = $request->categorias;
 
@@ -161,7 +162,7 @@ class ShopController extends Controller {
         $produto->price = $valor;
         $produto->promo = 0;
         $produto->store_id = 1;
-        $produto->manufacturer_id = 1;
+        $produto->manufacturer_id = $manufacturer_id;
         $produto->quantity = 1;
         $produto->min_quantity = 1;
         $produto->published_at = date('Y-m-d H:i:s', strtotime("+10 minutes"));

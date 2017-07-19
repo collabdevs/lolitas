@@ -67,6 +67,7 @@ function MainCtrl($http, $rootScope) {
 
     $rootScope.access = <?php $logado = isset($_SESSION['logado'])?$_SESSION['logado']:'{"usuario_logado":[]}'; echo json_encode($logado);?>
 
+    $rootScope.produtos = <?php echo App\Product::all(); ?>;
 
     /**
      * countries - Used as duallistbox in form advanced view
