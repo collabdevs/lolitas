@@ -194,7 +194,7 @@ class ShopController extends Controller {
       $arquivo->name = $nome;
       $arquivo->mime = mime_content_type('storage/app/'.$nome.$extension);
       $arquivo->original_filename = $url;
-      $arquivo->filename =  $arquivo->name;
+      $arquivo->filename =  $nome.$extension;
       $arquivo->entity = 'product';
       $arquivo->entity_id = $id;
       $arquivo->user_id = 1;
