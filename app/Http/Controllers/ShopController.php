@@ -213,9 +213,17 @@ class ShopController extends Controller {
       if(file_exists($saveto)){
           unlink($saveto);
       }
-      $fp = fopen($saveto,'x');
-      fwrite($fp, $raw);
-      fclose($fp);
+      try {
+         $fp = fopen($saveto,'x');
+
+          fwrite($fp, $raw);
+          fclose($fp);
+          echo "Imagem salva ";
+          
+      } catch (Exception $e) {
+        echo $e->getMessage();
+      }
+     echo getcwd();
   }
 
 }
