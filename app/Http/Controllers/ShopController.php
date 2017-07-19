@@ -185,14 +185,14 @@ class ShopController extends Controller {
 
     public function imagem($url , $nome , $id){
       $extension = strrchr($url, '.');
-      $this->grab_image($url, 'storage/app/'.$nome.$extension);
+      $this->grab_image($url, '../storage/app/'.$nome.$extension);
 
       $arquivo = new \App\Attach;
 
       $url = str_replace('/p', '', str_replace('https://www.avonstore.com.br/', '', $url));
 
       $arquivo->name = $nome;
-      $arquivo->mime = mime_content_type('storage/app/'.$nome.$extension);
+      $arquivo->mime = mime_content_type('../storage/app/'.$nome.$extension);
       $arquivo->original_filename = $url;
       $arquivo->filename =  $nome.$extension;
       $arquivo->entity = 'product';
@@ -219,7 +219,7 @@ class ShopController extends Controller {
           fwrite($fp, $raw);
           fclose($fp);
           echo "Imagem salva ";
-          
+
       } catch (Exception $e) {
         echo $e->getMessage();
       }
