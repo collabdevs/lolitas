@@ -158,12 +158,11 @@ class ShopController extends Controller {
        
         $url = str_replace('https://www.avonstore.com.br/', '', $url);
         $url = str_replace('http://www.boticario.com.br/', '', $url);
-        if($manufacturer_id == 1){
-          $url = str_replace('/p', '', $url);
-        }else{
+        if($manufacturer_id == 2){
           $parts= explode('?idsku=', $url);
           $url = $parts[0];
         }
+        $url = str_replace('/p', '', $url);
         $produto->url = $url;
         $produto->price = $valor;
         $produto->promo = 0;
