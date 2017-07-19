@@ -76,6 +76,7 @@ function MainCtrl($http, $rootScope) {
                                 $produtos[]=$produto;
 
                             } 
+                            die();
                             print_r(json_encode($produtos));
                             ?>;
 
