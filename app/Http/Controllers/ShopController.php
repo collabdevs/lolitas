@@ -165,16 +165,21 @@ class ShopController extends Controller {
         } catch (Exception $e) {
           $resposta = $e->getMessage();
         }
+        try {
+           $tamanho = mt_rand(5,9);
+          $all_str = "abcdefghijlkmnopqrstuvxyzwABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          $nome = "";
+          for ($i = 0;$i <= $tamanho;$i++){
+            $nome .= $all_str[mt_rand(0,count($all_str))];
+          }
 
-        $tamanho = mt_rand(5,9);
-        $all_str = "abcdefghijlkmnopqrstuvxyzwABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $nome = "";
-        for ($i = 0;$i <= $tamanho;$i++){
-          $nome .= $all_str[mt_rand(0,count($all_str))];
-        }
 
-
-        $this->imagem($imagem , $nome , $produto->id);
+          $this->imagem($imagem , $nome , $produto->id);
+            
+          } catch (Exception $e) {
+             $resposta = $e->getMessage();
+          }
+       
 
         return response()->json($resposta);
     }
@@ -185,13 +190,12 @@ class ShopController extends Controller {
 
       $arquivo = new \App\Attach;
 
-      $url = str_replace('https://www.avonstore.com.br/', '', $url);
-        $url = str_replace('/p', '', $url);
+      $url = str_replace('/p', '', str_replace('https://www.avonstore.com.br/', '', $url));
 
       $arquivo->name = $nome;
       $arquivo->mime = mime_content_type('storage/app/'.$nome.$extension);
       $arquivo->original_filename = $url;
-      $arquivo->filename =  $arquivo->name.$extension;
+      $arquivo->filename =  $arquivo->name;
       $arquivo->entity = 'product';
       $arquivo->entity_id = $id;
       $arquivo->user_id = 1;
