@@ -143,7 +143,6 @@ class ShopController extends Controller {
 
         $produto =  \App\Product::where('name','=',$name)->first();
         if(!$produto){
-
           $produto = new \App\Product;
           $produto->product_sub_categorie_id = $subcategoria->id;
           $produto->name = $name;
@@ -164,7 +163,9 @@ class ShopController extends Controller {
         $produto->published_at = date("Y-m-d H:i:s");
 
         try {
-          $resposta = $produto->save();
+          $salvou = $produto->save();
+          if($salvou)
+            $resposta = "Blz , agora temos esse produtos no site";
         } catch (Exception $e) {
           $resposta = $e->getMessage();
         }
