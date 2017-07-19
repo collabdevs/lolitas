@@ -181,7 +181,7 @@ class ShopController extends Controller {
 
     public function imagem($url , $nome , $id){
       $extension = strrchr($url, '.');
-      $this->grab_image($url, 'storage/app/'.$nome.'.'.$extension);
+      $this->grab_image($url, 'storage/app/'.$nome.$extension);
 
       $arquivo = new \App\Attach;
 
@@ -189,9 +189,9 @@ class ShopController extends Controller {
         $url = str_replace('/p', '', $url);
 
       $arquivo->name = $nome;
-      $arquivo->mime = mime_content_type('storage/app/'.$nome.'.'.$extension);
+      $arquivo->mime = mime_content_type('storage/app/'.$nome.$extension);
       $arquivo->original_filename = $url;
-      $arquivo->filename =  $arquivo->name.'.'.$extension;
+      $arquivo->filename =  $arquivo->name.$extension;
       $arquivo->entity = 'product';
       $arquivo->entity_id = $id;
       $arquivo->user_id = 1;
