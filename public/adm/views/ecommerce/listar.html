@@ -27,7 +27,7 @@
 
                     <div class="product-imitation">
                         {{item.name}}
-                        <img src="/view/3">
+                        <img ng-src="/view/{{item.imagem.id}}" width="200px">
                     </div>
                     <div class="product-desc">
                                 <span class="product-price">
@@ -49,28 +49,8 @@
                 </div>
             </div>
         </div>
-      
-
-
     </div>
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="row wrapper border-bottom white-bg page-heading" >
@@ -89,7 +69,6 @@
         </ol>
     </div>
     <div class="col-lg-2">
-
     </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight" ng-controller="datatablesCtrl">

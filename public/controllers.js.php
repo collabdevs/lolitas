@@ -67,7 +67,17 @@ function MainCtrl($http, $rootScope) {
 
     $rootScope.access = <?php $logado = isset($_SESSION['logado'])?$_SESSION['logado']:'{"usuario_logado":[]}'; echo json_encode($logado);?>
 
-    $rootScope.produtos = <?php echo App\Product::all(); ?>;
+    $rootScope.produtos = <?php $produtos = array();
+                            $produtos_categoria = \App\Product::all();
+                            //print_r(\App\Product::where('product_sub_categorie_id','=',$sub_categoria->id)->get());
+                            foreach ($produtos_categoria as $produto) {
+                                $imagem_produto = \App\Attach::where('entity','=','product')->where('entity_id','=',$produto->id)->get()->first();
+                                $produto->imagem = ($imagem_produto !="") ? $imagem_produto : array() ;
+                                $produtos[]=$produto;
+
+                            } 
+                            print_r(json_encode($produtos));
+                            ?>;
 
     /**
      * countries - Used as duallistbox in form advanced view
@@ -1055,8 +1065,20 @@ function listarCtrl($stateParams, $scope , $http , $httpParamSerializer ,  Sweet
                 $scope.entity = $stateParams.entity;
                 $scope.list = <?php 
                 if(isset($entidade)){
-                	$entidade = 'App\\'.camelize(ucfirst($entidade), '-');//pega o nome da url e puza um model
-                	echo $entidade::all();
+                	 $lista = array();
+                            $nome_entidade = $entidade;
+                            $entidade = 'App\\'.camelize(ucfirst($entidade), '-');
+                            $todos = $entidade::all();
+
+                            //print_r(\App\Product::where('product_sub_categorie_id','=',$sub_categoria->id)->get());
+                            foreach ($todos as $item) {
+                                $imagem_item = \App\Attach::where('entity','=',$nome_entidade)->where('entity_id','=',$item->id)->get()->first();
+                                $item->imagem = ($imagem_item !="") ? $imagem_item : $item->id ;
+                                $lista[]=$item;
+
+                            } 
+                            print_r(json_encode($lista));
+
             	}else{
             		echo '[]';
             	} ?>;
