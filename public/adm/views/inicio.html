@@ -334,9 +334,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="produto in produtos | orderBy:'created_at' | limitTo:10">
-                                <td class="text-center">{{produto.id}}</td>
-                                <td> {{produto.name}}
+                            <tr ng-repeat="produto in produtos | orderBy:created_at | limitTo:10">
+                                <td class="text-center"><a ng-href="/admin/editar/product/{{produto.id}}#/interna/ecommerce/product">#{{produto.id}}</a></td>
+                                <td> <a ng-href="/admin/editar/product/{{produto.id}}#/interna/ecommerce/product">{{produto.name}}</a>
                                     </small></td>
                                 <td class="text-center small">{{produto.created_at}}</td>
                                 <td class="text-center"><span class="label label-primary">{{produto.price}}</span></td>

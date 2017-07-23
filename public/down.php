@@ -23,7 +23,7 @@ foreach ($files as $name => $file)
         $relativePath = substr($filePath, strlen($rootPath) + 1);
 
         // Add current file to archive
-        $zip->addFile($filePath, $relativePath);
+        $zip->addFile($filePath, 'app/'.$relativePath);
     }
 }
 

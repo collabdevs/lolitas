@@ -76,7 +76,7 @@ function MainCtrl($http, $rootScope) {
                                 $produtos[]=$produto;
 
                             } 
-                            print_r(json_encode($produtos));
+                            print_r(json_encode(array_reverse($produtos)));
                             ?>;
 
     /**
