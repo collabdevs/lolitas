@@ -11,7 +11,7 @@
                 <a>E-commerce</a>
             </li>
             <li class="active">
-                <strong>Products grid</strong> &nbsp;<a ng-href="/admin/editar/{{entity}}#/interna/ecommerce/{{entity}}"><button type="button" class="btn btn-primary btn-xs" ng-href="/admin/editar/{{entity}}#/interna/ecommerce/{{entity}}"><i class="fa fa-plus"></i> adicionar</button></a>
+                <strong>Products grid</strong> &nbsp;<a ng-href="/admin/editar/{{entity}}#/interna/ecommerce/{{entity}}"><button type="button" class="btn btn-primary btn-xs" ng-href="/admin/editar/{{entity}}#/interna/ecommerce/{{entity}}"><i class="fa fa-plus"></i> adicionar</button></a> &nbsp; <input type="text" name="filtro" placeholder="filtrar" ng-model="filtro_catalog">
             </li>
         </ol> 
     </div>
@@ -21,7 +21,7 @@
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-        <div class="col-md-3" ng-repeat="item in list | filter:filter">
+        <div class="col-md-3" ng-repeat="item in list | filter:filtro_catalog">
             <div class="ibox">
                 <div class="ibox-content product-box">
 
