@@ -39,16 +39,19 @@ class Cart extends \App\Cart
 				}
 		}
     	
+		$carrinho = \App\Cart::where('user_id','=',$ip)->first();
+		if(!$carrinho){
+			$carrinho = new \App\Cart;
+	    	$carrinho->name = 'carrinho@teste';
+	    	$carrinho->deal_at = '2017-07-14 16:33:44';
+	    	$carrinho->total = 0;
+	    	$carrinho->user_id = $ip;
+	    	$carrinho->store_id = 1;
+	    	$carrinho->status = 1;
+	    	$carrinho->save();
+		}
 
-
-    	$carrinho = new \App\Cart;
-    	$carrinho->name = 'carrinho@teste';
-    	$carrinho->deal_at = '2017-07-14 16:33:44';
-    	$carrinho->total = 0;
-    	$carrinho->user_id = $ip;
-    	$carrinho->store_id = 1;
-    	$carrinho->status = 1;
-    	$carrinho->save();
+    	
     	return $carrinho;
     }
 

@@ -121,7 +121,7 @@
                                                       <div class="woocommerce columns-3">
                                                          <ul class="products">
                                                       
-                                                            <li class="post-1954 product type-product status-publish sale featured shipping-taxable purchasable product-type-simple product-cat-hair-care product-cat-lip-care product-cat-makeup product-cat-serums product-cat-skin-care product-cat-toners product-cat-trial-and-travel-sets product-tag-sed-blandit-massa product-tag-vel-mauris instock" ng-repeat="produto in main.produtos">
+                                                            <li class="post-1954 product type-product status-publish sale featured shipping-taxable purchasable product-type-simple product-cat-hair-care product-cat-lip-care product-cat-makeup product-cat-serums product-cat-skin-care product-cat-toners product-cat-trial-and-travel-sets product-tag-sed-blandit-massa product-tag-vel-mauris instock" ng-repeat="produto in main.produtos | filter:main.filtro ">
                                                                <a href="#!/produto/{{produto.url}}">
                                                                   <div class="product-link-wrap">
                                                                      <span class="onsale" ng-show="produto.price !=0">oferta!</span>

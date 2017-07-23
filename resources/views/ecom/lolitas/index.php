@@ -287,7 +287,7 @@
                                              <!-- BEGIN SEARCH FORM -->
                                              <div class="search-form search-form__h clearfix">
                                                 <form id="search-header" class="navbar-form pull-right" method="get" action="ecom/lolitas/" accept-charset="utf-8">
-                                                   <input type="text" name="s" placeholder="Busca" class="search-form_it">
+                                                   <input type="text" name="s" placeholder="Busca" class="search-form_it" ng-model="main.filtro">
                                                    <input type="submit" value="Go" id="search-form_is" class="search-form_is btn btn-primary">
                                                 </form>
                                              </div>
