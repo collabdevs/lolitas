@@ -17,7 +17,6 @@
 	        console.log(data[k].value);
 	        jQuery("#valor").html(data[k].value);
 	        jQuery("#reais").html(data[k].value*3,16790);
-	        jQuery("#calculo").html(((data[k].value*3)/8)+12);
 
 		
 	    }
@@ -42,8 +41,7 @@ setInterval(function(){ clickPlanet(); }, 3000);
 </head>
 <body>
 valor <div id="valor"></div><br>
-convertido em reais <div id="reais"></div><br>
-calculando *3/8+12 <div id="calculo"></div>
+convertido em reais <div id="reais"></div>
 </body>
 </html>
 
