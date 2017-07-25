@@ -20,15 +20,17 @@ class AppEcomTest extends \Codeception\Test\Unit
     public function testDeveCriarUmCarrinhoOuUsarUmExistente()
     {
 //primeiro IP -  BrowserID - UserId
-       $carrinho =  \App\Classes\Cart::add(1);
+        $produto =  DB::table('products')->first();
+
+        $carrinho =  \App\Classes\Cart::add($produto->id);
 
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
-        \App\Classes\Cart::add(1);
+        \App\Classes\Cart::add($produto->id);
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
 
-        \App\Classes\Cart::add(1);
+        \App\Classes\Cart::add($produto->id);
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
 
@@ -39,18 +41,21 @@ class AppEcomTest extends \Codeception\Test\Unit
     // tests
     public function testDeveTerNumeroCertoDeProdutos()
     {
-//primeiro IP -  BrowserID - UserId
-       $carrinho =  \App\Classes\Cart::add(1);
+        $produto =  DB::table('products')->first();
+       $carrinho =  \App\Classes\Cart::add($produto->id);
 
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
-        \App\Classes\Cart::add(1);
+        \App\Classes\Cart::add($produto->id);
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
 
-        \App\Classes\Cart::add(1);
+        \App\Classes\Cart::add($produto->id);
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
+
+        $produtos = \App\Classes\Cart::products();
+        $this->assertEquals(3 , $produtos->count());
 
     }
 }

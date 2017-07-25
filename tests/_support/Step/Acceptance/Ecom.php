@@ -66,7 +66,8 @@ class Ecom extends \AcceptanceTester{
      */
      public function iAddProduct()
      {
-        $carrinho = \App\Classes\Cart::add(1);
+        $produto =  DB::table('products')->first();
+        $carrinho = \App\Classes\Cart::add($produto->id);
      }
 
     /**

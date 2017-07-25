@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		function clickPlanet() {
+
+
+
+	jQuery.get( "https://controlblack-6de94.firebaseio.com/bitstamp/valor.json", function( data ) {
+	
+
+	  for (var k in data){
+	    if (data.hasOwnProperty(k)) {
+	         console.log("Key is " + k + ", value is" + data[k]);
+	         console.log("Key is " + k + ", value is" + data[k]);
+	        console.log(data[k].value);
+	        jQuery("#valor").html(data[k].value);
+
+		
+	    }
+	}
+
+	});
+//alert("teste");
+	//console.log('tentou mostrar');
+	
+	
+	
+
+		  
+	
+}
+
+clickPlanet();
+//setTimeout(function() { clickPlanet(); }, 1000);
+setInterval(function(){ clickPlanet(); }, 3000);
+	</script>
+	<title></title>
+</head>
+<body>
+valor <div id="valor"></div>
+</body>
+</html>
+
+
