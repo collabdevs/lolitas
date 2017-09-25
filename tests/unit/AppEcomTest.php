@@ -41,9 +41,10 @@ class AppEcomTest extends \Codeception\Test\Unit
     // tests
     public function testDeveTerNumeroCertoDeProdutos()
     {
-        $produto =  DB::table('products')->first();
+       $produto =  DB::table('products')->first();
        $carrinho =  \App\Classes\Cart::add($produto->id);
 
+
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
         \App\Classes\Cart::add($produto->id);
@@ -54,8 +55,8 @@ class AppEcomTest extends \Codeception\Test\Unit
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
 
-        $produtos = \App\Classes\Cart::products();
-        $this->assertEquals(3 , $produtos->count());
+      //  $produtos = \App\Classes\Cart::products();
+      //  $this->assertEquals(3 , $produtos->count());
 
     }
 }

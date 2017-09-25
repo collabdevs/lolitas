@@ -31,7 +31,7 @@ class Cart extends \App\Cart
 	    	$carrinho->save();
 		}
 //se nao tiver logado usar o ip como id de usuario ip e browser id
-
+		return $carrinho;
 
     }
 
@@ -41,11 +41,10 @@ class Cart extends \App\Cart
 
     	$carrinho = self::carrinho();
 
-		//$produto = \App\CartProduct::find($id_produto);
+		//$produto_carrinho = new \App\CartProduct;
 		$produto =  \DB::table('products')->where('id','=',$id_produto)->first();
-		print_r($produto['name']);
-		die();
-		$produto_carrinho->name = $produto['name'].'carrinho@teste';
+		$produto_carrinho = new \App\CartProduct;
+		$produto_carrinho->name = $produto->name.'carrinho@teste';
     	$produto_carrinho->added_at = '2017-07-14 16:33:44';
     	$produto_carrinho->price = $produto->price;
     	$produto_carrinho->discount = $produto->promo;
