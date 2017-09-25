@@ -55,7 +55,7 @@ class AppEcomTest extends \Codeception\Test\Unit
         $todos =  App\Classes\Cart::all();
         $this->assertEquals(1 , $todos->count());
 
-        $produtos = $carrinho->products();
+        $produtos = $carrinho->cartProducts();
         $this->assertEquals(3 , $produtos->count());
 
     }
