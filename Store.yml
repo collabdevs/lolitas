@@ -239,6 +239,10 @@ cartProduct:
       schema: integer unsigned
       rules: required numeric
       tags: fillable  
+    product_id:
+      schema: integer unsigned
+      rules: required numeric
+      tags: fillable    
   add: timestamps
 Coupon:
   fields:

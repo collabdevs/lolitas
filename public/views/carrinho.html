@@ -6,7 +6,7 @@
 					<div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
 						<section class="title-section">
 	<h1 class="title-header">
-		
+
 			Carrinho	</h1>
 				<!-- BEGIN BREADCRUMBS-->
 			<ul class="breadcrumb breadcrumb__t"><li><a href="/">Home</a></li><li class="divider"></li><li class="active">Carrinho</li></ul>			<!-- END BREADCRUMBS -->
@@ -31,87 +31,23 @@
 		</tr>
 	</thead>
 	<tbody>
-		
-						<tr class="cart_item">
+		<tr class="cart_item" ng-repeat="produto in carrinho.produtos">
+			<td class="product-remove">
+				<a href="/cart/?remove_item={{produto.id}}" class="remove" title="Remove this item">×</a></td>
+			<td class="product-thumbnail">
+				<a href="/produto/{{produto.product_id}}/"><img width="90" height="90" ng-src="view/{{produto.product_id}}" class="attachment-shop_thumbnail wp-post-image" alt="{{produto.name}}"></a>					</td>
+			<td class="product-name">
+				<a href="/produto/{{produto.url}}/">{{produto.name}}</a>					</td>
+			<td class="product-price">
+				<span class="amount">{{produto.price}}</span>					</td>
+			<td class="product-quantity">
+				<div class="quantity buttons_added"><input type="button" value="-" class="minus"><input type="number" step="1" max="143" name="cart[d77f00766fd3be3f2189c843a6af3fb2][qty]" value="1" title="Qty" class="input-text qty text" size="4"><input type="button" value="+" class="plus"></div>					</td>
+			<td class="product-subtotal">
+				<span class="amount">$95.00</span></td>
+		</tr>
+								
 
-					<td class="product-remove">
-						<a href="/cart/?remove_item=d77f00766fd3be3f2189c843a6af3fb2&amp;_wpnonce=f764909ebd" class="remove" title="Remove this item">×</a>					</td>
 
-					<td class="product-thumbnail">
-						<a href="/product/product-15/"><img width="90" height="90" src="view/5" class="attachment-shop_thumbnail wp-post-image" alt="bobbi_brown_the_tailored_collection_2"></a>					</td>
-
-					<td class="product-name">
-						<a href="/product/product-15/">Bobbi brown the tailored collection</a>					</td>
-
-					<td class="product-price">
-						<span class="amount">$95.00</span>					</td>
-
-					<td class="product-quantity">
-						<div class="quantity buttons_added"><input type="button" value="-" class="minus"><input type="number" step="1" max="143" name="cart[d77f00766fd3be3f2189c843a6af3fb2][qty]" value="1" title="Qty" class="input-text qty text" size="4"><input type="button" value="+" class="plus"></div>					</td>
-
-					<td class="product-subtotal">
-						<span class="amount">$95.00</span>					</td>
-				</tr>
-								<tr class="cart_item">
-
-					<td class="product-remove">
-						<a href="/cart/?remove_item=5a7f963e5e0504740c3a6b10bb6d4fa5&amp;_wpnonce=f764909ebd" class="remove" title="Remove this item">×</a>					</td>
-
-					<td class="product-thumbnail">
-						<a href="/product/product-14/"><img width="90" height="90" src="view/5" class="attachment-shop_thumbnail wp-post-image" alt="yves_saint_laurent_manicure_couture_in_5_favourite_chic_2"></a>					</td>
-
-					<td class="product-name">
-						<a href="/product/product-14/">Yves saint laurent manicu</a>					</td>
-
-					<td class="product-price">
-						<span class="amount">$70.00</span>					</td>
-
-					<td class="product-quantity">
-						<div class="quantity buttons_added"><input type="button" value="-" class="minus"><input type="number" step="1" max="149" name="cart[5a7f963e5e0504740c3a6b10bb6d4fa5][qty]" value="1" title="Qty" class="input-text qty text" size="4"><input type="button" value="+" class="plus"></div>					</td>
-
-					<td class="product-subtotal">
-						<span class="amount">$70.00</span>					</td>
-				</tr>
-								<tr class="cart_item">
-
-					<td class="product-remove">
-						<a href="/cart/?remove_item=03e7d2ebec1e820ac34d054df7e68f48&amp;_wpnonce=f764909ebd" class="remove" title="Remove this item">×</a>					</td>
-
-					<td class="product-thumbnail">
-						<a href="/product/product-13/"><img width="90" height="90" src="view/5" class="attachment-shop_thumbnail wp-post-image" alt="d&amp;g_smooth_eye_colour_duo_2"></a>					</td>
-
-					<td class="product-name">
-						<a href="/product/product-13/">D&amp;G smooth eye colour duo</a>					</td>
-
-					<td class="product-price">
-						<span class="amount">$100.00</span>					</td>
-
-					<td class="product-quantity">
-						<div class="quantity buttons_added"><input type="button" value="-" class="minus"><input type="number" step="1" max="148" name="cart[03e7d2ebec1e820ac34d054df7e68f48][qty]" value="1" title="Qty" class="input-text qty text" size="4"><input type="button" value="+" class="plus"></div>					</td>
-
-					<td class="product-subtotal">
-						<span class="amount">$100.00</span>					</td>
-				</tr>
-								<tr class="cart_item">
-
-					<td class="product-remove">
-						<a href="/cart/?remove_item=ad4cc1fb9b068faecfb70914acc63395&amp;_wpnonce=f764909ebd" class="remove" title="Remove this item">×</a>					</td>
-
-					<td class="product-thumbnail">
-						<a href="/product/product-10/"><img width="90" height="90" src="view/5" class="attachment-shop_thumbnail wp-post-image" alt="illamasqua_nail_varnish_3"></a>					</td>
-
-					<td class="product-name">
-						<a href="/product/product-10/">Illamasqua nail varnish</a>					</td>
-
-					<td class="product-price">
-						<span class="amount">$104.00</span>					</td>
-
-					<td class="product-quantity">
-						<div class="quantity buttons_added"><input type="button" value="-" class="minus"><input type="number" step="1" max="200" name="cart[ad4cc1fb9b068faecfb70914acc63395][qty]" value="1" title="Qty" class="input-text qty text" size="4"><input type="button" value="+" class="plus"></div>					</td>
-
-					<td class="product-subtotal">
-						<span class="amount">$104.00</span>					</td>
-				</tr>
 						<tr>
 			<td colspan="6" class="actions">
 

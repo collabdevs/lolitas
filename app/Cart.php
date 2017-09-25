@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model {
 
-    protected $fillable = ["name", "desc", "deal_at", "total", "user_id", "store_id"];
+    protected $fillable = ["name", "desc", "deal_at", "total", "status", "user_id", "store_id"];
 
     protected $dates = ["deal_at"];
 
@@ -12,6 +12,7 @@ class Cart extends Model {
         "name" => "required",
         "deal_at" => "date",
         "total" => "numeric",
+        "status" => "numeric",
         "user_id" => "required|numeric",
         "store_id" => "required|numeric",
     ];

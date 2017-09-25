@@ -23,7 +23,7 @@ class Cart extends \App\Cart
 		if(!$carrinho){
 			$carrinho = new \App\Cart;
 	    	$carrinho->name = 'carrinho@teste';
-	    	$carrinho->deal_at = '2017-07-14 16:33:44';
+	    	$carrinho->deal_at = date('Y-m-d H:i:s');
 	    	$carrinho->total = 0;
 	    	$carrinho->user_id = $ip;
 	    	$carrinho->store_id = 1;
@@ -43,13 +43,16 @@ class Cart extends \App\Cart
 
 		//$produto_carrinho = new \App\CartProduct;
 		$produto =  \DB::table('products')->where('id','=',$id_produto)->first();
+
+		
 		$produto_carrinho = new \App\CartProduct;
-		$produto_carrinho->name = $produto->name.'carrinho@teste';
-    	$produto_carrinho->added_at = '2017-07-14 16:33:44';
+		$produto_carrinho->name = $produto->name;
+    	$produto_carrinho->added_at = date('Y-m-d H:i:s');
     	$produto_carrinho->price = $produto->price;
     	$produto_carrinho->discount = $produto->promo;
     	$produto_carrinho->quantity = 1;
     	$produto_carrinho->cart_id = $carrinho->id;
+    	$produto_carrinho->product_id = $id_produto;
     	$produto_carrinho->save();
 
     	

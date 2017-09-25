@@ -8,8 +8,6 @@ class User extends Model {
 
     protected $fillable = ["name", "email", "password", "group_id"];
 
-    protected $hidden = ["password", "group_id"];
-
     protected $dates = [];
 
     public static $rules = [
@@ -22,6 +20,16 @@ class User extends Model {
     public function Addresses()
     {
         return $this->hasMany("App\Address");
+    }
+
+    public function ()
+    {
+        return $this->hasMany("App\");
+    }
+
+    public function Carts()
+    {
+        return $this->hasMany("App\Cart");
     }
 
     public function group()

@@ -745,8 +745,14 @@
 						//projectList.projects = projects;
 
 					})
-               .controller('CarrinhoController', function() {
+               .controller('CarrinhoController', function($http,$routeParams) {
                  var carrinho = this;
+                 
+                 $http.get('shop/carrinho').then(function(response){
+                  carrinho.produtos = response.data;
+                  console.log(response);
+
+                });
 
                })
                .controller('RegistrarController', function($http) {

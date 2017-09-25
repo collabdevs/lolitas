@@ -32,11 +32,6 @@ class Product extends Model {
         return $this->belongsTo("App\Store");
     }
 
-    public function cart()
-    {
-        return $this->belongsTo("App\Cart");
-    }
-
     public function productSubCategorie()
     {
         return $this->belongsTo("App\ProductSubCategorie");

@@ -250,11 +250,688 @@ $app->get('shop/main', 'ShopController@principal');
 $app->get('shop/categoria/{categoria}', 'ShopController@categoria');
 $app->get('shop/produto/{produto}', 'ShopController@produto');
 $app->get('shop/carrinho', 'ShopController@carrinho');
+$app->post('shop/carrinho', 'ShopController@fragmento');
 $app->post('shop/carrinho/add', 'ShopController@adiciona');
 $app->post('shop/novo_cliente', 'ShopController@novo_cliente');
 $app->post('shop/login', 'ShopController@login');
 $app->post('shop/endpoint/extension', 'ShopController@endpoint');
 $app->get('shop/imagem', 'ShopController@imagem');
+
+
+/**
+ * Routes for resource address
+ */
+$app->get('address', 'AddressesController@all');
+$app->get('address/{id}', 'AddressesController@get');
+$app->post('address', 'AddressesController@add');
+$app->put('address/{id}', 'AddressesController@put');
+$app->delete('address/{id}', 'AddressesController@remove');
+
+/**
+ * Routes for resource user
+ */
+$app->get('user', 'UsersController@all');
+$app->get('user/{id}', 'UsersController@get');
+$app->post('user', 'UsersController@add');
+$app->put('user/{id}', 'UsersController@put');
+$app->delete('user/{id}', 'UsersController@remove');
+
+/**
+ * Routes for resource group
+ */
+$app->get('group', 'GroupsController@all');
+$app->get('group/{id}', 'GroupsController@get');
+$app->post('group', 'GroupsController@add');
+$app->put('group/{id}', 'GroupsController@put');
+$app->delete('group/{id}', 'GroupsController@remove');
+
+/**
+ * Routes for resource categorie
+ */
+$app->get('categorie', 'CategoriesController@all');
+$app->get('categorie/{id}', 'CategoriesController@get');
+$app->post('categorie', 'CategoriesController@add');
+$app->put('categorie/{id}', 'CategoriesController@put');
+$app->delete('categorie/{id}', 'CategoriesController@remove');
+
+/**
+ * Routes for resource content
+ */
+$app->get('content', 'ContentsController@all');
+$app->get('content/{id}', 'ContentsController@get');
+$app->post('content', 'ContentsController@add');
+$app->put('content/{id}', 'ContentsController@put');
+$app->delete('content/{id}', 'ContentsController@remove');
+
+/**
+ * Routes for resource store
+ */
+$app->get('store', 'StoresController@all');
+$app->get('store/{id}', 'StoresController@get');
+$app->post('store', 'StoresController@add');
+$app->put('store/{id}', 'StoresController@put');
+$app->delete('store/{id}', 'StoresController@remove');
+
+/**
+ * Routes for resource product-categorie
+ */
+$app->get('product-categorie', 'ProductCategoriesController@all');
+$app->get('product-categorie/{id}', 'ProductCategoriesController@get');
+$app->post('product-categorie', 'ProductCategoriesController@add');
+$app->put('product-categorie/{id}', 'ProductCategoriesController@put');
+$app->delete('product-categorie/{id}', 'ProductCategoriesController@remove');
+
+/**
+ * Routes for resource product-sub-categorie
+ */
+$app->get('product-sub-categorie', 'ProductSubCategoriesController@all');
+$app->get('product-sub-categorie/{id}', 'ProductSubCategoriesController@get');
+$app->post('product-sub-categorie', 'ProductSubCategoriesController@add');
+$app->put('product-sub-categorie/{id}', 'ProductSubCategoriesController@put');
+$app->delete('product-sub-categorie/{id}', 'ProductSubCategoriesController@remove');
+
+/**
+ * Routes for resource product
+ */
+$app->get('product', 'ProductsController@all');
+$app->get('product/{id}', 'ProductsController@get');
+$app->post('product', 'ProductsController@add');
+$app->put('product/{id}', 'ProductsController@put');
+$app->delete('product/{id}', 'ProductsController@remove');
+
+/**
+ * Routes for resource manufacturer
+ */
+$app->get('manufacturer', 'ManufacturersController@all');
+$app->get('manufacturer/{id}', 'ManufacturersController@get');
+$app->post('manufacturer', 'ManufacturersController@add');
+$app->put('manufacturer/{id}', 'ManufacturersController@put');
+$app->delete('manufacturer/{id}', 'ManufacturersController@remove');
+
+/**
+ * Routes for resource tag
+ */
+$app->get('tag', 'TagsController@all');
+$app->get('tag/{id}', 'TagsController@get');
+$app->post('tag', 'TagsController@add');
+$app->put('tag/{id}', 'TagsController@put');
+$app->delete('tag/{id}', 'TagsController@remove');
+
+/**
+ * Routes for resource cart
+ */
+$app->get('cart', 'CartsController@all');
+$app->get('cart/{id}', 'CartsController@get');
+$app->post('cart', 'CartsController@add');
+$app->put('cart/{id}', 'CartsController@put');
+$app->delete('cart/{id}', 'CartsController@remove');
+
+/**
+ * Routes for resource cart-product
+ */
+$app->get('cart-product', 'CartProductsController@all');
+$app->get('cart-product/{id}', 'CartProductsController@get');
+$app->post('cart-product', 'CartProductsController@add');
+$app->put('cart-product/{id}', 'CartProductsController@put');
+$app->delete('cart-product/{id}', 'CartProductsController@remove');
+
+/**
+ * Routes for resource coupon
+ */
+$app->get('coupon', 'CouponsController@all');
+$app->get('coupon/{id}', 'CouponsController@get');
+$app->post('coupon', 'CouponsController@add');
+$app->put('coupon/{id}', 'CouponsController@put');
+$app->delete('coupon/{id}', 'CouponsController@remove');
+
+/**
+ * Routes for resource attach
+ */
+$app->get('attach', 'AttachesController@all');
+$app->get('attach/{id}', 'AttachesController@get');
+$app->post('attach', 'AttachesController@add');
+$app->put('attach/{id}', 'AttachesController@put');
+$app->delete('attach/{id}', 'AttachesController@remove');
+
+/**
+ * Routes for resource address
+ */
+$app->get('address', 'AddressesController@all');
+$app->get('address/{id}', 'AddressesController@get');
+$app->post('address', 'AddressesController@add');
+$app->put('address/{id}', 'AddressesController@put');
+$app->delete('address/{id}', 'AddressesController@remove');
+
+/**
+ * Routes for resource user
+ */
+$app->get('user', 'UsersController@all');
+$app->get('user/{id}', 'UsersController@get');
+$app->post('user', 'UsersController@add');
+$app->put('user/{id}', 'UsersController@put');
+$app->delete('user/{id}', 'UsersController@remove');
+
+/**
+ * Routes for resource group
+ */
+$app->get('group', 'GroupsController@all');
+$app->get('group/{id}', 'GroupsController@get');
+$app->post('group', 'GroupsController@add');
+$app->put('group/{id}', 'GroupsController@put');
+$app->delete('group/{id}', 'GroupsController@remove');
+
+/**
+ * Routes for resource categorie
+ */
+$app->get('categorie', 'CategoriesController@all');
+$app->get('categorie/{id}', 'CategoriesController@get');
+$app->post('categorie', 'CategoriesController@add');
+$app->put('categorie/{id}', 'CategoriesController@put');
+$app->delete('categorie/{id}', 'CategoriesController@remove');
+
+/**
+ * Routes for resource content
+ */
+$app->get('content', 'ContentsController@all');
+$app->get('content/{id}', 'ContentsController@get');
+$app->post('content', 'ContentsController@add');
+$app->put('content/{id}', 'ContentsController@put');
+$app->delete('content/{id}', 'ContentsController@remove');
+
+/**
+ * Routes for resource store
+ */
+$app->get('store', 'StoresController@all');
+$app->get('store/{id}', 'StoresController@get');
+$app->post('store', 'StoresController@add');
+$app->put('store/{id}', 'StoresController@put');
+$app->delete('store/{id}', 'StoresController@remove');
+
+/**
+ * Routes for resource product-categorie
+ */
+$app->get('product-categorie', 'ProductCategoriesController@all');
+$app->get('product-categorie/{id}', 'ProductCategoriesController@get');
+$app->post('product-categorie', 'ProductCategoriesController@add');
+$app->put('product-categorie/{id}', 'ProductCategoriesController@put');
+$app->delete('product-categorie/{id}', 'ProductCategoriesController@remove');
+
+/**
+ * Routes for resource product-sub-categorie
+ */
+$app->get('product-sub-categorie', 'ProductSubCategoriesController@all');
+$app->get('product-sub-categorie/{id}', 'ProductSubCategoriesController@get');
+$app->post('product-sub-categorie', 'ProductSubCategoriesController@add');
+$app->put('product-sub-categorie/{id}', 'ProductSubCategoriesController@put');
+$app->delete('product-sub-categorie/{id}', 'ProductSubCategoriesController@remove');
+
+/**
+ * Routes for resource product
+ */
+$app->get('product', 'ProductsController@all');
+$app->get('product/{id}', 'ProductsController@get');
+$app->post('product', 'ProductsController@add');
+$app->put('product/{id}', 'ProductsController@put');
+$app->delete('product/{id}', 'ProductsController@remove');
+
+/**
+ * Routes for resource manufacturer
+ */
+$app->get('manufacturer', 'ManufacturersController@all');
+$app->get('manufacturer/{id}', 'ManufacturersController@get');
+$app->post('manufacturer', 'ManufacturersController@add');
+$app->put('manufacturer/{id}', 'ManufacturersController@put');
+$app->delete('manufacturer/{id}', 'ManufacturersController@remove');
+
+/**
+ * Routes for resource tag
+ */
+$app->get('tag', 'TagsController@all');
+$app->get('tag/{id}', 'TagsController@get');
+$app->post('tag', 'TagsController@add');
+$app->put('tag/{id}', 'TagsController@put');
+$app->delete('tag/{id}', 'TagsController@remove');
+
+/**
+ * Routes for resource cart
+ */
+$app->get('cart', 'CartsController@all');
+$app->get('cart/{id}', 'CartsController@get');
+$app->post('cart', 'CartsController@add');
+$app->put('cart/{id}', 'CartsController@put');
+$app->delete('cart/{id}', 'CartsController@remove');
+
+/**
+ * Routes for resource cart-product
+ */
+$app->get('cart-product', 'CartProductsController@all');
+$app->get('cart-product/{id}', 'CartProductsController@get');
+$app->post('cart-product', 'CartProductsController@add');
+$app->put('cart-product/{id}', 'CartProductsController@put');
+$app->delete('cart-product/{id}', 'CartProductsController@remove');
+
+/**
+ * Routes for resource coupon
+ */
+$app->get('coupon', 'CouponsController@all');
+$app->get('coupon/{id}', 'CouponsController@get');
+$app->post('coupon', 'CouponsController@add');
+$app->put('coupon/{id}', 'CouponsController@put');
+$app->delete('coupon/{id}', 'CouponsController@remove');
+
+/**
+ * Routes for resource attach
+ */
+$app->get('attach', 'AttachesController@all');
+$app->get('attach/{id}', 'AttachesController@get');
+$app->post('attach', 'AttachesController@add');
+$app->put('attach/{id}', 'AttachesController@put');
+$app->delete('attach/{id}', 'AttachesController@remove');
+
+/**
+ * Routes for resource address
+ */
+$app->get('address', 'AddressesController@all');
+$app->get('address/{id}', 'AddressesController@get');
+$app->post('address', 'AddressesController@add');
+$app->put('address/{id}', 'AddressesController@put');
+$app->delete('address/{id}', 'AddressesController@remove');
+
+/**
+ * Routes for resource user
+ */
+$app->get('user', 'UsersController@all');
+$app->get('user/{id}', 'UsersController@get');
+$app->post('user', 'UsersController@add');
+$app->put('user/{id}', 'UsersController@put');
+$app->delete('user/{id}', 'UsersController@remove');
+
+/**
+ * Routes for resource group
+ */
+$app->get('group', 'GroupsController@all');
+$app->get('group/{id}', 'GroupsController@get');
+$app->post('group', 'GroupsController@add');
+$app->put('group/{id}', 'GroupsController@put');
+$app->delete('group/{id}', 'GroupsController@remove');
+
+/**
+ * Routes for resource categorie
+ */
+$app->get('categorie', 'CategoriesController@all');
+$app->get('categorie/{id}', 'CategoriesController@get');
+$app->post('categorie', 'CategoriesController@add');
+$app->put('categorie/{id}', 'CategoriesController@put');
+$app->delete('categorie/{id}', 'CategoriesController@remove');
+
+/**
+ * Routes for resource content
+ */
+$app->get('content', 'ContentsController@all');
+$app->get('content/{id}', 'ContentsController@get');
+$app->post('content', 'ContentsController@add');
+$app->put('content/{id}', 'ContentsController@put');
+$app->delete('content/{id}', 'ContentsController@remove');
+
+/**
+ * Routes for resource store
+ */
+$app->get('store', 'StoresController@all');
+$app->get('store/{id}', 'StoresController@get');
+$app->post('store', 'StoresController@add');
+$app->put('store/{id}', 'StoresController@put');
+$app->delete('store/{id}', 'StoresController@remove');
+
+/**
+ * Routes for resource product-categorie
+ */
+$app->get('product-categorie', 'ProductCategoriesController@all');
+$app->get('product-categorie/{id}', 'ProductCategoriesController@get');
+$app->post('product-categorie', 'ProductCategoriesController@add');
+$app->put('product-categorie/{id}', 'ProductCategoriesController@put');
+$app->delete('product-categorie/{id}', 'ProductCategoriesController@remove');
+
+/**
+ * Routes for resource product-sub-categorie
+ */
+$app->get('product-sub-categorie', 'ProductSubCategoriesController@all');
+$app->get('product-sub-categorie/{id}', 'ProductSubCategoriesController@get');
+$app->post('product-sub-categorie', 'ProductSubCategoriesController@add');
+$app->put('product-sub-categorie/{id}', 'ProductSubCategoriesController@put');
+$app->delete('product-sub-categorie/{id}', 'ProductSubCategoriesController@remove');
+
+/**
+ * Routes for resource product
+ */
+$app->get('product', 'ProductsController@all');
+$app->get('product/{id}', 'ProductsController@get');
+$app->post('product', 'ProductsController@add');
+$app->put('product/{id}', 'ProductsController@put');
+$app->delete('product/{id}', 'ProductsController@remove');
+
+/**
+ * Routes for resource manufacturer
+ */
+$app->get('manufacturer', 'ManufacturersController@all');
+$app->get('manufacturer/{id}', 'ManufacturersController@get');
+$app->post('manufacturer', 'ManufacturersController@add');
+$app->put('manufacturer/{id}', 'ManufacturersController@put');
+$app->delete('manufacturer/{id}', 'ManufacturersController@remove');
+
+/**
+ * Routes for resource tag
+ */
+$app->get('tag', 'TagsController@all');
+$app->get('tag/{id}', 'TagsController@get');
+$app->post('tag', 'TagsController@add');
+$app->put('tag/{id}', 'TagsController@put');
+$app->delete('tag/{id}', 'TagsController@remove');
+
+/**
+ * Routes for resource cart
+ */
+$app->get('cart', 'CartsController@all');
+$app->get('cart/{id}', 'CartsController@get');
+$app->post('cart', 'CartsController@add');
+$app->put('cart/{id}', 'CartsController@put');
+$app->delete('cart/{id}', 'CartsController@remove');
+
+/**
+ * Routes for resource cart-product
+ */
+$app->get('cart-product', 'CartProductsController@all');
+$app->get('cart-product/{id}', 'CartProductsController@get');
+$app->post('cart-product', 'CartProductsController@add');
+$app->put('cart-product/{id}', 'CartProductsController@put');
+$app->delete('cart-product/{id}', 'CartProductsController@remove');
+
+/**
+ * Routes for resource coupon
+ */
+$app->get('coupon', 'CouponsController@all');
+$app->get('coupon/{id}', 'CouponsController@get');
+$app->post('coupon', 'CouponsController@add');
+$app->put('coupon/{id}', 'CouponsController@put');
+$app->delete('coupon/{id}', 'CouponsController@remove');
+
+/**
+ * Routes for resource attach
+ */
+$app->get('attach', 'AttachesController@all');
+$app->get('attach/{id}', 'AttachesController@get');
+$app->post('attach', 'AttachesController@add');
+$app->put('attach/{id}', 'AttachesController@put');
+$app->delete('attach/{id}', 'AttachesController@remove');
+
+/**
+ * Routes for resource address
+ */
+$app->get('address', 'AddressesController@all');
+$app->get('address/{id}', 'AddressesController@get');
+$app->post('address', 'AddressesController@add');
+$app->put('address/{id}', 'AddressesController@put');
+$app->delete('address/{id}', 'AddressesController@remove');
+
+/**
+ * Routes for resource user
+ */
+$app->get('user', 'UsersController@all');
+$app->get('user/{id}', 'UsersController@get');
+$app->post('user', 'UsersController@add');
+$app->put('user/{id}', 'UsersController@put');
+$app->delete('user/{id}', 'UsersController@remove');
+
+/**
+ * Routes for resource group
+ */
+$app->get('group', 'GroupsController@all');
+$app->get('group/{id}', 'GroupsController@get');
+$app->post('group', 'GroupsController@add');
+$app->put('group/{id}', 'GroupsController@put');
+$app->delete('group/{id}', 'GroupsController@remove');
+
+/**
+ * Routes for resource categorie
+ */
+$app->get('categorie', 'CategoriesController@all');
+$app->get('categorie/{id}', 'CategoriesController@get');
+$app->post('categorie', 'CategoriesController@add');
+$app->put('categorie/{id}', 'CategoriesController@put');
+$app->delete('categorie/{id}', 'CategoriesController@remove');
+
+/**
+ * Routes for resource content
+ */
+$app->get('content', 'ContentsController@all');
+$app->get('content/{id}', 'ContentsController@get');
+$app->post('content', 'ContentsController@add');
+$app->put('content/{id}', 'ContentsController@put');
+$app->delete('content/{id}', 'ContentsController@remove');
+
+/**
+ * Routes for resource store
+ */
+$app->get('store', 'StoresController@all');
+$app->get('store/{id}', 'StoresController@get');
+$app->post('store', 'StoresController@add');
+$app->put('store/{id}', 'StoresController@put');
+$app->delete('store/{id}', 'StoresController@remove');
+
+/**
+ * Routes for resource product-categorie
+ */
+$app->get('product-categorie', 'ProductCategoriesController@all');
+$app->get('product-categorie/{id}', 'ProductCategoriesController@get');
+$app->post('product-categorie', 'ProductCategoriesController@add');
+$app->put('product-categorie/{id}', 'ProductCategoriesController@put');
+$app->delete('product-categorie/{id}', 'ProductCategoriesController@remove');
+
+/**
+ * Routes for resource product-sub-categorie
+ */
+$app->get('product-sub-categorie', 'ProductSubCategoriesController@all');
+$app->get('product-sub-categorie/{id}', 'ProductSubCategoriesController@get');
+$app->post('product-sub-categorie', 'ProductSubCategoriesController@add');
+$app->put('product-sub-categorie/{id}', 'ProductSubCategoriesController@put');
+$app->delete('product-sub-categorie/{id}', 'ProductSubCategoriesController@remove');
+
+/**
+ * Routes for resource product
+ */
+$app->get('product', 'ProductsController@all');
+$app->get('product/{id}', 'ProductsController@get');
+$app->post('product', 'ProductsController@add');
+$app->put('product/{id}', 'ProductsController@put');
+$app->delete('product/{id}', 'ProductsController@remove');
+
+/**
+ * Routes for resource manufacturer
+ */
+$app->get('manufacturer', 'ManufacturersController@all');
+$app->get('manufacturer/{id}', 'ManufacturersController@get');
+$app->post('manufacturer', 'ManufacturersController@add');
+$app->put('manufacturer/{id}', 'ManufacturersController@put');
+$app->delete('manufacturer/{id}', 'ManufacturersController@remove');
+
+/**
+ * Routes for resource tag
+ */
+$app->get('tag', 'TagsController@all');
+$app->get('tag/{id}', 'TagsController@get');
+$app->post('tag', 'TagsController@add');
+$app->put('tag/{id}', 'TagsController@put');
+$app->delete('tag/{id}', 'TagsController@remove');
+
+/**
+ * Routes for resource cart
+ */
+$app->get('cart', 'CartsController@all');
+$app->get('cart/{id}', 'CartsController@get');
+$app->post('cart', 'CartsController@add');
+$app->put('cart/{id}', 'CartsController@put');
+$app->delete('cart/{id}', 'CartsController@remove');
+
+/**
+ * Routes for resource cart-product
+ */
+$app->get('cart-product', 'CartProductsController@all');
+$app->get('cart-product/{id}', 'CartProductsController@get');
+$app->post('cart-product', 'CartProductsController@add');
+$app->put('cart-product/{id}', 'CartProductsController@put');
+$app->delete('cart-product/{id}', 'CartProductsController@remove');
+
+/**
+ * Routes for resource coupon
+ */
+$app->get('coupon', 'CouponsController@all');
+$app->get('coupon/{id}', 'CouponsController@get');
+$app->post('coupon', 'CouponsController@add');
+$app->put('coupon/{id}', 'CouponsController@put');
+$app->delete('coupon/{id}', 'CouponsController@remove');
+
+/**
+ * Routes for resource attach
+ */
+$app->get('attach', 'AttachesController@all');
+$app->get('attach/{id}', 'AttachesController@get');
+$app->post('attach', 'AttachesController@add');
+$app->put('attach/{id}', 'AttachesController@put');
+$app->delete('attach/{id}', 'AttachesController@remove');
+
+/**
+ * Routes for resource address
+ */
+$app->get('address', 'AddressesController@all');
+$app->get('address/{id}', 'AddressesController@get');
+$app->post('address', 'AddressesController@add');
+$app->put('address/{id}', 'AddressesController@put');
+$app->delete('address/{id}', 'AddressesController@remove');
+
+/**
+ * Routes for resource user
+ */
+$app->get('user', 'UsersController@all');
+$app->get('user/{id}', 'UsersController@get');
+$app->post('user', 'UsersController@add');
+$app->put('user/{id}', 'UsersController@put');
+$app->delete('user/{id}', 'UsersController@remove');
+
+/**
+ * Routes for resource group
+ */
+$app->get('group', 'GroupsController@all');
+$app->get('group/{id}', 'GroupsController@get');
+$app->post('group', 'GroupsController@add');
+$app->put('group/{id}', 'GroupsController@put');
+$app->delete('group/{id}', 'GroupsController@remove');
+
+/**
+ * Routes for resource categorie
+ */
+$app->get('categorie', 'CategoriesController@all');
+$app->get('categorie/{id}', 'CategoriesController@get');
+$app->post('categorie', 'CategoriesController@add');
+$app->put('categorie/{id}', 'CategoriesController@put');
+$app->delete('categorie/{id}', 'CategoriesController@remove');
+
+/**
+ * Routes for resource content
+ */
+$app->get('content', 'ContentsController@all');
+$app->get('content/{id}', 'ContentsController@get');
+$app->post('content', 'ContentsController@add');
+$app->put('content/{id}', 'ContentsController@put');
+$app->delete('content/{id}', 'ContentsController@remove');
+
+/**
+ * Routes for resource store
+ */
+$app->get('store', 'StoresController@all');
+$app->get('store/{id}', 'StoresController@get');
+$app->post('store', 'StoresController@add');
+$app->put('store/{id}', 'StoresController@put');
+$app->delete('store/{id}', 'StoresController@remove');
+
+/**
+ * Routes for resource product-categorie
+ */
+$app->get('product-categorie', 'ProductCategoriesController@all');
+$app->get('product-categorie/{id}', 'ProductCategoriesController@get');
+$app->post('product-categorie', 'ProductCategoriesController@add');
+$app->put('product-categorie/{id}', 'ProductCategoriesController@put');
+$app->delete('product-categorie/{id}', 'ProductCategoriesController@remove');
+
+/**
+ * Routes for resource product-sub-categorie
+ */
+$app->get('product-sub-categorie', 'ProductSubCategoriesController@all');
+$app->get('product-sub-categorie/{id}', 'ProductSubCategoriesController@get');
+$app->post('product-sub-categorie', 'ProductSubCategoriesController@add');
+$app->put('product-sub-categorie/{id}', 'ProductSubCategoriesController@put');
+$app->delete('product-sub-categorie/{id}', 'ProductSubCategoriesController@remove');
+
+/**
+ * Routes for resource product
+ */
+$app->get('product', 'ProductsController@all');
+$app->get('product/{id}', 'ProductsController@get');
+$app->post('product', 'ProductsController@add');
+$app->put('product/{id}', 'ProductsController@put');
+$app->delete('product/{id}', 'ProductsController@remove');
+
+/**
+ * Routes for resource manufacturer
+ */
+$app->get('manufacturer', 'ManufacturersController@all');
+$app->get('manufacturer/{id}', 'ManufacturersController@get');
+$app->post('manufacturer', 'ManufacturersController@add');
+$app->put('manufacturer/{id}', 'ManufacturersController@put');
+$app->delete('manufacturer/{id}', 'ManufacturersController@remove');
+
+/**
+ * Routes for resource tag
+ */
+$app->get('tag', 'TagsController@all');
+$app->get('tag/{id}', 'TagsController@get');
+$app->post('tag', 'TagsController@add');
+$app->put('tag/{id}', 'TagsController@put');
+$app->delete('tag/{id}', 'TagsController@remove');
+
+/**
+ * Routes for resource cart
+ */
+$app->get('cart', 'CartsController@all');
+$app->get('cart/{id}', 'CartsController@get');
+$app->post('cart', 'CartsController@add');
+$app->put('cart/{id}', 'CartsController@put');
+$app->delete('cart/{id}', 'CartsController@remove');
+
+/**
+ * Routes for resource cart-product
+ */
+$app->get('cart-product', 'CartProductsController@all');
+$app->get('cart-product/{id}', 'CartProductsController@get');
+$app->post('cart-product', 'CartProductsController@add');
+$app->put('cart-product/{id}', 'CartProductsController@put');
+$app->delete('cart-product/{id}', 'CartProductsController@remove');
+
+/**
+ * Routes for resource coupon
+ */
+$app->get('coupon', 'CouponsController@all');
+$app->get('coupon/{id}', 'CouponsController@get');
+$app->post('coupon', 'CouponsController@add');
+$app->put('coupon/{id}', 'CouponsController@put');
+$app->delete('coupon/{id}', 'CouponsController@remove');
+
+/**
+ * Routes for resource attach
+ */
+$app->get('attach', 'AttachesController@all');
+$app->get('attach/{id}', 'AttachesController@get');
+$app->post('attach', 'AttachesController@add');
+$app->put('attach/{id}', 'AttachesController@put');
+$app->delete('attach/{id}', 'AttachesController@remove');
 
 /**
  * Routes for resource address

@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CartProduct extends Model {
 
-    protected $fillable = ["name", "desc", "added_at", "price", "discount", "quantity", "cart_id"];
+    protected $fillable = ["name", "desc", "added_at", "price", "discount", "quantity", "product_id", "user_id", "cart_id"];
 
     protected $dates = ["added_at"];
 
@@ -14,8 +14,15 @@ class CartProduct extends Model {
         "price" => "numeric",
         "discount" => "numeric",
         "quantity" => "required,numeric",
+        "product_id" => "required,numeric",
+        "user_id" => "required|numeric",
         "cart_id" => "required|numeric",
     ];
+
+    public function user()
+    {
+        return $this->belongsTo("App\User");
+    }
 
     public function cart()
     {

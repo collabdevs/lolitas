@@ -18,22 +18,9 @@ class UberTest extends \Codeception\Test\Unit
     }
 
     // tests
-    public function testDeveCriarUmCarrinhoOuUsarUmExistente()
+    public function testDeveCriarUmaRotaAproximada()
     {
-//primeiro IP -  BrowserID - UserId
-        $produto =  DB::table('products')->first();
 
-        $carrinho =  \App\Classes\Cart::add($produto->id);
-
-        $todos =  App\Classes\Cart::all();
-        $this->assertEquals(1 , $todos->count());
-        \App\Classes\Cart::add($produto->id);
-        $todos =  App\Classes\Cart::all();
-        $this->assertEquals(1 , $todos->count());
-
-        \App\Classes\Cart::add($produto->id);
-        $todos =  App\Classes\Cart::all();
-        $this->assertEquals(1 , $todos->count());
 
     }
 
