@@ -56,8 +56,8 @@ class Cart extends \App\Cart
     	return $carrinho;
     }
 
-    public static function products(){
-
+    public function products(){
+    	return $this->hasMany(Product::class);
     }
 
  

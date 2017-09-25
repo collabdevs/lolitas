@@ -32,7 +32,7 @@ Address:
   add: timestamps softDeletes
 User:
   belongsTo: group
-  hasMany: Addresses
+  hasMany: Addresses, Carts
   fields:
     name:
       schema: string
@@ -214,7 +214,7 @@ Cart:
       tags: fillable 
   add: timestamps
 cartProduct:
-  belongsTo: cart
+  belongsTo: user,cart
   fields:
     name:
       schema: string
