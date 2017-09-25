@@ -33,17 +33,17 @@
 	<tbody>
 		<tr class="cart_item" ng-repeat="produto in carrinho.produtos">
 			<td class="product-remove">
-				<a href="/cart/?remove_item={{produto.id}}" class="remove" title="Remove this item">×</a></td>
+				<a href="#" class="remove" title="Remove this item">×</a></td>
 			<td class="product-thumbnail">
 				<a href="/produto/{{produto.product_id}}/"><img width="90" height="90" ng-src="view/{{produto.product_id}}" class="attachment-shop_thumbnail wp-post-image" alt="{{produto.name}}"></a>					</td>
 			<td class="product-name">
 				<a href="/produto/{{produto.url}}/">{{produto.name}}</a>					</td>
 			<td class="product-price">
-				<span class="amount">{{produto.price}}</span>					</td>
+				<span class="amount">R$ {{produto.price}}</span>					</td>
 			<td class="product-quantity">
 				<div class="quantity buttons_added"><input type="button" value="-" class="minus"><input type="number" step="1" max="143" name="cart[d77f00766fd3be3f2189c843a6af3fb2][qty]" value="1" title="Qty" class="input-text qty text" size="4"><input type="button" value="+" class="plus"></div>					</td>
 			<td class="product-subtotal">
-				<span class="amount">$95.00</span></td>
+				<span class="amount">R$ {{produto.price}}</span></td>
 		</tr>
 								
 
