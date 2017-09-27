@@ -44,7 +44,7 @@ class Cart extends \App\Cart
 		//$produto_carrinho = new \App\CartProduct;
 		$produto =  \DB::table('products')->where('id','=',$id_produto)->first();
 
-		
+
 		$produto_carrinho = new \App\CartProduct;
 		$produto_carrinho->name = $produto->name;
     	$produto_carrinho->added_at = date('Y-m-d H:i:s');
@@ -55,7 +55,6 @@ class Cart extends \App\Cart
     	$produto_carrinho->product_id = $id_produto;
     	$produto_carrinho->save();
 
-    	
     	return $carrinho;
     }
 
